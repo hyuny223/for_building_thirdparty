@@ -6,7 +6,7 @@ cd Thirdparty && mkdir eigen pangolin opencv ceres
 
 # build eigen
 cd eigen
-git clone https://gitlab.com/libeigen/eigen.git
+git clone https://github.com/libigl/eigen.git
 mkdir build install && cd build
 cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=../install ../eigen
 time make -j$(nproc)
@@ -24,7 +24,7 @@ make install
 
 # build opencv
 cd ../../opencv
-git clone https://github.com/opencv/opencv.git -b 4.4.0
+git clone https://github.com/opencv/opencv.git
 mkdir build install && cd build
 cmake -DCMAKE_BUILD_E=RELEASE \
         -DCMAKE_INSTALL_PREFIX=../install \
