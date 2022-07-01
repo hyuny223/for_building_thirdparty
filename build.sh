@@ -31,7 +31,7 @@ cmake -DCMAKE_BUILD_E=RELEASE \
         -DCMAKE_INSTALL_PREFIX=../install \
         -DWITH_OPENGL=ON \
         -DWITH_GRK=ON \
-        -OPENCV_GENERATE_PKGCONFIG ../opencv
+        -OPENCV_GENERATE_PKGCONFIG ../opencv-4.4.0
 time make -j$(nproc)
 make install
 
