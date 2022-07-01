@@ -24,7 +24,8 @@ make install
 
 # build opencv
 cd ../../opencv
-git clone https://github.com/opencv/opencv.git
+wget -O opencv.zip https://github.com/opencv/opencv/archive/4.4.0.zip
+unzip opencv.zip && rm opencv.zip
 mkdir build install && cd build
 cmake -DCMAKE_BUILD_E=RELEASE \
         -DCMAKE_INSTALL_PREFIX=../install \
