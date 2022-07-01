@@ -15,7 +15,7 @@ RUN apt install -y sudo
 RUN apt install -y wget
 RUN apt install -y ninja-build
 RUN apt install -y python3-dev python-dev
-RUN apt install -y python3-pip python-pip
+RUN apt install -y pip pip3
 RUN apt install -y python3-numpy python-numpy
 RUN pip install numpy
 RUN pip3 install numpy
