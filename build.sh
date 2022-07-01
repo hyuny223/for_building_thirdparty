@@ -1,14 +1,14 @@
 #!/bin/bash
 
 
-cd Thirdparty
+cd Thirdparty && mkdir eigen pangolin opencv ceres
 
 
 # build eigen
 cd eigen
 git clone https://gitlab.com/libeigen/eigen.git
 mkdir build install && cd build
-cmake -DCMAKE_BUILD_TPYE=RELEASE -DCMAKE_INSTALL_PREFIX=../install ../eigen
+cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=../install ../eigen
 time make -j$(nproc)
 make install
 
@@ -17,7 +17,7 @@ make install
 cd ../../pangolin
 git clone https://github.com/stevenlovegrove/Pangolin.git
 mkdir build install && cd build
-cmake -DCMAKE_BUILD_TPYE=RELEASE -DCMAKE_INSTALL_PREFIX=../install ../Pangolin
+cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=../install ../Pangolin
 time make -j$(nproc)
 make install
 
@@ -26,11 +26,11 @@ make install
 cd ../../opencv
 git clone https://github.com/opencv/opencv.git -b 4.4.0
 mkdir build install && cd build
-cmake -DCMAKE_BUILD_TPYE=RELEASE \
+cmake -DCMAKE_BUILD_E=RELEASE \
         -DCMAKE_INSTALL_PREFIX=../install \
         -DWITH_OPENGL=ON \
         -DWITH_GRK=ON \
-        -OPENCV_GENERATE_PKGCONFIG ../opencv-4.4.0
+        -OPENCV_GENERATE_PKGCONFIG ../opencv
 time make -j$(nproc)
 make install
 
