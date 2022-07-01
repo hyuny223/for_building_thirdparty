@@ -7,6 +7,7 @@ RUN apt update && apt updage -y
 
 RUN echo "== Start to install Dependencies ==" && \
 apt install -y build-essential && \
+apt install -y ca-certificates && \
 apt install -y cmake && \
 apt install -y git && \
 apt install -y sudo && \
@@ -24,7 +25,8 @@ apt install -y libgstreamer1.0-dev libgstreamer-plugins-base1.0-dev && \
 apt install -y libgtk-3-dev libgtk2.0-dev, libqt4-dev, libqt5-dev && \
 apt install -y mesa-utils libgl1-mesa-dri libgtkgl2.0-dev libgtkglext1-dev && \
 apt install -y libatlas-base-dev gfortran && \
-apt install -y glew
+apt install -y libglew-dev && \
+apt install -y x11-apps x11-utils
 
 
 RUN cd && \
