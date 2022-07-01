@@ -29,5 +29,5 @@ RUN apt install -y libglew-dev
 RUN apt install -y x11-apps x11-utils
 
 RUN cd && mkdir workspace && cd workspace
-RUN git clone -b developting https://github.com/hyuny223/team-SLAM.git
+RUN git clone -b developing https://github.com/hyuny223/team-SLAM.git
 RUN cd team-SLAM && ./build.sh
