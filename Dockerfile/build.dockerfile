@@ -14,9 +14,9 @@ RUN apt install -y git
 RUN apt install -y sudo
 RUN apt install -y wget
 RUN apt install -y ninja-build
-RUN apt install -y python3-dev
-RUN apt install -y python3-pip
-RUN apt install -y python3-numpy
+RUN apt install -y python3-dev python-dev
+RUN apt install -y python3-pip python-pip
+RUN apt install -y python3-numpy python-numpy
 
 RUN echo "== OpenCV Dependencies =="
 RUN apt install -y pkg-config
