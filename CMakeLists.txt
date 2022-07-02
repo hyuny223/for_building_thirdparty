@@ -8,8 +8,8 @@ find_package(Eigen3 3.4.0 REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/
 find_package(Pangolin REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/pangolin/install/lib/cmake/Pangolin)
 find_package(Ceres REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/ceres/install/lib/cmake/Ceres)
 
-# find_package(glog REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/glog/install/lib/cmake/glog)
-# find_package(gflags 2.2.2 REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/gflags/install/lib/cmake/gflags)
+find_package(glog REQUIRED)
+find_package(gflags REQUIRED)
 
 if (OpenCV_FOUND)
     set(OpenCV_INCLUDE_DIR ${OpenCV_INCLUDE_DIRS})
@@ -29,16 +29,12 @@ if (Ceres_FOUND)
     set(Ceres_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/ceres/install/include)
     message(STATUS "Ceres FOUND - ${Ceres_DIR}")
 endif()
-
-
-#if (glog_FOUND)
-#    set(Glog_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/glog/install/include)
-#    set(Glog_LIBRARIES glog::glog)
-#    message(STATUS "glog FOUND - ${glog_DIR}")
-#endif()
-#if (gflags_FOUND)
-#    message(STATUS "gflags FOUND - ${gflags_DIR}")
-#endif()
+if (glog_FOUND)
+   message(STATUS "glog FOUND - ${glog_DIR}")
+endif()
+if (gflags_FOUND)
+   message(STATUS "gflags FOUND - ${gflags_DIR}")
+endif()
 
 add_executable(${PROJECT_NAME} main.cpp)
 
@@ -47,16 +43,15 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ${Eigen3_INCLUDE_DIR}
         ${Pangolin_INCLUDE_DIR}
         ${Ceres_INCLUDE_DIR}
-#        ${Glog_INCLUDE_DIR}
-#        ${gflags_INCLUDE_DIR}
+        ${glog_INCLUDE_DIR}
+        ${gflags_INCLUDE_DIR}
         )
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
-#        AA
         ${OpenCV_LIBRARIES}
         ${Eigen3_LIBRARIES}
         ${Pangolin_LIBRARIES}
         ${CERES_LIBRARIES}
-#        ${Glog_LIBRARIES}
-#        ${gflags_LIBRARIES}
+        ${glog_LIBRARIES}
+        ${gflags_LIBRARIES}
         )
