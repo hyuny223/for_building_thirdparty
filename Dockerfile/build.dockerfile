@@ -33,6 +33,12 @@ RUN apt install -y libatlas-base-dev gfortran
 RUN apt install -y libglew-dev
 RUN apt install -y x11-apps x11-utils
 
+RUN echo "== Ceres-Solver Dependencies =="
+RUN apt install -y libgoogle-glog-dev libgflags-dev
+RUN apt install -y libatlas-base-dev
+RUN apt install -y libsuitesparse-dev
+
+
 RUN cd && mkdir workspace && cd workspace
 RUN git clone -b developing https://github.com/hyuny223/team-SLAM.git
 RUN cd team-SLAM && ./build.sh
