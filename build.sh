@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-cd Thirdparty && mkdir eigen pangolin opencv ceres spdlog
+mkdir Thirdparty && cd Thirdparty && mkdir eigen pangolin opencv ceres spdlog
 
 
 # build eigen
