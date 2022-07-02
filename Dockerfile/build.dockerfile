@@ -3,6 +3,7 @@ FROM ubuntu:20.04
 MAINTAINER hyuny223
 ARG DEBIAN_FRONTEND=noninteractive
 
+RUN sed -i 's@archive.ubuntu.com@mirror.kakao.com@g' /etc/apt/sources.list
 RUN apt update && apt update -y
 
 RUN echo "== Start to install Dependencies =="
@@ -10,17 +11,20 @@ RUN apt install -y apt-utils
 RUN apt install -y build-essential
 RUN apt install -y ca-certificates
 RUN apt install -y cmake
+RUN apt install -y clang
+RUN apt install -y gdb
 RUN apt install -y git
 RUN apt install -y sudo
 RUN apt install -y wget
 RUN apt install -y ninja-build
 RUN apt install -y zip unzip
+RUN apt install -y rsync
+RUN apt install -y ssh
 RUN apt install -y python3-dev python-dev
-RUN apt install -y pip pip3
+RUN apt install -y pip python3-pip
 RUN apt install -y python3-numpy python-numpy
 RUN pip install numpy
 RUN pip3 install numpy
-
 
 RUN echo "== OpenCV Dependencies =="
 RUN apt install -y pkg-config
