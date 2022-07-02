@@ -7,7 +7,6 @@ find_package(OpenCV 4.4.0 REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/opencv/i
 find_package(Eigen3 3.4.0 REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/eigen/install/share/eigen3/cmake)
 find_package(Pangolin REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/pangolin/install/lib/cmake/Pangolin)
 find_package(Ceres REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/ceres/install/lib/cmake/Ceres)
-
 find_package(glog REQUIRED)
 find_package(gflags REQUIRED)
 
