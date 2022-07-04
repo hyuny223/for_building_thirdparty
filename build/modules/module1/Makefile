@@ -125,32 +125,86 @@ module1/fast:
 	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/build
 .PHONY : module1/fast
 
-src/datatype.o: src/datatype.cpp.o
+src/frame.o: src/frame.cpp.o
 
-.PHONY : src/datatype.o
+.PHONY : src/frame.o
 
 # target to build an object file
-src/datatype.cpp.o:
-	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/datatype.cpp.o
-.PHONY : src/datatype.cpp.o
+src/frame.cpp.o:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/frame.cpp.o
+.PHONY : src/frame.cpp.o
 
-src/datatype.i: src/datatype.cpp.i
+src/frame.i: src/frame.cpp.i
 
-.PHONY : src/datatype.i
+.PHONY : src/frame.i
 
 # target to preprocess a source file
-src/datatype.cpp.i:
-	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/datatype.cpp.i
-.PHONY : src/datatype.cpp.i
+src/frame.cpp.i:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/frame.cpp.i
+.PHONY : src/frame.cpp.i
 
-src/datatype.s: src/datatype.cpp.s
+src/frame.s: src/frame.cpp.s
 
-.PHONY : src/datatype.s
+.PHONY : src/frame.s
 
 # target to generate assembly for a file
-src/datatype.cpp.s:
-	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/datatype.cpp.s
-.PHONY : src/datatype.cpp.s
+src/frame.cpp.s:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/frame.cpp.s
+.PHONY : src/frame.cpp.s
+
+src/framepoint.o: src/framepoint.cpp.o
+
+.PHONY : src/framepoint.o
+
+# target to build an object file
+src/framepoint.cpp.o:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/framepoint.cpp.o
+.PHONY : src/framepoint.cpp.o
+
+src/framepoint.i: src/framepoint.cpp.i
+
+.PHONY : src/framepoint.i
+
+# target to preprocess a source file
+src/framepoint.cpp.i:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/framepoint.cpp.i
+.PHONY : src/framepoint.cpp.i
+
+src/framepoint.s: src/framepoint.cpp.s
+
+.PHONY : src/framepoint.s
+
+# target to generate assembly for a file
+src/framepoint.cpp.s:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/framepoint.cpp.s
+.PHONY : src/framepoint.cpp.s
+
+src/keyframe.o: src/keyframe.cpp.o
+
+.PHONY : src/keyframe.o
+
+# target to build an object file
+src/keyframe.cpp.o:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.o
+.PHONY : src/keyframe.cpp.o
+
+src/keyframe.i: src/keyframe.cpp.i
+
+.PHONY : src/keyframe.i
+
+# target to preprocess a source file
+src/keyframe.cpp.i:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.i
+.PHONY : src/keyframe.cpp.i
+
+src/keyframe.s: src/keyframe.cpp.s
+
+.PHONY : src/keyframe.s
+
+# target to generate assembly for a file
+src/keyframe.cpp.s:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.s
+.PHONY : src/keyframe.cpp.s
 
 # Help Target
 help:
@@ -161,9 +215,15 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... module1"
-	@echo "... src/datatype.o"
-	@echo "... src/datatype.i"
-	@echo "... src/datatype.s"
+	@echo "... src/frame.o"
+	@echo "... src/frame.i"
+	@echo "... src/frame.s"
+	@echo "... src/framepoint.o"
+	@echo "... src/framepoint.i"
+	@echo "... src/framepoint.s"
+	@echo "... src/keyframe.o"
+	@echo "... src/keyframe.i"
+	@echo "... src/keyframe.s"
 .PHONY : help
 
 

@@ -1,3 +1,0 @@
-/team-SLAM/modules/module1/build/CMakeFiles/rebuild_cache.dir
-/team-SLAM/modules/module1/build/CMakeFiles/edit_cache.dir
-/team-SLAM/modules/module1/build/CMakeFiles/module1.dir

@@ -50,6 +50,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ${spdlog_INCLUDE_DIR}
         module1/include
         module2/include
+        module3/include
         )
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
@@ -60,4 +61,5 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         ${spdlog_LIBRARIES}
         module1
         module2
+        module3
         )

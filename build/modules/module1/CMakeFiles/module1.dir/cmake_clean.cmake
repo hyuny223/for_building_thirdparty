@@ -1,5 +1,7 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/module1.dir/src/datatype.cpp.o"
+  "CMakeFiles/module1.dir/src/frame.cpp.o"
+  "CMakeFiles/module1.dir/src/framepoint.cpp.o"
+  "CMakeFiles/module1.dir/src/keyframe.cpp.o"
   "libmodule1.pdb"
   "libmodule1.so"
 )

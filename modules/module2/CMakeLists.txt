@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.16)
 project(module2 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(MODULE2_SOURCE_FILES
@@ -17,7 +17,7 @@ add_library(${PROJECT_NAME} SHARED
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
         ${OpenCV_LIBS}
-        ${CMAKE_SOURCE_DIR}/modules/module1/build/libmodule1.so
+        # ${CMAKE_SOURCE_DIR}/modules/module1/build/libmodule1.so
         )
 
 target_include_directories(${PROJECT_NAME} PUBLIC

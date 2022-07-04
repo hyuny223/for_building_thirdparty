@@ -149,6 +149,19 @@ module2/fast:
 	$(MAKE) -f modules/module2/CMakeFiles/module2.dir/build.make modules/module2/CMakeFiles/module2.dir/build
 .PHONY : module2/fast
 
+#=============================================================================
+# Target rules for targets named module3
+
+# Build rule for target.
+module3: cmake_check_build_system
+	$(MAKE) -f CMakeFiles/Makefile2 module3
+.PHONY : module3
+
+# fast build rule for target.
+module3/fast:
+	$(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/build
+.PHONY : module3/fast
+
 main.o: main.cpp.o
 
 .PHONY : main.o
@@ -187,6 +200,7 @@ help:
 	@echo "... untitled"
 	@echo "... module1"
 	@echo "... module2"
+	@echo "... module3"
 	@echo "... main.o"
 	@echo "... main.i"
 	@echo "... main.s"

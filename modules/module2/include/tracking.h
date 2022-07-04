@@ -1,6 +1,7 @@
 #pragma once
 
-#include "datatype.h"
+#include "framepoint.h"
+#include "frame.h"
 
 
 namespace Frontend
@@ -9,17 +10,18 @@ namespace Frontend
     {
 
         protected:
-            // std::shared_ptr<Data::FramePoint> framePoint = std::make_shared<Data::FramePoint>();
-            // int miFeatures;
+            std::shared_ptr<Data::Frame> mpFrame_L;
+            std::shared_ptr<Data::Frame> mpFrame_R;
 
         public:
             Tracking() = default;
-            std::shared_ptr<Data::FramePoint> framePoint = std::make_shared<Data::FramePoint>();
+            Tracking(const std::shared_ptr<Data::Frame> frame_L,
+                    const std::shared_ptr<Data::Frame> frame_R);
+            // ~Tracking();
 
-            void detectFeatures(const cv::Mat& gray_L, const cv::Mat& gray_R, const int& nfeatures);
-            void matchFeatures(const cv::Mat& gray_L, const cv::Mat& gray_R);
-            void computeFundamentalMatrix();
+            void detectFeatures(const int& nFeatures);
+            void matchFeatures();
+            void computeEssentialMatrix();
             void computeTriangulation(const cv::Point2f& ptr_L, const cv::Point2f& ptr_R);
     };
 }
-

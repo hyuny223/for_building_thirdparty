@@ -1,11 +1,13 @@
 cmake_minimum_required(VERSION 3.16)
 project(module1 LANGUAGES CXX)
 
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(MODULE1_SOURCE_FILES
-        src/datatype.cpp
+        src/frame.cpp
+        src/framepoint.cpp
+        src/keyframe.cpp
         )
 
 find_package(OpenCV REQUIRED HINTS ../../Thirdparty/opencv/install/lib/cmake/opencv4)

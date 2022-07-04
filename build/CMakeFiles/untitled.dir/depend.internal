@@ -103,6 +103,9 @@ CMakeFiles/untitled.dir/main.cpp.o
  ../Thirdparty/opencv/install/include/opencv4/opencv2/video/background_segm.hpp
  ../Thirdparty/opencv/install/include/opencv4/opencv2/video/tracking.hpp
  ../Thirdparty/opencv/install/include/opencv4/opencv2/videoio.hpp
- ../modules/module1/include/datatype.h
+ ../modules/module1/include/frame.h
+ ../modules/module1/include/framepoint.h
+ ../modules/module1/include/keyframe.h
  ../modules/module2/include/tracking.h
+ ../modules/module3/include/similarity.h
  /team-SLAM/main.cpp

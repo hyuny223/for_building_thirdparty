@@ -102,7 +102,8 @@ modules/module2/CMakeFiles/module2.dir/src/tracking.cpp.o: ../Thirdparty/opencv/
 modules/module2/CMakeFiles/module2.dir/src/tracking.cpp.o: ../Thirdparty/opencv/install/include/opencv4/opencv2/video/background_segm.hpp
 modules/module2/CMakeFiles/module2.dir/src/tracking.cpp.o: ../Thirdparty/opencv/install/include/opencv4/opencv2/video/tracking.hpp
 modules/module2/CMakeFiles/module2.dir/src/tracking.cpp.o: ../Thirdparty/opencv/install/include/opencv4/opencv2/videoio.hpp
-modules/module2/CMakeFiles/module2.dir/src/tracking.cpp.o: ../modules/module1/include/datatype.h
+modules/module2/CMakeFiles/module2.dir/src/tracking.cpp.o: ../modules/module1/include/frame.h
+modules/module2/CMakeFiles/module2.dir/src/tracking.cpp.o: ../modules/module1/include/framepoint.h
 modules/module2/CMakeFiles/module2.dir/src/tracking.cpp.o: ../modules/module2/include/tracking.h
 modules/module2/CMakeFiles/module2.dir/src/tracking.cpp.o: ../modules/module2/src/tracking.cpp
 

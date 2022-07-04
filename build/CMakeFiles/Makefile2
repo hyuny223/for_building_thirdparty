@@ -139,7 +139,7 @@ modules/module2/clean: modules/module2/CMakeFiles/module2.dir/clean
 # Directory level rules for directory modules/module3
 
 # Recursive "all" directory target.
-modules/module3/all:
+modules/module3/all: modules/module3/CMakeFiles/module3.dir/all
 
 .PHONY : modules/module3/all
 
@@ -149,7 +149,7 @@ modules/module3/preinstall:
 .PHONY : modules/module3/preinstall
 
 # Recursive "clean" directory target.
-modules/module3/clean:
+modules/module3/clean: modules/module3/CMakeFiles/module3.dir/clean
 
 .PHONY : modules/module3/clean
 
@@ -195,14 +195,15 @@ modules/module5/clean:
 # All Build rule for target.
 CMakeFiles/untitled.dir/all: modules/module1/CMakeFiles/module1.dir/all
 CMakeFiles/untitled.dir/all: modules/module2/CMakeFiles/module2.dir/all
+CMakeFiles/untitled.dir/all: modules/module3/CMakeFiles/module3.dir/all
 	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/depend
 	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=5,6 "Built target untitled"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=10,11 "Built target untitled"
 .PHONY : CMakeFiles/untitled.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/untitled.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/untitled.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 0
 .PHONY : CMakeFiles/untitled.dir/rule
@@ -224,12 +225,12 @@ CMakeFiles/untitled.dir/clean:
 modules/module1/CMakeFiles/module1.dir/all:
 	$(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/depend
 	$(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=1,2 "Built target module1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=1,2,3,4 "Built target module1"
 .PHONY : modules/module1/CMakeFiles/module1.dir/all
 
 # Build rule for subdir invocation for target.
 modules/module1/CMakeFiles/module1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 2
+	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 4
 	$(MAKE) -f CMakeFiles/Makefile2 modules/module1/CMakeFiles/module1.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 0
 .PHONY : modules/module1/CMakeFiles/module1.dir/rule
@@ -251,7 +252,7 @@ modules/module1/CMakeFiles/module1.dir/clean:
 modules/module2/CMakeFiles/module2.dir/all:
 	$(MAKE) -f modules/module2/CMakeFiles/module2.dir/build.make modules/module2/CMakeFiles/module2.dir/depend
 	$(MAKE) -f modules/module2/CMakeFiles/module2.dir/build.make modules/module2/CMakeFiles/module2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=3,4 "Built target module2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=5,6 "Built target module2"
 .PHONY : modules/module2/CMakeFiles/module2.dir/all
 
 # Build rule for subdir invocation for target.
@@ -270,6 +271,33 @@ module2: modules/module2/CMakeFiles/module2.dir/rule
 modules/module2/CMakeFiles/module2.dir/clean:
 	$(MAKE) -f modules/module2/CMakeFiles/module2.dir/build.make modules/module2/CMakeFiles/module2.dir/clean
 .PHONY : modules/module2/CMakeFiles/module2.dir/clean
+
+#=============================================================================
+# Target rules for target modules/module3/CMakeFiles/module3.dir
+
+# All Build rule for target.
+modules/module3/CMakeFiles/module3.dir/all:
+	$(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/depend
+	$(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=7,8,9 "Built target module3"
+.PHONY : modules/module3/CMakeFiles/module3.dir/all
+
+# Build rule for subdir invocation for target.
+modules/module3/CMakeFiles/module3.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 3
+	$(MAKE) -f CMakeFiles/Makefile2 modules/module3/CMakeFiles/module3.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 0
+.PHONY : modules/module3/CMakeFiles/module3.dir/rule
+
+# Convenience name for target.
+module3: modules/module3/CMakeFiles/module3.dir/rule
+
+.PHONY : module3
+
+# clean rule for target.
+modules/module3/CMakeFiles/module3.dir/clean:
+	$(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/clean
+.PHONY : modules/module3/CMakeFiles/module3.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -110,6 +110,75 @@ depend:
 	cd /team-SLAM/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+modules/module3/CMakeFiles/module3.dir/rule:
+	cd /team-SLAM/build && $(MAKE) -f CMakeFiles/Makefile2 modules/module3/CMakeFiles/module3.dir/rule
+.PHONY : modules/module3/CMakeFiles/module3.dir/rule
+
+# Convenience name for target.
+module3: modules/module3/CMakeFiles/module3.dir/rule
+
+.PHONY : module3
+
+# fast build rule for target.
+module3/fast:
+	cd /team-SLAM/build && $(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/build
+.PHONY : module3/fast
+
+src/motionEstimation.o: src/motionEstimation.cpp.o
+
+.PHONY : src/motionEstimation.o
+
+# target to build an object file
+src/motionEstimation.cpp.o:
+	cd /team-SLAM/build && $(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/src/motionEstimation.cpp.o
+.PHONY : src/motionEstimation.cpp.o
+
+src/motionEstimation.i: src/motionEstimation.cpp.i
+
+.PHONY : src/motionEstimation.i
+
+# target to preprocess a source file
+src/motionEstimation.cpp.i:
+	cd /team-SLAM/build && $(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/src/motionEstimation.cpp.i
+.PHONY : src/motionEstimation.cpp.i
+
+src/motionEstimation.s: src/motionEstimation.cpp.s
+
+.PHONY : src/motionEstimation.s
+
+# target to generate assembly for a file
+src/motionEstimation.cpp.s:
+	cd /team-SLAM/build && $(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/src/motionEstimation.cpp.s
+.PHONY : src/motionEstimation.cpp.s
+
+src/similarity.o: src/similarity.cpp.o
+
+.PHONY : src/similarity.o
+
+# target to build an object file
+src/similarity.cpp.o:
+	cd /team-SLAM/build && $(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/src/similarity.cpp.o
+.PHONY : src/similarity.cpp.o
+
+src/similarity.i: src/similarity.cpp.i
+
+.PHONY : src/similarity.i
+
+# target to preprocess a source file
+src/similarity.cpp.i:
+	cd /team-SLAM/build && $(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/src/similarity.cpp.i
+.PHONY : src/similarity.cpp.i
+
+src/similarity.s: src/similarity.cpp.s
+
+.PHONY : src/similarity.s
+
+# target to generate assembly for a file
+src/similarity.cpp.s:
+	cd /team-SLAM/build && $(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/src/similarity.cpp.s
+.PHONY : src/similarity.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -118,6 +187,13 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... module3"
+	@echo "... src/motionEstimation.o"
+	@echo "... src/motionEstimation.i"
+	@echo "... src/motionEstimation.s"
+	@echo "... src/similarity.o"
+	@echo "... src/similarity.i"
+	@echo "... src/similarity.s"
 .PHONY : help
 
 

@@ -83,6 +83,7 @@ untitled: ../Thirdparty/pangolin/install/lib/libpango_core.so
 untitled: ../Thirdparty/ceres/install/lib/libceres.a
 untitled: modules/module1/libmodule1.so
 untitled: modules/module2/libmodule2.so
+untitled: modules/module3/libmodule3.so
 untitled: /usr/lib/x86_64-linux-gnu/libglog.so
 untitled: /usr/lib/x86_64-linux-gnu/libgflags.so.2.2.2
 untitled: /usr/lib/x86_64-linux-gnu/libspqr.so
@@ -110,7 +111,6 @@ untitled: ../Thirdparty/opencv/install/lib/libopencv_videoio.so.4.4.0
 untitled: ../Thirdparty/opencv/install/lib/libopencv_imgcodecs.so.4.4.0
 untitled: ../Thirdparty/opencv/install/lib/libopencv_imgproc.so.4.4.0
 untitled: ../Thirdparty/opencv/install/lib/libopencv_core.so.4.4.0
-untitled: ../modules/module1/build/libmodule1.so
 untitled: CMakeFiles/untitled.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable untitled"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/untitled.dir/link.txt --verbose=$(VERBOSE)

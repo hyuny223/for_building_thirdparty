@@ -21,7 +21,7 @@ RUN apt install -y zip unzip
 RUN apt install -y rsync
 RUN apt install -y ssh
 RUN apt install -y python3-dev python-dev
-RUN apt install -y pip python3-pip
+RUN apt install -y python3-pip pip
 RUN apt install -y python3-numpy python-numpy
 RUN pip install numpy
 RUN pip3 install numpy
@@ -36,6 +36,9 @@ RUN apt install -y mesa-utils libgl1-mesa-dri libgtkgl2.0-dev libgtkglext1-dev
 RUN apt install -y libatlas-base-dev gfortran
 RUN apt install -y libglew-dev
 RUN apt install -y x11-apps x11-utils
+RUN apt install -y libcanberra-gtk-module
+RUN apt install -y libcanberra-gtk3-module
+
 
 RUN echo "== Ceres-Solver Dependencies =="
 RUN apt install -y libgoogle-glog-dev libgflags-dev
