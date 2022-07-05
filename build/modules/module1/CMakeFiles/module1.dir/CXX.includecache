@@ -1036,9 +1036,11 @@ iostream
 opencv2/opencv.hpp
 ../modules/module1/include/opencv2/opencv.hpp
 
-/team-SLAM/modules/module1/src/frame.cpp
-opencv2/opencv.hpp
-/team-SLAM/modules/module1/src/opencv2/opencv.hpp
+../modules/module1/include/keyframe.h
 frame.h
-/team-SLAM/modules/module1/src/frame.h
+../modules/module1/include/frame.h
+
+/team-SLAM/modules/module1/src/keyframe.cpp
+keyframe.h
+/team-SLAM/modules/module1/src/keyframe.h
 

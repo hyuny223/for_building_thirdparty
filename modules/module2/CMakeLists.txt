@@ -8,7 +8,7 @@ set(MODULE2_SOURCE_FILES
         src/tracking.cpp
         )
 
-find_package(OpenCV REQUIRED HINTS ../../Thirdparty/opencv/install/lib/cmake/opencv4)
+find_package(OpenCV 4.4.0 REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/opencv/install/lib/cmake/opencv4)
 
 add_library(${PROJECT_NAME} SHARED
         ${MODULE2_SOURCE_FILES}
@@ -17,7 +17,6 @@ add_library(${PROJECT_NAME} SHARED
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
         ${OpenCV_LIBS}
-        # ${CMAKE_SOURCE_DIR}/modules/module1/build/libmodule1.so
         )
 
 target_include_directories(${PROJECT_NAME} PUBLIC

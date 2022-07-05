@@ -1045,6 +1045,14 @@ framepoint.h
 ../modules/module2/include/framepoint.h
 frame.h
 ../modules/module2/include/frame.h
+keyframe.h
+../modules/module2/include/keyframe.h
+
+../modules/module3/include/projection.h
+opencv2/opencv.hpp
+../modules/module3/include/opencv2/opencv.hpp
+keyframe.h
+../modules/module3/include/keyframe.h
 
 ../modules/module3/include/similarity.h
 opencv2/opencv.hpp
@@ -1057,6 +1065,12 @@ keyframe.h
 ../modules/module3/include/keyframe.h
 tracking.h
 ../modules/module3/include/tracking.h
+
+/team-SLAM/modules/module3/src/projection.cpp
+opencv2/opencv.hpp
+/team-SLAM/modules/module3/src/opencv2/opencv.hpp
+projection.h
+/team-SLAM/modules/module3/src/projection.h
 
 /team-SLAM/modules/module3/src/similarity.cpp
 tuple

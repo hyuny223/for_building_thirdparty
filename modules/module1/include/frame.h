@@ -15,14 +15,17 @@ namespace Data
 
             std::vector<cv::DMatch> mMatches;
 
-            std::vector<cv::Point2f> mvGoodMatches;
+            std::vector<cv::Point2d> mvGoodMatches;
 
             cv::Mat mmFundamentalMatrix;
             cv::Mat mmEssentialMatrix;
             cv::Mat mmRoationMatrix;
             cv::Mat mmTranslationMatrix;
 
+            double mdScale{1000};
+
         public:
+            Frame() = default;
             Frame(const cv::Mat image);
             // ~Frame();
 
@@ -35,8 +38,8 @@ namespace Data
             // void setMatches(const std::vector<cv::DMatch>& match);
             // std::vector<cv::DMatch> getMatches();
 
-            void setGoodMatches(const std::vector<cv::Point2f>& goodMatch);
-            std::vector<cv::Point2f> getGoodMatches();
+            void setGoodMatches(const std::vector<cv::Point2d>& goodMatch);
+            std::vector<cv::Point2d> getGoodMatches();
 
             void setFundamentalMatrix(const cv::Mat& F);
             void setEssentialMatrix(const cv::Mat& E);
@@ -47,5 +50,8 @@ namespace Data
             cv::Mat getEssentialMatrix();
             cv::Mat getRotationMatrix();
             cv::Mat getTranslationMatrix();
+
+            void setScale(const double& scale);
+            double getScale();
     };
 }

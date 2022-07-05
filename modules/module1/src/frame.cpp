@@ -35,12 +35,12 @@ namespace Data
     //     return mMatches;
     // }
 
-    void Frame::setGoodMatches(const std::vector<cv::Point2f>& goodMatch)
+    void Frame::setGoodMatches(const std::vector<cv::Point2d>& goodMatch)
     {
         mvGoodMatches = goodMatch;
     }
 
-    std::vector<cv::Point2f> Frame::getGoodMatches()
+    std::vector<cv::Point2d> Frame::getGoodMatches()
     {
         return mvGoodMatches;
     }
@@ -85,4 +85,12 @@ namespace Data
         return mmTranslationMatrix;
     }
 
+    void Frame::setScale(const double& scale)
+    {
+        mdScale = scale;
+    }
+    double Frame::getScale()
+    {
+        return mdScale;
+    }
 }

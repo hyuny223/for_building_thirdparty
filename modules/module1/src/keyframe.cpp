@@ -3,16 +3,30 @@
 namespace Data
 {
 
-    void KeyFrame::setKeyFrame(std::shared_ptr<Data::Frame> frame)
-    {
-        mpFrame = frame;
-    }
+    KeyFrame::KeyFrame(std::shared_ptr<Data::Frame> frame)
+    :mpFrame(frame){};
+
+
+    // void KeyFrame::setKeyFrame(std::shared_ptr<Data::Frame> frame)
+    // {
+    //     mpFrame = frame;
+    // }
 
     std::shared_ptr<Data::Frame> KeyFrame::getKeyFrame()
     {
         return mpFrame;
     }
 
+
+    void KeyFrame::setReprojPoints(std::vector<cv::KeyPoint> reprojPoints)
+    {
+        mvReprojPoints = reprojPoints;
+    }
+
+    std::vector<cv::KeyPoint> KeyFrame::getReprojPoints()
+    {
+        return mvReprojPoints;
+    }
 
     void KeyFrame::setPose_cw(const cv::Mat& T_cw)
     {
@@ -30,9 +44,17 @@ namespace Data
         mmT_wc = T_wc;
     }
 
-    cv::Mat KeyFrame::geePose_wc()
+    cv::Mat KeyFrame::getPose_wc()
     {
         return mmT_wc;
     }
 
+    void KeyFrame::setPose_lr(const cv::Mat& T_lr)
+    {
+        mmT_lr = T_lr;
+    }
+    cv::Mat KeyFrame::getPose_lr()
+    {
+        return mmT_lr;
+    }
 }

@@ -1045,6 +1045,14 @@ framepoint.h
 ../modules/module2/include/framepoint.h
 frame.h
 ../modules/module2/include/frame.h
+keyframe.h
+../modules/module2/include/keyframe.h
+
+../modules/module3/include/projection.h
+opencv2/opencv.hpp
+../modules/module3/include/opencv2/opencv.hpp
+keyframe.h
+../modules/module3/include/keyframe.h
 
 ../modules/module3/include/similarity.h
 opencv2/opencv.hpp
@@ -1073,4 +1081,6 @@ tracking.h
 /team-SLAM/tracking.h
 similarity.h
 /team-SLAM/similarity.h
+projection.h
+/team-SLAM/projection.h
 

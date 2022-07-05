@@ -1399,7 +1399,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[/team-SLAM/Thirdparty/opencv/install][v4.4.0()]"
+			"value" : "[/team-SLAM/Thirdparty/opencv/install][v4.4.0(4.4.0)]"
 		},
 		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_SuiteSparse",

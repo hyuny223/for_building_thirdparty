@@ -107,5 +107,6 @@ CMakeFiles/untitled.dir/main.cpp.o
  ../modules/module1/include/framepoint.h
  ../modules/module1/include/keyframe.h
  ../modules/module2/include/tracking.h
+ ../modules/module3/include/projection.h
  ../modules/module3/include/similarity.h
  /team-SLAM/main.cpp

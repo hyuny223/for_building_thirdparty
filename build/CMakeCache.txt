@@ -548,7 +548,7 @@ CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //Details about finding BLAS
 FIND_PACKAGE_MESSAGE_DETAILS_BLAS:INTERNAL=[/usr/lib/x86_64-linux-gnu/libf77blas.so;/usr/lib/x86_64-linux-gnu/libatlas.so][v()]
 //Details about finding OpenCV
-FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/team-SLAM/Thirdparty/opencv/install][v4.4.0()]
+FIND_PACKAGE_MESSAGE_DETAILS_OpenCV:INTERNAL=[/team-SLAM/Thirdparty/opencv/install][v4.4.0(4.4.0)]
 //Details about finding SuiteSparse
 FIND_PACKAGE_MESSAGE_DETAILS_SuiteSparse:INTERNAL=[/usr/include/suitesparse][/usr/lib/x86_64-linux-gnu/libamd.so][/usr/include/suitesparse][/usr/lib/x86_64-linux-gnu/libcamd.so][/usr/include/suitesparse][/usr/lib/x86_64-linux-gnu/libccolamd.so][/usr/include/suitesparse][/usr/lib/x86_64-linux-gnu/libcholmod.so][/usr/include/suitesparse][/usr/lib/x86_64-linux-gnu/libcolamd.so][/usr/include/suitesparse][/usr/lib/x86_64-linux-gnu/libspqr.so][/usr/include/suitesparse][/usr/lib/x86_64-linux-gnu/libsuitesparseconfig.so][cfound components: AMD CAMD CCOLAMD CHOLMOD COLAMD SPQR Config ][v5.7.1(5.7.1)]
 //Details about finding Threads

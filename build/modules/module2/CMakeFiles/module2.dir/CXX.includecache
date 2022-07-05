@@ -1036,14 +1036,22 @@ iostream
 opencv2/opencv.hpp
 ../modules/module1/include/opencv2/opencv.hpp
 
+../modules/module1/include/keyframe.h
+frame.h
+../modules/module1/include/frame.h
+
 ../modules/module2/include/tracking.h
 framepoint.h
 ../modules/module2/include/framepoint.h
 frame.h
 ../modules/module2/include/frame.h
+keyframe.h
+../modules/module2/include/keyframe.h
 
 /team-SLAM/modules/module2/src/tracking.cpp
 iostream
+-
+cmath
 -
 opencv2/features2d.hpp
 -

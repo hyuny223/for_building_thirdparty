@@ -3,13 +3,13 @@
 namespace Data
 {
 
-    void FramePoint::setFramePoint3d(std::vector<cv::Point3f> framePoints)
+    void FramePoint::setFramePoint3d(std::vector<cv::Point3d> framePoints)
     {
         mvFramePoints3d = framePoints;
     }
 
 
-    std::vector<cv::Point3f> FramePoint::getFramePoint3d()
+    std::vector<cv::Point3d> FramePoint::getFramePoint3d()
     {
         return mvFramePoints3d;
     }

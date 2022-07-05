@@ -152,6 +152,33 @@ src/motionEstimation.cpp.s:
 	cd /team-SLAM/build && $(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/src/motionEstimation.cpp.s
 .PHONY : src/motionEstimation.cpp.s
 
+src/projection.o: src/projection.cpp.o
+
+.PHONY : src/projection.o
+
+# target to build an object file
+src/projection.cpp.o:
+	cd /team-SLAM/build && $(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/src/projection.cpp.o
+.PHONY : src/projection.cpp.o
+
+src/projection.i: src/projection.cpp.i
+
+.PHONY : src/projection.i
+
+# target to preprocess a source file
+src/projection.cpp.i:
+	cd /team-SLAM/build && $(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/src/projection.cpp.i
+.PHONY : src/projection.cpp.i
+
+src/projection.s: src/projection.cpp.s
+
+.PHONY : src/projection.s
+
+# target to generate assembly for a file
+src/projection.cpp.s:
+	cd /team-SLAM/build && $(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/src/projection.cpp.s
+.PHONY : src/projection.cpp.s
+
 src/similarity.o: src/similarity.cpp.o
 
 .PHONY : src/similarity.o
@@ -191,6 +218,9 @@ help:
 	@echo "... src/motionEstimation.o"
 	@echo "... src/motionEstimation.i"
 	@echo "... src/motionEstimation.s"
+	@echo "... src/projection.o"
+	@echo "... src/projection.i"
+	@echo "... src/projection.s"
 	@echo "... src/similarity.o"
 	@echo "... src/similarity.i"
 	@echo "... src/similarity.s"
