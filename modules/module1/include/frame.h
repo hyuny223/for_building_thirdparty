@@ -27,7 +27,7 @@ namespace Data
         public:
             Frame() = default;
             Frame(const cv::Mat image);
-            // ~Frame();
+            virtual ~Frame() = default;
 
             void setFrame(const cv::Mat& image);
             cv::Mat getFrame();

@@ -20,17 +20,18 @@ void Projection::doProjection(std::shared_ptr<Data::KeyFrame> keyFrame)
         double x = K.ptr<double>(0)[0] * (vFramePoint3d[i].x / vFramePoint3d[i].z) + K.ptr<double>(0)[2];
         double y = K.ptr<double>(1)[1] * (vFramePoint3d[i].y / vFramePoint3d[i].z) + K.ptr<double>(1)[2];
 
-        std::cout << x << ", " << y << std::endl;
+        // std::cout << x << ", " << y << std::endl;
 
-        // vReprojectPoints[i].pt = {x, y};
+        vReprojectPoints[i].pt = {x, y};
 
-        // std::vector<cv::Point2d> goodMatches = keyFrame->getGoodMatches();
+        std::vector<cv::Point2d> goodMatches = keyFrame->getGoodMatches();
 
-        // for (int i = 0; i < goodMatches.size(); ++i)
-        // {
-        //     std::cout << "Origin : ("<< static_cast<int>(goodMatches[i].x) << ", " << static_cast<int>(goodMatches[i].y) << ")\n";
-        //     std::cout << "Reproj : ("<< static_cast<int>(vReprojectPoints[i].pt.x) << ", " << static_cast<int>(vReprojectPoints[i].pt.y) << ")\n";
+        for (int i = 0; i < goodMatches.size(); ++i)
+        {
+            std::cout << "Origin : ("<< goodMatches[i].x << ", " << goodMatches[i].y << ")\n";
+            std::cout << "Reproj : ("<< vReprojectPoints[i].pt.x << ", " << vReprojectPoints[i].pt.y << ")\n";
+            std::cout << "\n\n";
 
-        // }
+        }
     }
 }

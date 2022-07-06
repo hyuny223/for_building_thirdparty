@@ -34,16 +34,14 @@ int main()
     std::cout << frame_L->getFramePoint3d().size() << std::endl;
 
 
-    Data::KeyFrame keyFrame;
+    std::shared_ptr<Data::KeyFrame> keyFrame;
     if (sim->computeSimilarity(nFeatures))
     {
-        // keyFrame = std::make_shared<Data::KeyFrame>(frame_L);
-        keyFrame = static_cast<Data::KeyFrame>(frame_L);
+        keyFrame = std::make_shared<Data::KeyFrame>(frame_L);
     }
 
-    std::cout << keyFrame.getFramePoint3d().size() << std::endl;
     std::shared_ptr<Projection> proj = std::make_shared<Projection>();
-    // proj->doProjection(keyFrame);
+    proj->doProjection(keyFrame);
 
     return 0;
 }
