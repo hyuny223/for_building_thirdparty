@@ -1025,8 +1025,6 @@ opencv2/core.hpp
 ../Thirdparty/opencv/install/include/opencv4/opencv2/opencv2/core.hpp
 
 ../modules/module1/include/frame.h
-opencv2/opencv.hpp
-../modules/module1/include/opencv2/opencv.hpp
 framepoint.h
 ../modules/module1/include/framepoint.h
 
