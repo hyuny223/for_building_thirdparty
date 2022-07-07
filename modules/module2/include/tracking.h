@@ -92,7 +92,7 @@ void computeEssentialMatrix(T Frame_L, T Frame_R)
     cv::recoverPose(essentialMatrix, goodMatches_L, goodMatches_R, K, rotationMatrix, translationMatrix);
 
     cv::Mat transformMatrix;
-    cv::transformMatrix = computeTransformMat(rotationMatrix, translationMatrix, transformMatrix);
+    computeTransformMat(rotationMatrix, translationMatrix, transformMatrix);
 
     Frame_L->setRotationMat(rotationMatrix);
     Frame_L->setTranslationMat(translationMatrix); // tvec은 distance가 1인 유닛 벡터이다. 스케일이 정해지지 않음.
