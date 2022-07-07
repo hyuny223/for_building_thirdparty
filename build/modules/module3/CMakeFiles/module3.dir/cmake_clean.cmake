@@ -1,5 +1,4 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/module3.dir/src/motionEstimation.cpp.o"
   "CMakeFiles/module3.dir/src/projection.cpp.o"
   "CMakeFiles/module3.dir/src/similarity.cpp.o"
   "libmodule3.pdb"

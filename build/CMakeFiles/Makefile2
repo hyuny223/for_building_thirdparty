@@ -198,12 +198,12 @@ CMakeFiles/untitled.dir/all: modules/module2/CMakeFiles/module2.dir/all
 CMakeFiles/untitled.dir/all: modules/module3/CMakeFiles/module3.dir/all
 	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/depend
 	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=11,12 "Built target untitled"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=10,11 "Built target untitled"
 .PHONY : CMakeFiles/untitled.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/untitled.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 11
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/untitled.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 0
 .PHONY : CMakeFiles/untitled.dir/rule
@@ -279,12 +279,12 @@ modules/module2/CMakeFiles/module2.dir/clean:
 modules/module3/CMakeFiles/module3.dir/all:
 	$(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/depend
 	$(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=7,8,9,10 "Built target module3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=7,8,9 "Built target module3"
 .PHONY : modules/module3/CMakeFiles/module3.dir/all
 
 # Build rule for subdir invocation for target.
 modules/module3/CMakeFiles/module3.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 3
 	$(MAKE) -f CMakeFiles/Makefile2 modules/module3/CMakeFiles/module3.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 0
 .PHONY : modules/module3/CMakeFiles/module3.dir/rule

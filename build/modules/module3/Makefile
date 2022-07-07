@@ -125,33 +125,6 @@ module3/fast:
 	cd /team-SLAM/build && $(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/build
 .PHONY : module3/fast
 
-src/motionEstimation.o: src/motionEstimation.cpp.o
-
-.PHONY : src/motionEstimation.o
-
-# target to build an object file
-src/motionEstimation.cpp.o:
-	cd /team-SLAM/build && $(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/src/motionEstimation.cpp.o
-.PHONY : src/motionEstimation.cpp.o
-
-src/motionEstimation.i: src/motionEstimation.cpp.i
-
-.PHONY : src/motionEstimation.i
-
-# target to preprocess a source file
-src/motionEstimation.cpp.i:
-	cd /team-SLAM/build && $(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/src/motionEstimation.cpp.i
-.PHONY : src/motionEstimation.cpp.i
-
-src/motionEstimation.s: src/motionEstimation.cpp.s
-
-.PHONY : src/motionEstimation.s
-
-# target to generate assembly for a file
-src/motionEstimation.cpp.s:
-	cd /team-SLAM/build && $(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/src/motionEstimation.cpp.s
-.PHONY : src/motionEstimation.cpp.s
-
 src/projection.o: src/projection.cpp.o
 
 .PHONY : src/projection.o
@@ -215,9 +188,6 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... module3"
-	@echo "... src/motionEstimation.o"
-	@echo "... src/motionEstimation.i"
-	@echo "... src/motionEstimation.s"
 	@echo "... src/projection.o"
 	@echo "... src/projection.i"
 	@echo "... src/projection.s"

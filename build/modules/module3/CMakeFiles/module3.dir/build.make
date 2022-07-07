@@ -57,22 +57,9 @@ include modules/module3/CMakeFiles/module3.dir/progress.make
 # Include the compile flags for this target's objects.
 include modules/module3/CMakeFiles/module3.dir/flags.make
 
-modules/module3/CMakeFiles/module3.dir/src/motionEstimation.cpp.o: modules/module3/CMakeFiles/module3.dir/flags.make
-modules/module3/CMakeFiles/module3.dir/src/motionEstimation.cpp.o: ../modules/module3/src/motionEstimation.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object modules/module3/CMakeFiles/module3.dir/src/motionEstimation.cpp.o"
-	cd /team-SLAM/build/modules/module3 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/module3.dir/src/motionEstimation.cpp.o -c /team-SLAM/modules/module3/src/motionEstimation.cpp
-
-modules/module3/CMakeFiles/module3.dir/src/motionEstimation.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/module3.dir/src/motionEstimation.cpp.i"
-	cd /team-SLAM/build/modules/module3 && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /team-SLAM/modules/module3/src/motionEstimation.cpp > CMakeFiles/module3.dir/src/motionEstimation.cpp.i
-
-modules/module3/CMakeFiles/module3.dir/src/motionEstimation.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/module3.dir/src/motionEstimation.cpp.s"
-	cd /team-SLAM/build/modules/module3 && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /team-SLAM/modules/module3/src/motionEstimation.cpp -o CMakeFiles/module3.dir/src/motionEstimation.cpp.s
-
 modules/module3/CMakeFiles/module3.dir/src/similarity.cpp.o: modules/module3/CMakeFiles/module3.dir/flags.make
 modules/module3/CMakeFiles/module3.dir/src/similarity.cpp.o: ../modules/module3/src/similarity.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object modules/module3/CMakeFiles/module3.dir/src/similarity.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object modules/module3/CMakeFiles/module3.dir/src/similarity.cpp.o"
 	cd /team-SLAM/build/modules/module3 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/module3.dir/src/similarity.cpp.o -c /team-SLAM/modules/module3/src/similarity.cpp
 
 modules/module3/CMakeFiles/module3.dir/src/similarity.cpp.i: cmake_force
@@ -85,7 +72,7 @@ modules/module3/CMakeFiles/module3.dir/src/similarity.cpp.s: cmake_force
 
 modules/module3/CMakeFiles/module3.dir/src/projection.cpp.o: modules/module3/CMakeFiles/module3.dir/flags.make
 modules/module3/CMakeFiles/module3.dir/src/projection.cpp.o: ../modules/module3/src/projection.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object modules/module3/CMakeFiles/module3.dir/src/projection.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object modules/module3/CMakeFiles/module3.dir/src/projection.cpp.o"
 	cd /team-SLAM/build/modules/module3 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/module3.dir/src/projection.cpp.o -c /team-SLAM/modules/module3/src/projection.cpp
 
 modules/module3/CMakeFiles/module3.dir/src/projection.cpp.i: cmake_force
@@ -98,14 +85,12 @@ modules/module3/CMakeFiles/module3.dir/src/projection.cpp.s: cmake_force
 
 # Object files for target module3
 module3_OBJECTS = \
-"CMakeFiles/module3.dir/src/motionEstimation.cpp.o" \
 "CMakeFiles/module3.dir/src/similarity.cpp.o" \
 "CMakeFiles/module3.dir/src/projection.cpp.o"
 
 # External object files for target module3
 module3_EXTERNAL_OBJECTS =
 
-modules/module3/libmodule3.so: modules/module3/CMakeFiles/module3.dir/src/motionEstimation.cpp.o
 modules/module3/libmodule3.so: modules/module3/CMakeFiles/module3.dir/src/similarity.cpp.o
 modules/module3/libmodule3.so: modules/module3/CMakeFiles/module3.dir/src/projection.cpp.o
 modules/module3/libmodule3.so: modules/module3/CMakeFiles/module3.dir/build.make
@@ -125,7 +110,7 @@ modules/module3/libmodule3.so: ../Thirdparty/opencv/install/lib/libopencv_flann.
 modules/module3/libmodule3.so: ../Thirdparty/opencv/install/lib/libopencv_imgproc.so.4.4.0
 modules/module3/libmodule3.so: ../Thirdparty/opencv/install/lib/libopencv_core.so.4.4.0
 modules/module3/libmodule3.so: modules/module3/CMakeFiles/module3.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library libmodule3.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking CXX shared library libmodule3.so"
 	cd /team-SLAM/build/modules/module3 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/module3.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
