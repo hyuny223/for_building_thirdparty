@@ -27,8 +27,6 @@ int main()
                                                         // 그러나 Mono에서는 KeyFrame에서 구하는 것이기에 의미가 없다.
     Frontend::computeTriangulation(frame_L, frame_R); // Correspondence 간의 Triangulation을 계산
 
-    Frontend::computeTransformMat(frame_L);
-
 
     if(currKeyFrame->mvKeyFrameVec.size() == 0) // 첫번째라면
     {

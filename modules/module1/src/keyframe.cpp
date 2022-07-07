@@ -30,15 +30,15 @@ namespace Data
     }
 
 
-    void KeyFrame::setWorldPosition(cv::Point3d worldPosition)
-    {
-        mWorldPosition = worldPosition;
-    }
+    // void KeyFrame::setWorldPosition(cv::Point3d worldPosition)
+    // {
+    //     mWorldPosition = worldPosition;
+    // }
 
-    cv::Point3d KeyFrame::getWorldPosition()
-    {
-        return mWorldPosition;
-    }
+    // cv::Point3d KeyFrame::getWorldPosition()
+    // {
+    //     return mWorldPosition;
+    // }
 
 
     void KeyFrame::setReprojPoints(std::vector<cv::KeyPoint> reprojPoints)
@@ -51,25 +51,25 @@ namespace Data
         return mvReprojPoints;
     }
 
-    void KeyFrame::setW2CRotationMat(cv::Mat rotation)
-    {
-        mRcw = rotation;
-    }
+    // void KeyFrame::setW2CRotationMat(cv::Mat rotation)
+    // {
+    //     mRcw = rotation;
+    // }
 
-    cv::Mat KeyFrame::getW2CRotationMat()
-    {
-        return mRcw;
-    }
+    // cv::Mat KeyFrame::getW2CRotationMat()
+    // {
+    //     return mRcw;
+    // }
 
-    void KeyFrame::setW2CTranslationMat(cv::Mat translation)
-    {
-        mTcw = translation;
-    }
+    // void KeyFrame::setW2CTranslationMat(cv::Mat translation)
+    // {
+    //     mTcw = translation;
+    // }
 
-    cv::Mat KeyFrame::getW2CTranslationMat()
-    {
-        return mTcw;
-    }
+    // cv::Mat KeyFrame::getW2CTranslationMat()
+    // {
+    //     return mTcw;
+    // }
 
     int KeyFrame::getKeyFrameNum()
     {
@@ -80,9 +80,20 @@ namespace Data
     {
         return mvKeyFrameVec[miKeyFrameNum-1];
     }
+
     std::shared_ptr<Data::KeyFrame> KeyFrame::getWorldKeyFrame()
     {
         return mvKeyFrameVec[0];
+    }
+
+    void KeyFrame::setw2c(cv::Mat w2c)
+    {
+        mw2c = w2c;
+    }
+
+    cv::Mat KeyFrame::getw2c()
+    {
+        return mw2c;
     }
 
 }
