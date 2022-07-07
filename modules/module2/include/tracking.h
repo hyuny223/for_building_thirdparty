@@ -63,16 +63,15 @@ void matchFeatures(T Frame_L, T Frame_R)
 };
 
 template<typename T>
-void computeTransformMat(T frame)
+cv::Mat computeTransformMat(T R, T t, T transform)
 {
-    cv::Mat transfrom;
-    cv::hconcat(frame->getRotationMat(), frame->getTranslationMat(), transfrom); // [R t]를 만들어 주는 과정
+    cv::hconcat(R, frame->getTranslationMat(), t); // [R t]를 만들어 주는 과정
 
     double _b[] = {0,0,0,1};
     cv::Mat b(1,4,CV_64FC1,_b);
 
     cv::vconcat(transfrom, b, transfrom); // [[R t], [0 1]]를 만들어주는 과정
-    frame->setTransformMat(transfrom);
+    return transfrom;
 }
 
 template <typename T>
@@ -92,9 +91,12 @@ void computeEssentialMatrix(T Frame_L, T Frame_R)
 
     cv::recoverPose(essentialMatrix, goodMatches_L, goodMatches_R, K, rotationMatrix, translationMatrix);
 
+    cv::Mat transformMatrix;
+    cv::transformMatrix = computeTransformMat(rotationMatrix, translationMatrix, transformMatrix);
+
     Frame_L->setRotationMat(rotationMatrix);
     Frame_L->setTranslationMat(translationMatrix); // tvec은 distance가 1인 유닛 벡터이다. 스케일이 정해지지 않음.
-
+    Frame_L->setTransformMat(transformMatrix);
 }
 
 template <typename T>
