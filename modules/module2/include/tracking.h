@@ -65,13 +65,13 @@ void matchFeatures(T Frame_L, T Frame_R)
 template<typename T>
 cv::Mat computeTransformMat(T R, T t, T transform)
 {
-    cv::hconcat(R, frame->getTranslationMat(), t); // [R t]를 만들어 주는 과정
+    cv::hconcat(R, t, transform); // [R t]를 만들어 주는 과정
 
     double _b[] = {0,0,0,1};
     cv::Mat b(1,4,CV_64FC1,_b);
 
-    cv::vconcat(transfrom, b, transfrom); // [[R t], [0 1]]를 만들어주는 과정
-    return transfrom;
+    cv::vconcat(transform, b, transform); // [[R t], [0 1]]를 만들어주는 과정
+    return transform;
 }
 
 template <typename T>
@@ -132,12 +132,12 @@ template<typename T>
 void computeWorldPosition(T prevKeyFrame, T currKeyFrame)
 {
 
-    auto relativeRotation = prevKeyFrame->getRotationMat();
-    auto relativeTranslation = prevKeyFrame->getTranslationMat(); //
-    auto prevWorldPosition = p->getWorldPosition();
+    // currw2c = prevw2c * relative T
+    auto prevw2c = prevKeyFrame->getw2c();
+    auto relativeTransform = prevKeyFrame->getTransformMat();
 
-    auto currWorldPosition = Frame_R->getWorldPosition();
-    currWorldPosition = prevWorldPosition +relativeT;
-    Frame_R->setWorldPosition(currWorldPosition);
+    auto currw2c = prevw2c * relativeTransform.t();
+
+    currKeyFrame->setw2c(currw2c);
 }
 }
