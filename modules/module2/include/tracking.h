@@ -63,7 +63,7 @@ void matchFeatures(T Frame_L, T Frame_R)
 };
 
 template<typename T>
-cv::Mat computeTransformMat(T R, T t, T transform)
+cv::Mat computeTransformMat(T& R, T& t, T& transform)
 {
     cv::hconcat(R, t, transform); // [R t]를 만들어 주는 과정
 
@@ -72,6 +72,17 @@ cv::Mat computeTransformMat(T R, T t, T transform)
 
     cv::vconcat(transform, b, transform); // [[R t], [0 1]]를 만들어주는 과정
     return transform;
+}
+
+
+template<typename T>
+void splitTransformMat(T& transform, T& R, T& t)
+{
+    cv::Rect roiR(0,0,3,3);
+    cv::Rect roit(3,0,1,3);
+
+    R = transform(roiR);
+    t = transform(roit);
 }
 
 template <typename T>
