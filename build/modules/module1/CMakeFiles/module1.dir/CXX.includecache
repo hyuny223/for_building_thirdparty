@@ -1044,6 +1044,10 @@ opencv2/opencv.hpp
 frame.h
 /team-SLAM/modules/module1/src/frame.h
 
+/team-SLAM/modules/module1/src/framepoint.cpp
+framepoint.h
+/team-SLAM/modules/module1/src/framepoint.h
+
 /team-SLAM/modules/module1/src/keyframe.cpp
 keyframe.h
 /team-SLAM/modules/module1/src/keyframe.h
