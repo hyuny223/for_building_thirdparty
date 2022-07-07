@@ -1,144 +1,116 @@
+// #include "framepoint.h"
+// #include "frame.h"
+// #include "keyframe.h"
 
-/***************************************************************************************************
-#include <iostream>
-#include <cmath>
+// namespace Frontend
+// {
+// template <typename T>
+// void detectFeatures(std::shared_ptr<T> Frame_L, std::shared_ptr<T> Frame_R, const int& nFeatures)
+// {
+//     cv::Ptr<cv::Feature2D> detector = cv::ORB::create(nFeatures);
 
-#include <opencv2/features2d.hpp>
-#include <opencv2/calib3d.hpp>
+//     std::vector<cv::KeyPoint> framePoints_L = Frame_L->getFramePoint2d();
+//     std::vector<cv::KeyPoint> framePoints_R = Frame_R->getFramePoint2d();
 
-#include "tracking.h"
-#include "framepoint.h"
-#include "frame.h"
+//     cv::Mat descriptors_L = Frame_L->getDescriptors();
+//     cv::Mat descriptors_R = Frame_R->getDescriptors();
 
+//     detector->detectAndCompute(Frame_L->getFrame(), cv::Mat(), framePoints_L, descriptors_L);
+//     detector->detectAndCompute(Frame_R->getFrame(), cv::Mat(), framePoints_R, descriptors_R);
 
-namespace Frontend
-{
+//     Frame_L->setFramePoint2d(framePoints_L);
+//     Frame_R->setFramePoint2d(framePoints_R);
 
-    Tracking::Tracking(std::shared_ptr<Data::Frame> frame_L, std::shared_ptr<Data::Frame> frame_R)
-    : mpFrame_L(frame_L), mpFrame_R(frame_R){std::cout<<"thi"<<std::endl;};
-
-
-    void Tracking::detectFeatures(const int& nFeatures)
-    {
-        cv::Ptr<cv::Feature2D> detector = cv::ORB::create(nFeatures);
-
-        std::vector<cv::KeyPoint> framePoints_L = mpFrame_L->getFramePoint2d();
-        std::vector<cv::KeyPoint> framePoints_R = mpFrame_R->getFramePoint2d();
-
-        cv::Mat descriptors_L = mpFrame_L->getDescriptors();
-        cv::Mat descriptors_R = mpFrame_R->getDescriptors();
-
-        // std::cout << descriptors_L.type() << std::endl;
-
-        detector->detectAndCompute(mpFrame_L->getFrame(), cv::Mat(), framePoints_L, descriptors_L);
-        detector->detectAndCompute(mpFrame_R->getFrame(), cv::Mat(), framePoints_R, descriptors_R);
-
-        mpFrame_L->setFramePoint2d(framePoints_L);
-        mpFrame_R->setFramePoint2d(framePoints_R);
-
-        mpFrame_L->setDescriptors(descriptors_L);
-        mpFrame_R->setDescriptors(descriptors_R);
-
-    }
+//     Frame_L->setDescriptors(descriptors_L);
+//     Frame_R->setDescriptors(descriptors_R);
+// };
 
 
-    void Tracking::matchFeatures()
-    {
-        cv::Ptr<cv::DescriptorMatcher> matcher = cv::BFMatcher::create(cv::NORM_HAMMING);
-#if 0
-        std::vector<cv::DMatch> matches;
-        matcher->match(mpFrame_L->getDescriptors(), mpFrame_R->getDescriptors(), matches);
+// template <typename T>
+// void matchFeatures(std::shared_ptr<T> Frame_L, std::shared_ptr<T> Frame_R)
+// {
+//     cv::Ptr<cv::DescriptorMatcher> matcher = cv::BFMatcher::create(cv::NORM_HAMMING);
 
-        std::sort(matches.begin(), matches.end());
-        std::vector<cv::DMatch> goodMatches(matches.begin(), matches.begin() + threshold);
-#elif 1
+//     std::vector<std::vector<cv::DMatch>> matches;
+//     matcher->knnMatch(Frame_L->getDescriptors(), Frame_R->getDescriptors(), matches, 2);
 
-        std::vector<std::vector<cv::DMatch>> matches;
-        matcher->knnMatch(mpFrame_L->getDescriptors(), mpFrame_R->getDescriptors(), matches, 2);
+//     std::vector<cv::DMatch> goodMatches;
+//     for (auto m : matches)
+//     {
+//         if (m[0].distance / m[1].distance < 0.6)
+//         {
+//             goodMatches.push_back(m[0]);
+//         }
+//     }
 
-        std::vector<cv::DMatch> goodMatches;
-        for (auto m : matches)
-        {
-            if (m[0].distance / m[1].distance < 0.6)
-            {
-                goodMatches.push_back(m[0]);
-            }
-        }
-#endif
-        auto framePoints_L = mpFrame_L->getFramePoint2d();
-        auto framePoints_R = mpFrame_R->getFramePoint2d();
+//     auto framePoints_L = Frame_L->getFramePoint2d();
+//     auto framePoints_R = Frame_R->getFramePoint2d();
 
-        std::vector<cv::Point2d> goodMatches_L = mpFrame_L->getGoodMatches();
-        std::vector<cv::Point2d> goodMatches_R = mpFrame_R->getGoodMatches();
+//     std::vector<cv::Point2d> goodMatches_L = Frame_L->getGoodMatches();
+//     std::vector<cv::Point2d> goodMatches_R = Frame_R->getGoodMatches();
 
-        for (size_t i = 0; i < goodMatches.size(); i++)
-        {
-            goodMatches_L.push_back(framePoints_L[goodMatches[i].queryIdx].pt);
-            goodMatches_R.push_back(framePoints_R[goodMatches[i].trainIdx].pt);
-        }
+//     for (size_t i = 0; i < goodMatches.size(); i++)
+//     {
+//         goodMatches_L.push_back(framePoints_L[goodMatches[i].queryIdx].pt);
+//         goodMatches_R.push_back(framePoints_R[goodMatches[i].trainIdx].pt);
 
-        mpFrame_L->setGoodMatches(goodMatches_L);
-        mpFrame_R->setGoodMatches(goodMatches_R);
+//     }
 
-        cv::Mat dst;
-        cv::drawMatches(mpFrame_L->getFrame(), mpFrame_L->getFramePoint2d(), mpFrame_R->getFrame(), mpFrame_R->getFramePoint2d(), goodMatches, dst);
-        cv::imshow("dst", dst);
-        cv::waitKey(0);
-    }
+//     Frame_L->setGoodMatches(goodMatches_L);
+//     Frame_R->setGoodMatches(goodMatches_R);
+
+// };
 
 
-    void Tracking::computeTriangulation(const cv::Point2d& ptr_L, const cv::Point2d& ptr_R)
-    {
-        cv::Mat_<double> K(3,3);
-        K << 718.856, 0, 607.1928, 0, 718.856, 185.2157, 0, 0, 1;
+// template <typename T>
+// void computeEssentialMatrix(std::shared_ptr<T> Frame_L, std::shared_ptr<T> Frame_R)
+// {
+//     cv::Mat_<double> K(3,3);
+//     K << 718.856, 0, 607.1928, 0, 718.856, 185.2157, 0, 0, 1;
 
-        std::vector<cv::Point3d> framePoint3d_L = mpFrame_L->getFramePoint3d();
-        cv::Mat translationMatrix = mpFrame_L->getTranslationMatrix();
+//     auto goodMatches_L = Frame_L->getGoodMatches();
+//     auto goodMatches_R = Frame_R->getGoodMatches();
 
-        cv::Point3d p;
+//     Frame_L->setEssentialMatrix(cv::findEssentialMat(goodMatches_L, goodMatches_R, K));
+//     cv::Mat essentialMatrix = Frame_L->getEssentialMatrix();
 
-        cv::Mat& t = translationMatrix;
-        double baseline = sqrt(std::pow(t.ptr<double>(0)[0],2) + std::pow(t.ptr<double>(0)[1],2) + std::pow(t.ptr<double>(0)[2],2));
+//     cv::Mat rotationMatrix = Frame_L->getRotationMatrix(); // double
+//     cv::Mat translationMatrix = Frame_L->getTranslationMatrix(); // double
 
-        std::cout << "baseline : " << baseline << std::endl;
+//     cv::recoverPose(essentialMatrix, goodMatches_L, goodMatches_R, K, rotationMatrix, translationMatrix);
 
-        p.z = std::abs(baseline * mpFrame_L->getScale() / (ptr_R.x - ptr_L.x)); // depth of point
-        // p.z = std::abs(10000 / (ptr_R.x - ptr_L.x)); // depth of point
-
-        std::cout << "p.z : " << p.z << std::endl;
-
-
-        p.x = p.z / K.ptr<double>(0)[0] * (ptr_L.x - K.ptr<double>(0)[2]); // x of point
-        p.y = p.z / K.ptr<double>(1)[1] * (ptr_L.y - K.ptr<double>(1)[2]); // y of point
-
-        std::cout << "( " << p.x << ", " << p.y << ", " << p.z << " )" << std::endl;
-
-        framePoint3d_L.push_back(p);
-    }
-
-}
+//     Frame_L->setRotationMatrix(rotationMatrix);
+//     Frame_L->setTranslationMatrix(translationMatrix); // tvec은 distance가 1인 유닛 벡터이다. 스케일이 정해지지 않음.
+// }
 
 
+// template <typename T>
+// void computeTriangulation(std::shared_ptr<T> Frame_L, std::shared_ptr<T> Frame_R)
+// {
+//     cv::Mat_<double> K(3,3);
+//     K << 718.856, 0, 607.1928, 0, 718.856, 185.2157, 0, 0, 1;
 
-template<typename T>
-void computeEssentialMatrix(T frame_L, T frame_R)
-{
-    cv::Mat_<double> K(3,3);
-    K << 718.856, 0, 607.1928, 0, 718.856, 185.2157, 0, 0, 1;
+//     std::vector<cv::Point3d> framePoint3d_L = Frame_L->getFramePoint3d();
+//     cv::Mat translationMatrix = Frame_L->getTranslationMatrix();
 
-    auto goodMatches_L = frame_L->getGoodMatches();
-    auto goodMatches_R = frame_R->getGoodMatches();
+//     cv::Point3d p;
 
-    frame_L->setEssentialMatrix(cv::findEssentialMat(goodMatches_L, goodMatches_R, K));
-    cv::Mat essentialMatrix = frame_L->getEssentialMatrix();
+//     cv::Mat& t = translationMatrix;
+//     double baseline = sqrt(std::pow(t.ptr<double>(0)[0],2) + std::pow(t.ptr<double>(0)[1],2) + std::pow(t.ptr<double>(0)[2],2));
 
-    cv::Mat rotationMatrix = frame_L->getRotationMatrix(); // double
-    cv::Mat translationMatrix = frame_L->getTranslationMatrix(); // double
+//     for(int i = 0; i < Frame_L->getGoodMatches().size(); ++i)
+//     {
+//         auto ptr_L = Frame_L->getGoodMatches()[i];
+//         auto ptr_R = Frame_R->getGoodMatches()[i];
 
-    cv::recoverPose(essentialMatrix, goodMatches_L, goodMatches_R, K, rotationMatrix, translationMatrix);
+//         p.z = std::abs(baseline * Frame_L->getScale() / (ptr_R.x - ptr_L.x)); // depth of point
 
-    frame_L->setRotationMatrix(rotationMatrix);
-    frame_L->setTranslationMatrix(translationMatrix); // tvec은 distance가 1인 유닛 벡터이다. 스케일이 정해지지 않음.
-}
+//         p.x = p.z / K.ptr<double>(0)[0] * (ptr_L.x - K.ptr<double>(0)[2]); // x of point
+//         p.y = p.z / K.ptr<double>(1)[1] * (ptr_L.y - K.ptr<double>(1)[2]); // y of point
 
-***************************************************************************************************/
+//         framePoint3d_L.push_back(p);
+//     }
+//     Frame_L->setFramePoint3d(framePoint3d_L);
+// }
+// }
+

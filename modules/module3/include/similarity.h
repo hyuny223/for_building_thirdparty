@@ -11,7 +11,6 @@ class Similarity
 {
     protected:
         std::shared_ptr<Data::Frame> mpPrev, mpCurr;
-
         std::vector<cv::Point2d> mvPrevGoodMatches, mvCurrGoodMatches;
 
     public:

@@ -5,7 +5,6 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 set(MODULE3_SOURCE_FILES
-        src/motionEstimation.cpp
         src/similarity.cpp
         src/projection.cpp
         )

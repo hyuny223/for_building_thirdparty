@@ -45,44 +45,55 @@ namespace Data
         return mvGoodMatches;
     }
 
-    void Frame::setFundamentalMatrix(const cv::Mat& F)
+    void Frame::setFundamentalMat(const cv::Mat& F)
     {
-        mmFundamentalMatrix = F;
+        mmFundamentalMat = F;
     }
 
-    void Frame::setEssentialMatrix(const cv::Mat& E)
+    void Frame::setEssentialMat(const cv::Mat& E)
     {
-        mmEssentialMatrix = E;
+        mmEssentialMat = E;
     }
 
-    void Frame::setRotationMatrix(const cv::Mat& R)
+    void Frame::setRotationMat(const cv::Mat& R)
     {
-        mmRoationMatrix = R;
+        mmRoationMat = R;
     }
 
-    void Frame::setTranslationMatrix(const cv::Mat& t)
+    void Frame::setTranslationMat(const cv::Mat& t)
     {
-        mmTranslationMatrix = t;
+        mmTranslationMat = t;
     }
 
-    cv::Mat Frame::getFundamentalMatrix()
+    cv::Mat Frame::getFundamentalMat()
     {
-        return mmFundamentalMatrix;
+        return mmFundamentalMat;
     }
 
-    cv::Mat Frame::getEssentialMatrix()
+    cv::Mat Frame::getEssentialMat()
     {
-        return mmEssentialMatrix;
+        return mmEssentialMat;
     }
 
-    cv::Mat Frame::getRotationMatrix()
+    cv::Mat Frame::getRotationMat()
     {
-        return mmRoationMatrix;
+        return mmRoationMat;
     }
 
-    cv::Mat Frame::getTranslationMatrix()
+    cv::Mat Frame::getTranslationMat()
     {
-        return mmTranslationMatrix;
+        return mmTranslationMat;
+    }
+
+
+    void Frame::setTransformMat(const cv::Mat& T)
+    {
+        mmTransformMat = T;
+    }
+
+    cv::Mat Frame::getTransformMat()
+    {
+        return mmTransformMat;
     }
 
     void Frame::setScale(const double& scale)

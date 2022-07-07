@@ -8,192 +8,68 @@
 #include "similarity.h"
 #include "projection.h"
 
-
 int main()
 {
+    // cv::Mat image_L = cv::imread("/root/dataset/sequences/00/image_0/000086.png");
     cv::Mat image_L = cv::imread("/root/dataset/sequences/00/image_0/000092.png");
     cv::Mat image_R = cv::imread("/root/dataset/sequences/00/image_0/000096.png");
 
     std::shared_ptr<Data::Frame> frame_L = std::make_shared<Data::Frame>(image_L);
     std::shared_ptr<Data::Frame> frame_R = std::make_shared<Data::Frame>(image_R);
+    std::shared_ptr<Data::KeyFrame> currKeyFrame;
 
-    auto tracking = std::make_shared<Frontend::Tracking<std::shared_ptr<Data::Frame>>>(frame_L, frame_R);
+
 
     int nFeatures = 500;
-    tracking->detectFeatures(nFeatures);
-    tracking->matchFeatures();
-    tracking->computeEssentialMatrix();
+    Frontend::detectFeatures(frame_L, frame_R, nFeatures); // 이미지 코너 검출
+    Frontend::matchFeatures(frame_L, frame_R); // 두 이미지 간 매칭점
+    Frontend::computeEssentialMatrix(frame_L, frame_R); // 두 이미지 간 Essential Matrix를 구하는 과정.
+                                                        // 그러나 Mono에서는 KeyFrame에서 구하는 것이기에 의미가 없다.
+    Frontend::computeTriangulation(frame_L, frame_R); // Correspondence 간의 Triangulation을 계산
 
-    for(int i = 0; i < frame_L->getGoodMatches().size(); ++i)
+    Frontend::computeTransformMat(frame_L);
+
+
+    if(currKeyFrame->mvKeyFrameVec.size() == 0) // 첫번째라면
     {
-        tracking->computeTriangulation(frame_L->getGoodMatches()[i], frame_R->getGoodMatches()[i]);
+        currKeyFrame = std::make_shared<Data::KeyFrame>(frame_L); //키프레임으로 지정하고
+        // continue; //처음부터 시작하기
     }
 
-    std::shared_ptr<Similarity> sim = std::make_shared<Similarity>(frame_L, frame_R);
-    sim->findSimFeatures();
-    std::cout << frame_L->getFramePoint3d().size() << std::endl;
+    std::shared_ptr<Similarity> sim = std::make_shared<Similarity>(currKeyFrame, frame_L); // 유사성 비교하는 클래스. 키프레임을 뽑기 위한 과정. 왼쪽은 prev, 오른쪽은 curr이 되어야 한다.
+    sim->findSimFeatures(); // 두 이미지의 Correpondence 찾기
 
 
-    std::shared_ptr<Data::KeyFrame> keyFrame;
-    if (sim->computeSimilarity(nFeatures))
+    if (sim->computeSimilarity(nFeatures)) // 충분히 다르다고 생각하면
     {
-        keyFrame = std::make_shared<Data::KeyFrame>(frame_L);
+        currKeyFrame = std::make_shared<Data::KeyFrame>(frame_L); //curr를 키프레임으로 선정.
+    }
+    else // 아니라면 다음 이미지로 넘어가기
+    {
+        // continue;
     }
 
-    std::shared_ptr<Projection> proj = std::make_shared<Projection>();
-    proj->doProjection(keyFrame);
+
+
+    // 키프레임이 처음이 아니라면 월드좌표 구하고 projection 진행
+    // 월드좌표 = 이전 키프레임의 월드좌표 + 이전 키프레임과 현재 키프레임의 상대좌표
+    // const auto& prevKeyFrame = currKeyFrame->getPrevKeyFrame();
+    // Frontend::computeEssentialMatrix(prevKeyFrame, currKeyFrame); // 이전 키프레임과 현재 키프레임간 상대포즈를 구한다.
+
+    /*
+        1. 월드좌표를 구하기 위해서는 월드좌표를 (0,0,0)으로 설정한다
+        2. Rt를 구한다.
+        3. 이전 좌표에 t를 더한다.
+        4. 1로 돌아간다.
+    */
+    // Frontend::computeWorldPosition(prevKeyFrame, currKeyFrame);
+
+
+    // K * Rt * World Coordinate (projection)
+
+
+    // std::shared_ptr<Projection> proj = std::make_shared<Projection>();
+    // proj->doProjection(keyFrame);
 
     return 0;
 }
-
-/*
-
-//Require: input arrays from left and right image
-KeypointWD K_L[] = .., K_R[] = ..;
-
-//Ensure: output array of stereo keypoint pairs
-pair<KeypointWD, KeypointWD> K_LR[];
-
-//sort all input vectors in the order of the expression
-sort(K_L, ((K_L[i].r < K_L[j].r) || (K_L[i].r == K_L[j].r && K_L[i].c < K_L[j].c)));
-sort(K_R, ((K_R[i].r < K_R[j].r) || (K_L[i].r == K_L[j].r && K_R[i].c < K_R[j].c)));
-
-//configuration
-const float maximum_matching_distance = ..;
-int idx_R = 0;
-
-//loop over all left keypoints
-for (int idx_L = 0; idx_L < K_L.size(); idx_L++)
-{
-    //stop condition
-    if (idx_R == K_R.size()) {break;}
-
-    //the right keypoints are on an lower row - skip left
-    while (K_L[idx_L].r < K_R[idx_R].r)
-    {
-        idx_L++;
-        if (idx_L == K_L.size()) {break;}
-    }
-
-    //the right keypoints are on an upper row - skip right
-    while (K_L[idx_L].r > K_R[idx_R].r)
-    {
-        idx_R++;
-        if (idx_R == K_R.size()) {break;}
-    }
-
-    //search bookkeeping
-    int idx_RS = idx_R;
-    float dist_best = maximum_matching_distance;
-    int idx_best_R = 0;
-
-    //scan epipolar line for current keypoint at idx_L
-    while (K_L[idx_L].r == K_R[idx_RS].r)
-    {
-        //zero disparity stop condition
-        if (K_R[idx_RS].c >= K_L[idx_L].c) {break;}
-
-        //compute descriptor distance
-        const float dist = hnorm(K_L[idx_L].d, K_R[idx_RS].d)
-        if(dist < dist_best)
-        {
-            dist_best = dist;
-            idx_best_R = idx_RS;
-        }
-        idx_RS++;
-    }
-
-    //check if something was found
-    if (dist_best < maximum_matching_distance)
-    {
-        K_LR += pair(K_L[idx_L], K_R[idx_best_R]);
-        idx_R = idx_best_R+1;
-    }
-}
-
-
-
-
-//Require: current frame (carrying framepoints)
-Frame* frame = ..;
-
-//Require|Ensure: transform estimate camera to/from world
-Transform T_c2w = .., T_w2c = ..;
-
-//ds configuration
-const bool ignore_outliers = ..;
-const float kernel_maximum_error = ..;
-const float close_depth = ..;
-const float maximum_depth = ..;
-const int number_of_iterations = ..;
-
-for (int i = 0; i < number_of_iterations; i++)
-{
-    //initialize least squares components
-    Matrix6 H = 0, Vector6 b = 0, Matrix4 omega = I;
-
-    //loop over all framepoints
-    for (Framepoint* fp: frame->points())
-    {
-        if (!fp->prev()) {continue;}
-
-        CameraCoordinates p_c = T_w2c*fp->prev()->p_w;
-
-        //preferably use landmark position estimate
-        if (fp->landmark())
-        {
-            p_c = T_w2c*fp->landmark()->p_w;
-            //increase weight for landmarks
-            omega = ..;
-        }
-
-        //project point into left and right image
-        const Keypoint k_L = frame->cam_L->project(p_c);
-        const Keypoint k_R = frame->cam_R->project(p_c);
-
-        //ds compute current reprojection error
-        const Vector4 error(k_L.u-fp->k_L.u, k_L.v-fp->k_L.v,
-        k_R.u-fp->k_R.u, k_R.v-fp->k_R.v);
-
-        //compute squared error
-        const float error_squared = error.transpose()*error;
-
-        //robust kernel
-        if (error_squared > kernel_maximum_error)
-        {
-            if (ignore_outliers) {continue;}
-            omega *= kernel_maximum_error/error_squared;
-        }
-        else
-        {
-            fp->inlier = true;
-        }
-
-        //compute stereouv jacobian see Eq. (11)
-        Matrix4_6 J = getJacobian(T_w2c, p_c, frame);
-
-
-        //adjust omega: if the point is considered close
-        if(p_c.z() < close_depth)
-        {
-            omega *= (close_depth-p_c.z())/close_depth;
-        }
-        else
-        {
-            omega *= (maximum_depth-p_c.z())/maximum_depth;
-
-            //disable contribution to translational error
-            J.block<3,3>(0,0) = 0;
-        }
-        //update H and b
-        H += J.transpose()*omega*J;
-        b += J.transpose()*omega*error;
-    }
-
-    //compute (Identity-damped) solution
-    const Vector6 dx = solve((H+I)\(-b));
-    T_w2c = v2t(dx)*T_w2c;
-    T_c2w = T_w2c.inverse();
-}
-
-*/

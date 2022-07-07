@@ -1,5 +1,9 @@
 #include "keyframe.h"
 
+
+std::vector<std::shared_ptr<Data::KeyFrame>> Data::KeyFrameVec::mvKeyFrameVec = {};
+
+
 namespace Data
 {
 
@@ -7,27 +11,33 @@ namespace Data
     :mpFrame(frame)
     {
         this->setDescriptors(frame->getDescriptors());
-        this->setEssentialMatrix(frame->getEssentialMatrix());
+        this->setEssentialMat(frame->getEssentialMat());
         this->setFrame(frame->getFrame());
         this->setFramePoint2d(frame->getFramePoint2d());
         this->setFramePoint3d(frame->getFramePoint3d());
-        this->setFundamentalMatrix(frame->getFundamentalMatrix());
+        this->setFundamentalMat(frame->getFundamentalMat());
         this->setGoodMatches(frame->getGoodMatches());
-        this->setRotationMatrix(frame->getRotationMatrix());
+        this->setRotationMat(frame->getRotationMat());
         this->setScale(frame->getScale());
-        this->setTranslationMatrix(frame->getTranslationMatrix());
+        this->setTranslationMat(frame->getTranslationMat());
+        this->miKeyFrameNum = mvKeyFrameVec.size();
     };
 
-
-
-    // void KeyFrame::setKeyFrame(std::shared_ptr<Data::Frame> frame)
-    // {
-    //     mpFrame = frame;
-    // }
 
     std::shared_ptr<Data::Frame> KeyFrame::getKeyFrame()
     {
         return mpFrame;
+    }
+
+
+    void KeyFrame::setWorldPosition(cv::Point3d worldPosition)
+    {
+        mWorldPosition = worldPosition;
+    }
+
+    cv::Point3d KeyFrame::getWorldPosition()
+    {
+        return mWorldPosition;
     }
 
 
@@ -41,33 +51,38 @@ namespace Data
         return mvReprojPoints;
     }
 
-    void KeyFrame::setPose_cw(const cv::Mat& T_cw)
+    void KeyFrame::setW2CRotationMat(cv::Mat rotation)
     {
-        mmT_cw = T_cw;
+        mRcw = rotation;
     }
 
-    cv::Mat KeyFrame::getPose_cw()
+    cv::Mat KeyFrame::getW2CRotationMat()
     {
-        return mmT_cw;
+        return mRcw;
     }
 
-
-    void KeyFrame::setPose_wc(const cv::Mat& T_wc)
+    void KeyFrame::setW2CTranslationMat(cv::Mat translation)
     {
-        mmT_wc = T_wc;
+        mTcw = translation;
     }
 
-    cv::Mat KeyFrame::getPose_wc()
+    cv::Mat KeyFrame::getW2CTranslationMat()
     {
-        return mmT_wc;
+        return mTcw;
     }
 
-    void KeyFrame::setPose_lr(const cv::Mat& T_lr)
+    int KeyFrame::getKeyFrameNum()
     {
-        mmT_lr = T_lr;
+        return miKeyFrameNum;
     }
-    cv::Mat KeyFrame::getPose_lr()
+
+    std::shared_ptr<Data::KeyFrame> KeyFrame::getPrevKeyFrame()
     {
-        return mmT_lr;
+        return mvKeyFrameVec[miKeyFrameNum-1];
     }
+    std::shared_ptr<Data::KeyFrame> KeyFrame::getWorldKeyFrame()
+    {
+        return mvKeyFrameVec[0];
+    }
+
 }

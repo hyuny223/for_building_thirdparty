@@ -1,6 +1,5 @@
 #pragma once
 
-#include "opencv2/opencv.hpp"
 #include "framepoint.h"
 
 namespace Data
@@ -17,10 +16,11 @@ namespace Data
 
             std::vector<cv::Point2d> mvGoodMatches;
 
-            cv::Mat mmFundamentalMatrix;
-            cv::Mat mmEssentialMatrix;
-            cv::Mat mmRoationMatrix;
-            cv::Mat mmTranslationMatrix;
+            cv::Mat mmFundamentalMat;
+            cv::Mat mmEssentialMat;
+            cv::Mat mmRoationMat;
+            cv::Mat mmTranslationMat;
+            cv::Mat mmTransformMat;
 
             double mdScale{1000};
 
@@ -41,15 +41,17 @@ namespace Data
             void setGoodMatches(const std::vector<cv::Point2d>& goodMatch);
             std::vector<cv::Point2d> getGoodMatches();
 
-            void setFundamentalMatrix(const cv::Mat& F);
-            void setEssentialMatrix(const cv::Mat& E);
-            void setRotationMatrix(const cv::Mat& R);
-            void setTranslationMatrix(const cv::Mat& t);
+            void setFundamentalMat(const cv::Mat& F);
+            void setEssentialMat(const cv::Mat& E);
+            void setRotationMat(const cv::Mat& R);
+            void setTranslationMat(const cv::Mat& t);
+            void setTransformMat(const cv::Mat& T);
 
-            cv::Mat getFundamentalMatrix();
-            cv::Mat getEssentialMatrix();
-            cv::Mat getRotationMatrix();
-            cv::Mat getTranslationMatrix();
+            cv::Mat getFundamentalMat();
+            cv::Mat getEssentialMat();
+            cv::Mat getRotationMat();
+            cv::Mat getTranslationMat();
+            cv::Mat getTransformMat();
 
             void setScale(const double& scale);
             double getScale();
