@@ -105,6 +105,7 @@ modules/module3/CMakeFiles/module3.dir/src/projection.cpp.o: ../Thirdparty/openc
 modules/module3/CMakeFiles/module3.dir/src/projection.cpp.o: ../modules/module1/include/frame.h
 modules/module3/CMakeFiles/module3.dir/src/projection.cpp.o: ../modules/module1/include/framepoint.h
 modules/module3/CMakeFiles/module3.dir/src/projection.cpp.o: ../modules/module1/include/keyframe.h
+modules/module3/CMakeFiles/module3.dir/src/projection.cpp.o: ../modules/module2/include/tracking.h
 modules/module3/CMakeFiles/module3.dir/src/projection.cpp.o: ../modules/module3/include/projection.h
 modules/module3/CMakeFiles/module3.dir/src/projection.cpp.o: ../modules/module3/src/projection.cpp
 

@@ -106,6 +106,7 @@ modules/module3/CMakeFiles/module3.dir/src/projection.cpp.o
  ../modules/module1/include/frame.h
  ../modules/module1/include/framepoint.h
  ../modules/module1/include/keyframe.h
+ ../modules/module2/include/tracking.h
  ../modules/module3/include/projection.h
  /team-SLAM/modules/module3/src/projection.cpp
 modules/module3/CMakeFiles/module3.dir/src/similarity.cpp.o

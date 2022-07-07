@@ -10,6 +10,7 @@
 
 int main()
 {
+
     // cv::Mat image_L = cv::imread("/root/dataset/sequences/00/image_0/000086.png");
     cv::Mat image_L = cv::imread("/root/dataset/sequences/00/image_0/000092.png");
     cv::Mat image_R = cv::imread("/root/dataset/sequences/00/image_0/000096.png");
