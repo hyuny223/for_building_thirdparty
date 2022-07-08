@@ -18,7 +18,7 @@
 					"source" : ".",
 					"targetIndexes" : 
 					[
-						3
+						4
 					]
 				},
 				{
@@ -88,8 +88,12 @@
 						"string" : "3.16"
 					},
 					"parentIndex" : 1,
-					"projectIndex" : 0,
-					"source" : "modules/module4"
+					"projectIndex" : 4,
+					"source" : "modules/module4",
+					"targetIndexes" : 
+					[
+						3
+					]
 				},
 				{
 					"build" : "modules/module5",
@@ -110,19 +114,19 @@
 					[
 						1,
 						2,
-						3
+						3,
+						4
 					],
 					"directoryIndexes" : 
 					[
 						0,
 						1,
-						5,
 						6
 					],
 					"name" : "untitled",
 					"targetIndexes" : 
 					[
-						3
+						4
 					]
 				},
 				{
@@ -160,6 +164,18 @@
 					[
 						2
 					]
+				},
+				{
+					"directoryIndexes" : 
+					[
+						5
+					],
+					"name" : "module4",
+					"parentIndex" : 0,
+					"targetIndexes" : 
+					[
+						3
+					]
 				}
 			],
 			"targets" : 
@@ -186,9 +202,16 @@
 					"projectIndex" : 3
 				},
 				{
+					"directoryIndex" : 5,
+					"id" : "module4::@0f22d8140bb1b3815e1e",
+					"jsonFile" : "target-module4-946b82d1aaf49a6f151a.json",
+					"name" : "module4",
+					"projectIndex" : 4
+				},
+				{
 					"directoryIndex" : 0,
 					"id" : "untitled::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-untitled-02c003f4e5f08c3cef4e.json",
+					"jsonFile" : "target-untitled-bb007cc8f1f305e917fb.json",
 					"name" : "untitled",
 					"projectIndex" : 0
 				}

@@ -110,6 +110,48 @@ depend:
 	cd /team-SLAM/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
+# Convenience name for target.
+modules/module4/CMakeFiles/module4.dir/rule:
+	cd /team-SLAM/build && $(MAKE) -f CMakeFiles/Makefile2 modules/module4/CMakeFiles/module4.dir/rule
+.PHONY : modules/module4/CMakeFiles/module4.dir/rule
+
+# Convenience name for target.
+module4: modules/module4/CMakeFiles/module4.dir/rule
+
+.PHONY : module4
+
+# fast build rule for target.
+module4/fast:
+	cd /team-SLAM/build && $(MAKE) -f modules/module4/CMakeFiles/module4.dir/build.make modules/module4/CMakeFiles/module4.dir/build
+.PHONY : module4/fast
+
+src/optimization.o: src/optimization.cpp.o
+
+.PHONY : src/optimization.o
+
+# target to build an object file
+src/optimization.cpp.o:
+	cd /team-SLAM/build && $(MAKE) -f modules/module4/CMakeFiles/module4.dir/build.make modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o
+.PHONY : src/optimization.cpp.o
+
+src/optimization.i: src/optimization.cpp.i
+
+.PHONY : src/optimization.i
+
+# target to preprocess a source file
+src/optimization.cpp.i:
+	cd /team-SLAM/build && $(MAKE) -f modules/module4/CMakeFiles/module4.dir/build.make modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.i
+.PHONY : src/optimization.cpp.i
+
+src/optimization.s: src/optimization.cpp.s
+
+.PHONY : src/optimization.s
+
+# target to generate assembly for a file
+src/optimization.cpp.s:
+	cd /team-SLAM/build && $(MAKE) -f modules/module4/CMakeFiles/module4.dir/build.make modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.s
+.PHONY : src/optimization.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -118,6 +160,10 @@ help:
 	@echo "... depend"
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
+	@echo "... module4"
+	@echo "... src/optimization.o"
+	@echo "... src/optimization.i"
+	@echo "... src/optimization.s"
 .PHONY : help
 
 

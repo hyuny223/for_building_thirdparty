@@ -101,4 +101,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "modules/module1/CMakeFiles/module1.dir/DependInfo.cmake"
   "modules/module2/CMakeFiles/module2.dir/DependInfo.cmake"
   "modules/module3/CMakeFiles/module3.dir/DependInfo.cmake"
+  "modules/module4/CMakeFiles/module4.dir/DependInfo.cmake"
   )

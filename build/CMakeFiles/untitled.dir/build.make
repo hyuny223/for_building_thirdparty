@@ -84,18 +84,7 @@ untitled: ../Thirdparty/ceres/install/lib/libceres.a
 untitled: modules/module1/libmodule1.so
 untitled: modules/module2/libmodule2.so
 untitled: modules/module3/libmodule3.so
-untitled: /usr/lib/x86_64-linux-gnu/libglog.so
-untitled: /usr/lib/x86_64-linux-gnu/libgflags.so.2.2.2
-untitled: /usr/lib/x86_64-linux-gnu/libspqr.so
-untitled: /usr/lib/x86_64-linux-gnu/libcholmod.so
-untitled: /usr/lib/x86_64-linux-gnu/libamd.so
-untitled: /usr/lib/x86_64-linux-gnu/libcamd.so
-untitled: /usr/lib/x86_64-linux-gnu/libccolamd.so
-untitled: /usr/lib/x86_64-linux-gnu/libcolamd.so
-untitled: /usr/lib/x86_64-linux-gnu/libsuitesparseconfig.so
-untitled: /usr/lib/x86_64-linux-gnu/liblapack.so
-untitled: /usr/lib/x86_64-linux-gnu/libf77blas.so
-untitled: /usr/lib/x86_64-linux-gnu/libatlas.so
+untitled: modules/module4/libmodule4.so
 untitled: ../Thirdparty/opencv/install/lib/libopencv_dnn.so.4.4.0
 untitled: ../Thirdparty/opencv/install/lib/libopencv_gapi.so.4.4.0
 untitled: ../Thirdparty/opencv/install/lib/libopencv_highgui.so.4.4.0
@@ -111,6 +100,19 @@ untitled: ../Thirdparty/opencv/install/lib/libopencv_videoio.so.4.4.0
 untitled: ../Thirdparty/opencv/install/lib/libopencv_imgcodecs.so.4.4.0
 untitled: ../Thirdparty/opencv/install/lib/libopencv_imgproc.so.4.4.0
 untitled: ../Thirdparty/opencv/install/lib/libopencv_core.so.4.4.0
+untitled: ../Thirdparty/ceres/install/lib/libceres.a
+untitled: /usr/lib/x86_64-linux-gnu/libglog.so
+untitled: /usr/lib/x86_64-linux-gnu/libgflags.so.2.2.2
+untitled: /usr/lib/x86_64-linux-gnu/libspqr.so
+untitled: /usr/lib/x86_64-linux-gnu/libcholmod.so
+untitled: /usr/lib/x86_64-linux-gnu/libamd.so
+untitled: /usr/lib/x86_64-linux-gnu/libcamd.so
+untitled: /usr/lib/x86_64-linux-gnu/libccolamd.so
+untitled: /usr/lib/x86_64-linux-gnu/libcolamd.so
+untitled: /usr/lib/x86_64-linux-gnu/libsuitesparseconfig.so
+untitled: /usr/lib/x86_64-linux-gnu/liblapack.so
+untitled: /usr/lib/x86_64-linux-gnu/libf77blas.so
+untitled: /usr/lib/x86_64-linux-gnu/libatlas.so
 untitled: CMakeFiles/untitled.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable untitled"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/untitled.dir/link.txt --verbose=$(VERBOSE)
