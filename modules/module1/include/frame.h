@@ -21,7 +21,6 @@ namespace Data
             cv::Mat mmRoationMat;
             cv::Mat mmTranslationMat;
             cv::Mat mmTransformMat;
-            cv::Mat mmw2c = cv::Mat::eye(4, 4, CV_32F);
 
             double mdScale{1000};
 

@@ -51,6 +51,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         module1/include
         module2/include
         module3/include
+        module4/include
         )
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
@@ -62,4 +63,5 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         module1
         module2
         module3
+        module4
         )

@@ -38,7 +38,7 @@ void matchFeatures(T Frame_L, T Frame_R)
     std::vector<cv::DMatch> goodMatches;
     for (auto m : matches)
     {
-        if (m[0].distance / m[1].distance < 0.6)
+        if (m[0].distance / m[1].distance < 0.7)
         {
             goodMatches.push_back(m[0]);
         }
