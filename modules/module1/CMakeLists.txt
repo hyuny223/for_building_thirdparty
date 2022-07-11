@@ -8,6 +8,8 @@ set(MODULE1_SOURCE_FILES
         src/frame.cpp
         src/framepoint.cpp
         src/keyframe.cpp
+        src/localmap.cpp
+        src/globalmap.cpp
         )
 
 find_package(OpenCV 4.4.0 REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/opencv/install/lib/cmake/opencv4)

@@ -1038,13 +1038,21 @@ opencv2/opencv.hpp
 frame.h
 ../modules/module1/include/frame.h
 
-/team-SLAM/modules/module1/src/frame.cpp
-opencv2/opencv.hpp
-/team-SLAM/modules/module1/src/opencv2/opencv.hpp
-frame.h
-/team-SLAM/modules/module1/src/frame.h
+../modules/module1/include/localmap.h
+iostream
+-
+vector
+-
+keyframe.h
+../modules/module1/include/keyframe.h
 
-/team-SLAM/modules/module1/src/keyframe.cpp
+/team-SLAM/modules/module1/src/localmap.cpp
+iostream
+-
+vector
+-
 keyframe.h
 /team-SLAM/modules/module1/src/keyframe.h
+localmap.h
+/team-SLAM/modules/module1/src/localmap.h
 

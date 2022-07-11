@@ -6,7 +6,9 @@ set(CMAKE_DEPENDS_LANGUAGES
 set(CMAKE_DEPENDS_CHECK_CXX
   "/team-SLAM/modules/module1/src/frame.cpp" "/team-SLAM/build/modules/module1/CMakeFiles/module1.dir/src/frame.cpp.o"
   "/team-SLAM/modules/module1/src/framepoint.cpp" "/team-SLAM/build/modules/module1/CMakeFiles/module1.dir/src/framepoint.cpp.o"
+  "/team-SLAM/modules/module1/src/globalmap.cpp" "/team-SLAM/build/modules/module1/CMakeFiles/module1.dir/src/globalmap.cpp.o"
   "/team-SLAM/modules/module1/src/keyframe.cpp" "/team-SLAM/build/modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.o"
+  "/team-SLAM/modules/module1/src/localmap.cpp" "/team-SLAM/build/modules/module1/CMakeFiles/module1.dir/src/localmap.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
 

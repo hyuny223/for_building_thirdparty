@@ -27,7 +27,6 @@ namespace Data
 
             cv::Mat mw2c = cv::Mat::eye(4, 4, CV_32F);
 
-
             int miKeyFrameNum;
 
         public:
