@@ -4,6 +4,7 @@
 #include "frame.h"
 #include "keyframe.h"
 
+
 namespace Frontend
 {
 template <typename T>
@@ -11,11 +12,15 @@ void detectFeatures(T Frame_L, T Frame_R, const int& nFeatures)
 {
     cv::Ptr<cv::Feature2D> detector = cv::ORB::create(nFeatures);
 
-    std::vector<cv::KeyPoint> framePoints_L = Frame_L->getFramePoint2d();
-    std::vector<cv::KeyPoint> framePoints_R = Frame_R->getFramePoint2d();
+    // std::vector<cv::KeyPoint> framePoints_L = Frame_L->getFramePoint2d();
+    // std::vector<cv::KeyPoint> framePoints_R = Frame_R->getFramePoint2d();
+    std::vector<cv::KeyPoint> framePoints_L;
+    std::vector<cv::KeyPoint> framePoints_R;
 
-    cv::Mat descriptors_L = Frame_L->getDescriptors();
-    cv::Mat descriptors_R = Frame_R->getDescriptors();
+    // cv::Mat descriptors_L = Frame_L->getDescriptors();
+    // cv::Mat descriptors_R = Frame_R->getDescriptors();
+    cv::Mat descriptors_L;
+    cv::Mat descriptors_R;
 
     detector->detectAndCompute(Frame_L->getFrame(), cv::Mat(), framePoints_L, descriptors_L);
     detector->detectAndCompute(Frame_R->getFrame(), cv::Mat(), framePoints_R, descriptors_R);
@@ -26,6 +31,7 @@ void detectFeatures(T Frame_L, T Frame_R, const int& nFeatures)
     Frame_L->setDescriptors(descriptors_L);
     Frame_R->setDescriptors(descriptors_R);
 };
+
 
 template <typename T>
 void matchFeatures(T Frame_L, T Frame_R)
@@ -62,6 +68,7 @@ void matchFeatures(T Frame_L, T Frame_R)
 
 };
 
+
 template<typename T>
 cv::Mat computeTransformMat(T& R, T& t, T& transform)
 {
@@ -96,9 +103,10 @@ void computeEssentialMatrix(T Frame_L, T Frame_R)
 
     Frame_L->setEssentialMat(cv::findEssentialMat(goodMatches_L, goodMatches_R, K));
     cv::Mat essentialMatrix = Frame_L->getEssentialMat();
-
-    cv::Mat rotationMatrix = Frame_L->getRotationMat(); // double
-    cv::Mat translationMatrix = Frame_L->getTranslationMat(); // double
+    // cv::Mat rotationMatrix = Frame_L->getRotationMat(); // double
+    // cv::Mat translationMatrix = Frame_L->getTranslationMat(); // double
+    cv::Mat rotationMatrix; // double
+    cv::Mat translationMatrix; // double
 
     cv::recoverPose(essentialMatrix, goodMatches_L, goodMatches_R, K, rotationMatrix, translationMatrix);
 
