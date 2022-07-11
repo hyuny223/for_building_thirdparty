@@ -373,6 +373,10 @@ modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../Thirdparty/ope
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../Thirdparty/opencv/install/include/opencv4/opencv2/video/background_segm.hpp
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../Thirdparty/opencv/install/include/opencv4/opencv2/video/tracking.hpp
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../Thirdparty/opencv/install/include/opencv4/opencv2/videoio.hpp
+modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module1/include/frame.h
+modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module1/include/framepoint.h
+modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module1/include/keyframe.h
+modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module3/include/projection.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module4/include/optimization.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module4/src/optimization.cpp
 

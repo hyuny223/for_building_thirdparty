@@ -127,10 +127,6 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "module2::@d099830ac294d1289245"
-		},
-		{
-			"backtrace" : 2,
 			"id" : "module3::@fba5b853b15d94a86c92"
 		},
 		{
@@ -140,6 +136,10 @@
 		{
 			"backtrace" : 2,
 			"id" : "module1::@9af30fd340da8f4bfef3"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "module2::@d099830ac294d1289245"
 		}
 	],
 	"id" : "untitled::@6890427a1f51a3e7e1df",
