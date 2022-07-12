@@ -44,7 +44,7 @@ void matchFeatures(T Frame_L, T Frame_R)
     std::vector<cv::DMatch> goodMatches;
     for (auto m : matches)
     {
-        if (m[0].distance / m[1].distance < 0.7)
+        if (m[0].distance / m[1].distance < 0.8)
         {
             goodMatches.push_back(m[0]);
         }
@@ -65,7 +65,15 @@ void matchFeatures(T Frame_L, T Frame_R)
 
     Frame_L->setGoodMatches(goodMatches_L);
     Frame_R->setGoodMatches(goodMatches_R);
+    
 
+    
+    cv::Mat dst;
+    cv::drawMatches(Frame_L->getFrame(), Frame_L->getFramePoint2d(), Frame_R->getFrame(), Frame_R->getFramePoint2d(), matches, dst);
+
+    cv::imshow("dst",dst);
+    // cv::waitKey(1);
+    cv::waitKey(1e3/20);
 };
 
 
