@@ -179,6 +179,33 @@ src/framepoint.cpp.s:
 	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/framepoint.cpp.s
 .PHONY : src/framepoint.cpp.s
 
+src/globalmap.o: src/globalmap.cpp.o
+
+.PHONY : src/globalmap.o
+
+# target to build an object file
+src/globalmap.cpp.o:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/globalmap.cpp.o
+.PHONY : src/globalmap.cpp.o
+
+src/globalmap.i: src/globalmap.cpp.i
+
+.PHONY : src/globalmap.i
+
+# target to preprocess a source file
+src/globalmap.cpp.i:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/globalmap.cpp.i
+.PHONY : src/globalmap.cpp.i
+
+src/globalmap.s: src/globalmap.cpp.s
+
+.PHONY : src/globalmap.s
+
+# target to generate assembly for a file
+src/globalmap.cpp.s:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/globalmap.cpp.s
+.PHONY : src/globalmap.cpp.s
+
 src/keyframe.o: src/keyframe.cpp.o
 
 .PHONY : src/keyframe.o
@@ -206,6 +233,33 @@ src/keyframe.cpp.s:
 	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.s
 .PHONY : src/keyframe.cpp.s
 
+src/localmap.o: src/localmap.cpp.o
+
+.PHONY : src/localmap.o
+
+# target to build an object file
+src/localmap.cpp.o:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/localmap.cpp.o
+.PHONY : src/localmap.cpp.o
+
+src/localmap.i: src/localmap.cpp.i
+
+.PHONY : src/localmap.i
+
+# target to preprocess a source file
+src/localmap.cpp.i:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/localmap.cpp.i
+.PHONY : src/localmap.cpp.i
+
+src/localmap.s: src/localmap.cpp.s
+
+.PHONY : src/localmap.s
+
+# target to generate assembly for a file
+src/localmap.cpp.s:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/localmap.cpp.s
+.PHONY : src/localmap.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -221,9 +275,15 @@ help:
 	@echo "... src/framepoint.o"
 	@echo "... src/framepoint.i"
 	@echo "... src/framepoint.s"
+	@echo "... src/globalmap.o"
+	@echo "... src/globalmap.i"
+	@echo "... src/globalmap.s"
 	@echo "... src/keyframe.o"
 	@echo "... src/keyframe.i"
 	@echo "... src/keyframe.s"
+	@echo "... src/localmap.o"
+	@echo "... src/localmap.i"
+	@echo "... src/localmap.s"
 .PHONY : help
 
 

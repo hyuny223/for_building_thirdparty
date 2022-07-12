@@ -96,11 +96,39 @@ modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/module1.dir/src/keyframe.cpp.s"
 	cd /team-SLAM/build/modules/module1 && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /team-SLAM/modules/module1/src/keyframe.cpp -o CMakeFiles/module1.dir/src/keyframe.cpp.s
 
+modules/module1/CMakeFiles/module1.dir/src/localmap.cpp.o: modules/module1/CMakeFiles/module1.dir/flags.make
+modules/module1/CMakeFiles/module1.dir/src/localmap.cpp.o: ../modules/module1/src/localmap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object modules/module1/CMakeFiles/module1.dir/src/localmap.cpp.o"
+	cd /team-SLAM/build/modules/module1 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/module1.dir/src/localmap.cpp.o -c /team-SLAM/modules/module1/src/localmap.cpp
+
+modules/module1/CMakeFiles/module1.dir/src/localmap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/module1.dir/src/localmap.cpp.i"
+	cd /team-SLAM/build/modules/module1 && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /team-SLAM/modules/module1/src/localmap.cpp > CMakeFiles/module1.dir/src/localmap.cpp.i
+
+modules/module1/CMakeFiles/module1.dir/src/localmap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/module1.dir/src/localmap.cpp.s"
+	cd /team-SLAM/build/modules/module1 && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /team-SLAM/modules/module1/src/localmap.cpp -o CMakeFiles/module1.dir/src/localmap.cpp.s
+
+modules/module1/CMakeFiles/module1.dir/src/globalmap.cpp.o: modules/module1/CMakeFiles/module1.dir/flags.make
+modules/module1/CMakeFiles/module1.dir/src/globalmap.cpp.o: ../modules/module1/src/globalmap.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object modules/module1/CMakeFiles/module1.dir/src/globalmap.cpp.o"
+	cd /team-SLAM/build/modules/module1 && /usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/module1.dir/src/globalmap.cpp.o -c /team-SLAM/modules/module1/src/globalmap.cpp
+
+modules/module1/CMakeFiles/module1.dir/src/globalmap.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/module1.dir/src/globalmap.cpp.i"
+	cd /team-SLAM/build/modules/module1 && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /team-SLAM/modules/module1/src/globalmap.cpp > CMakeFiles/module1.dir/src/globalmap.cpp.i
+
+modules/module1/CMakeFiles/module1.dir/src/globalmap.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/module1.dir/src/globalmap.cpp.s"
+	cd /team-SLAM/build/modules/module1 && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /team-SLAM/modules/module1/src/globalmap.cpp -o CMakeFiles/module1.dir/src/globalmap.cpp.s
+
 # Object files for target module1
 module1_OBJECTS = \
 "CMakeFiles/module1.dir/src/frame.cpp.o" \
 "CMakeFiles/module1.dir/src/framepoint.cpp.o" \
-"CMakeFiles/module1.dir/src/keyframe.cpp.o"
+"CMakeFiles/module1.dir/src/keyframe.cpp.o" \
+"CMakeFiles/module1.dir/src/localmap.cpp.o" \
+"CMakeFiles/module1.dir/src/globalmap.cpp.o"
 
 # External object files for target module1
 module1_EXTERNAL_OBJECTS =
@@ -108,6 +136,8 @@ module1_EXTERNAL_OBJECTS =
 modules/module1/libmodule1.so: modules/module1/CMakeFiles/module1.dir/src/frame.cpp.o
 modules/module1/libmodule1.so: modules/module1/CMakeFiles/module1.dir/src/framepoint.cpp.o
 modules/module1/libmodule1.so: modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.o
+modules/module1/libmodule1.so: modules/module1/CMakeFiles/module1.dir/src/localmap.cpp.o
+modules/module1/libmodule1.so: modules/module1/CMakeFiles/module1.dir/src/globalmap.cpp.o
 modules/module1/libmodule1.so: modules/module1/CMakeFiles/module1.dir/build.make
 modules/module1/libmodule1.so: ../Thirdparty/opencv/install/lib/libopencv_dnn.so.4.4.0
 modules/module1/libmodule1.so: ../Thirdparty/opencv/install/lib/libopencv_gapi.so.4.4.0
@@ -125,7 +155,7 @@ modules/module1/libmodule1.so: ../Thirdparty/opencv/install/lib/libopencv_flann.
 modules/module1/libmodule1.so: ../Thirdparty/opencv/install/lib/libopencv_imgproc.so.4.4.0
 modules/module1/libmodule1.so: ../Thirdparty/opencv/install/lib/libopencv_core.so.4.4.0
 modules/module1/libmodule1.so: modules/module1/CMakeFiles/module1.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX shared library libmodule1.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Linking CXX shared library libmodule1.so"
 	cd /team-SLAM/build/modules/module1 && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/module1.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

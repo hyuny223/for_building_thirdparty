@@ -1,5 +1,5 @@
 #pragma once
-// cv::Point3_<_Tp>::Point3_(_Tp _x, _Tp _y, _Tp _z)
+
 #include <iostream>
 #include "opencv2/opencv.hpp"
 
