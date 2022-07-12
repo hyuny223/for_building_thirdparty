@@ -86,7 +86,6 @@ untitled: modules/module1/libmodule1.so
 untitled: modules/module2/libmodule2.so
 untitled: modules/module3/libmodule3.so
 untitled: modules/module4/libmodule4.so
-untitled: ../Thirdparty/spdlog/install/lib/cmake/spdlog/libspdlog.a
 untitled: ../Thirdparty/opencv/install/lib/libopencv_dnn.so.4.4.0
 untitled: ../Thirdparty/opencv/install/lib/libopencv_gapi.so.4.4.0
 untitled: ../Thirdparty/opencv/install/lib/libopencv_highgui.so.4.4.0

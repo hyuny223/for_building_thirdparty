@@ -4,6 +4,7 @@ set(CMAKE_DEPENDS_LANGUAGES
   )
 # The set of files for implicit dependencies of each language:
 set(CMAKE_DEPENDS_CHECK_CXX
+  "/team-SLAM/modules/module2/src/quaternion.cpp" "/team-SLAM/build/modules/module2/CMakeFiles/module2.dir/src/quaternion.cpp.o"
   "/team-SLAM/modules/module2/src/tracking.cpp" "/team-SLAM/build/modules/module2/CMakeFiles/module2.dir/src/tracking.cpp.o"
   )
 set(CMAKE_CXX_COMPILER_ID "GNU")
@@ -17,7 +18,6 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../modules/module2/include"
   "../modules/module1/include"
-  "../Thirdparty/spdlog/install/include"
   "../Thirdparty/opencv/install/include/opencv4"
   )
 

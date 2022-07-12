@@ -125,6 +125,33 @@ module2/fast:
 	cd /team-SLAM/build && $(MAKE) -f modules/module2/CMakeFiles/module2.dir/build.make modules/module2/CMakeFiles/module2.dir/build
 .PHONY : module2/fast
 
+src/quaternion.o: src/quaternion.cpp.o
+
+.PHONY : src/quaternion.o
+
+# target to build an object file
+src/quaternion.cpp.o:
+	cd /team-SLAM/build && $(MAKE) -f modules/module2/CMakeFiles/module2.dir/build.make modules/module2/CMakeFiles/module2.dir/src/quaternion.cpp.o
+.PHONY : src/quaternion.cpp.o
+
+src/quaternion.i: src/quaternion.cpp.i
+
+.PHONY : src/quaternion.i
+
+# target to preprocess a source file
+src/quaternion.cpp.i:
+	cd /team-SLAM/build && $(MAKE) -f modules/module2/CMakeFiles/module2.dir/build.make modules/module2/CMakeFiles/module2.dir/src/quaternion.cpp.i
+.PHONY : src/quaternion.cpp.i
+
+src/quaternion.s: src/quaternion.cpp.s
+
+.PHONY : src/quaternion.s
+
+# target to generate assembly for a file
+src/quaternion.cpp.s:
+	cd /team-SLAM/build && $(MAKE) -f modules/module2/CMakeFiles/module2.dir/build.make modules/module2/CMakeFiles/module2.dir/src/quaternion.cpp.s
+.PHONY : src/quaternion.cpp.s
+
 src/tracking.o: src/tracking.cpp.o
 
 .PHONY : src/tracking.o
@@ -161,6 +188,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... edit_cache"
 	@echo "... module2"
+	@echo "... src/quaternion.o"
+	@echo "... src/quaternion.i"
+	@echo "... src/quaternion.s"
 	@echo "... src/tracking.o"
 	@echo "... src/tracking.i"
 	@echo "... src/tracking.s"

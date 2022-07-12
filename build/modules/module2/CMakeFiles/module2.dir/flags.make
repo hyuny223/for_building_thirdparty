@@ -6,5 +6,5 @@ CXX_FLAGS = -fPIC   -std=gnu++17
 
 CXX_DEFINES = -Dmodule2_EXPORTS
 
-CXX_INCLUDES = -I/team-SLAM/modules/module2/include -I/team-SLAM/modules/module1/include -I/team-SLAM/Thirdparty/spdlog/install/include -isystem /team-SLAM/Thirdparty/opencv/install/include/opencv4 
+CXX_INCLUDES = -I/team-SLAM/modules/module2/include -I/team-SLAM/modules/module1/include -isystem /team-SLAM/Thirdparty/opencv/install/include/opencv4 
 

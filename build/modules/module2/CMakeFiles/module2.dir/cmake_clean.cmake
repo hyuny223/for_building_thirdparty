@@ -1,4 +1,5 @@
 file(REMOVE_RECURSE
+  "CMakeFiles/module2.dir/src/quaternion.cpp.o"
   "CMakeFiles/module2.dir/src/tracking.cpp.o"
   "libmodule2.pdb"
   "libmodule2.so"
