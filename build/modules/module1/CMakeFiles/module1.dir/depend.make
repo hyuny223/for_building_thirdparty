@@ -316,7 +316,9 @@ modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.o: ../Thirdparty/opencv/
 modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.o: ../modules/module1/include/frame.h
 modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.o: ../modules/module1/include/framepoint.h
 modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.o: ../modules/module1/include/keyframe.h
+modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.o: ../modules/module1/include/localmap.h
 modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.o: ../modules/module1/src/keyframe.cpp
+modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.o: ../modules/module1/src/localmap.cpp
 
 modules/module1/CMakeFiles/module1.dir/src/localmap.cpp.o: ../Thirdparty/opencv/install/include/opencv4/opencv2/calib3d.hpp
 modules/module1/CMakeFiles/module1.dir/src/localmap.cpp.o: ../Thirdparty/opencv/install/include/opencv4/opencv2/core.hpp

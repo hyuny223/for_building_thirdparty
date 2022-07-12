@@ -2,6 +2,7 @@
 
 #include "projection.h"
 #include "tracking.h"
+#include <spdlog/spdlog.h>
 
 void doProjection(std::shared_ptr<Data::KeyFrame> prevKeyFrame,
                 std::shared_ptr<Data::KeyFrame> currKeyFrame)
@@ -17,6 +18,7 @@ void doProjection(std::shared_ptr<Data::KeyFrame> prevKeyFrame,
 
     std::vector<cv::Point2d> newFramePoint2d;
     cv::projectPoints(point3D, prevKeyFrame->getRotationMat(), prevKeyFrame->getTranslationMat(), K, distCoeffs, newFramePoint2d);
+    spdlog::info("- projectPoints complete");
 
     std::vector<cv::KeyPoint> reprojPoints;
 
@@ -32,4 +34,5 @@ void doProjection(std::shared_ptr<Data::KeyFrame> prevKeyFrame,
     }
 
     currKeyFrame->setReprojPoints(reprojPoints);
+    spdlog::info("- setReprojPoints complete");
 }

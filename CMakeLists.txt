@@ -31,6 +31,8 @@ if (Ceres_FOUND)
     message(STATUS "Ceres FOUND - ${Ceres_DIR}")
 endif()
 if (spdlog_FOUND)
+    set(spdlog_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/spdlog/install/include)
+    set(spdlog_LIBRARIES ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/spdlog/install/lib)
     message(STATUS "spdlog FOUND - ${spdlog_DIR}")
 endif()
 
@@ -48,6 +50,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ${Pangolin_INCLUDE_DIR}
         ${Ceres_INCLUDE_DIR}
         ${spdlog_INCLUDE_DIR}
+
         module1/include
         module2/include
         module3/include

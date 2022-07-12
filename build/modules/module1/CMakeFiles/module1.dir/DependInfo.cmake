@@ -20,6 +20,7 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../modules/module1/include"
+  "../Thirdparty/spdlog/install/include"
   "../Thirdparty/opencv/install/include/opencv4"
   )
 

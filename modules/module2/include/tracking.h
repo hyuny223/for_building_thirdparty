@@ -3,7 +3,8 @@
 #include "framepoint.h"
 #include "frame.h"
 #include "keyframe.h"
-
+#include <spdlog/spdlog.h>
+#include <cmath>
 
 namespace Frontend
 {
@@ -24,12 +25,15 @@ void detectFeatures(T Frame_L, T Frame_R, const int& nFeatures)
 
     detector->detectAndCompute(Frame_L->getFrame(), cv::Mat(), framePoints_L, descriptors_L);
     detector->detectAndCompute(Frame_R->getFrame(), cv::Mat(), framePoints_R, descriptors_R);
+    spdlog::info("- detectAndCompute complete");
 
     Frame_L->setFramePoint2d(framePoints_L);
     Frame_R->setFramePoint2d(framePoints_R);
+    spdlog::info("- setFramePoint2d complete");
 
     Frame_L->setDescriptors(descriptors_L);
     Frame_R->setDescriptors(descriptors_R);
+    spdlog::info("- setDescriptors complete");
 };
 
 
@@ -40,6 +44,7 @@ void matchFeatures(T Frame_L, T Frame_R)
 
     std::vector<std::vector<cv::DMatch>> matches;
     matcher->knnMatch(Frame_L->getDescriptors(), Frame_R->getDescriptors(), matches, 2);
+    spdlog::info("knnMatch complete");
 
     std::vector<cv::DMatch> goodMatches;
     for (auto m : matches)
@@ -65,6 +70,17 @@ void matchFeatures(T Frame_L, T Frame_R)
 
     Frame_L->setGoodMatches(goodMatches_L);
     Frame_R->setGoodMatches(goodMatches_R);
+    spdlog::info("- setGoodMatches complete");
+
+    cv::Mat dst;
+    cv::drawMatches(Frame_L->getFrame(), Frame_L->getFramePoint2d(), Frame_R->getFrame(), Frame_R->getFramePoint2d(), matches, dst);
+    spdlog::info("- drawMatches complete");
+
+    cv::imshow("dst",dst);
+    cv::waitKey(0);
+    spdlog::warn("- waitKey(0)");
+    // cv::waitKey(1e3/20);
+    // spdlog::warn("- waitKey(1e3/20)");
 
 };
 
@@ -103,19 +119,26 @@ void computeEssentialMatrix(T Frame_L, T Frame_R)
 
     Frame_L->setEssentialMat(cv::findEssentialMat(goodMatches_L, goodMatches_R, K));
     cv::Mat essentialMatrix = Frame_L->getEssentialMat();
+    spdlog::info("- setEssentialMat complete");
+
     // cv::Mat rotationMatrix = Frame_L->getRotationMat(); // double
     // cv::Mat translationMatrix = Frame_L->getTranslationMat(); // double
     cv::Mat rotationMatrix; // double
     cv::Mat translationMatrix; // double
 
     cv::recoverPose(essentialMatrix, goodMatches_L, goodMatches_R, K, rotationMatrix, translationMatrix);
+    spdlog::info("- recoverPose complete");
 
     cv::Mat transformMatrix;
     computeTransformMat(rotationMatrix, translationMatrix, transformMatrix);
+    spdlog::info("- computeTransformMat complete");
 
     Frame_L->setRotationMat(rotationMatrix);
+    spdlog::info("- setRotationMat complete");
     Frame_L->setTranslationMat(translationMatrix); // tvec은 distance가 1인 유닛 벡터이다. 스케일이 정해지지 않음.
+    spdlog::info("- setTranslationMat complete");
     Frame_L->setTransformMat(transformMatrix);
+    spdlog::info("- setTransformMat complete");
 }
 
 template <typename T>
@@ -145,6 +168,31 @@ void computeTriangulation(T Frame_L, T Frame_R)
         framePoint3d_L.push_back(p);
     }
     Frame_L->setFramePoint3d(framePoint3d_L);
+
+
+    cv::Mat R = Frame_L->getRotationMat();
+
+    cv::Mat dst;
+    cv::Rodrigues(R,dst); // R*좌표
+
+    auto x = R.ptr<double>(0)[0]*p.x + R.ptr<double>(0)[1]*p.y + R.ptr<double>(0)[2]*p.z;
+    auto y = R.ptr<double>(1)[0]*p.x + R.ptr<double>(1)[1]*p.y + R.ptr<double>(1)[2]*p.z;
+    auto z = R.ptr<double>(2)[0]*p.x + R.ptr<double>(2)[1]*p.y + R.ptr<double>(2)[2]*p.z;
+
+    spdlog::info("- rotation (x,y,z) = ({}, {}, {})", x, y ,z);
+
+    auto a = dst.ptr<double>(0)[0];
+    auto b = dst.ptr<double>(0)[1];
+    auto c = dst.ptr<double>(0)[2];
+
+    auto theta = sqrt(a*a + b*b + c*c);
+
+    auto a_ = a / theta;
+    auto b_ = b / theta;
+    auto c_ = c / theta;
+
+    spdlog::info("- rodrigues (x,y,z) = ({}, {}, {})", p.x*(a_+b_+c_), b_, c_);
+
 }
 
 template<typename T>
@@ -159,4 +207,6 @@ void computeWorldPosition(T prevKeyFrame, T currKeyFrame)
 
     currKeyFrame->setw2c(currw2c);
 }
+
+
 }

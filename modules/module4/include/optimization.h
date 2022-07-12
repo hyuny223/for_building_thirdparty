@@ -6,6 +6,7 @@
 #include "Eigen/Dense"
 #include "projection.h"
 #include "quaternion.h"
+#include <spdlog/spdlog.h>
 
 class Pose2dErrorTerm
 {
@@ -92,6 +93,7 @@ void optimization(T prevKeyFrame, T currKeyFrame)
     options.minimizer_progress_to_stdout = true;
     Solver::Summary summary;
     Solve(options, &problem, &summary);
+    spdlog::info("- Solve complete");
 
 
     /*
@@ -111,12 +113,11 @@ void optimization(T prevKeyFrame, T currKeyFrame)
     translationMat.ptr<double>(0)[2] = t[2];
 
     prevKeyFrame->setRotationMat(rotationMat);
+    spdlog::info("- setRotationMat complete");
     prevKeyFrame->setTranslationMat(translationMat);
     prevKeyFrame->setQuaternion(quaternion);
 
-
-    std::cout << summary.BriefReport() << "\n";
-
+    spdlog::info("- summary.BriefReport() :\n{}", summary.BriefReport());
 }
 
 
