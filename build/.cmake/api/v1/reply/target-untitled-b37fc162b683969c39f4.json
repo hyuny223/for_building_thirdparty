@@ -26,19 +26,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 43,
+				"line" : 45,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 57,
+				"line" : 60,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 45,
+				"line" : 47,
 				"parent" : 0
 			}
 		]
@@ -67,6 +67,10 @@
 				{
 					"backtrace" : 3,
 					"path" : "/team-SLAM/Thirdparty/pangolin/install/include"
+				},
+				{
+					"backtrace" : 3,
+					"path" : "/team-SLAM/Thirdparty/spdlog/install/include"
 				},
 				{
 					"backtrace" : 3,
@@ -127,19 +131,19 @@
 	[
 		{
 			"backtrace" : 2,
-			"id" : "module3::@fba5b853b15d94a86c92"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "module4::@0f22d8140bb1b3815e1e"
-		},
-		{
-			"backtrace" : 2,
 			"id" : "module1::@9af30fd340da8f4bfef3"
 		},
 		{
 			"backtrace" : 2,
 			"id" : "module2::@d099830ac294d1289245"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "module3::@fba5b853b15d94a86c92"
+		},
+		{
+			"backtrace" : 2,
+			"id" : "module4::@0f22d8140bb1b3815e1e"
 		}
 	],
 	"id" : "untitled::@6890427a1f51a3e7e1df",
@@ -165,6 +169,10 @@
 				"role" : "libraries"
 			},
 			{
+				"fragment" : "../Thirdparty/spdlog/install/lib/cmake/spdlog/libspdlog.a",
+				"role" : "libraries"
+			},
+			{
 				"backtrace" : 2,
 				"fragment" : "modules/module1/libmodule1.so",
 				"role" : "libraries"
@@ -182,6 +190,10 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "modules/module4/libmodule4.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "../Thirdparty/spdlog/install/lib/cmake/spdlog/libspdlog.a",
 				"role" : "libraries"
 			},
 			{

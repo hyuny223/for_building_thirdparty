@@ -1047,6 +1047,25 @@ keyframe.h
 ../modules/module1/include/keyframe.h
 opencv2/opencv.hpp
 ../modules/module1/include/opencv2/opencv.hpp
+<<<<<<< HEAD
+=======
+
+/team-SLAM/modules/module1/src/frame.cpp
+opencv2/opencv.hpp
+/team-SLAM/modules/module1/src/opencv2/opencv.hpp
+frame.h
+/team-SLAM/modules/module1/src/frame.h
+
+/team-SLAM/modules/module1/src/framepoint.cpp
+framepoint.h
+/team-SLAM/modules/module1/src/framepoint.h
+
+/team-SLAM/modules/module1/src/globalmap.cpp
+
+/team-SLAM/modules/module1/src/keyframe.cpp
+keyframe.h
+/team-SLAM/modules/module1/src/keyframe.h
+>>>>>>> d43e494cf0926a7c203590784207ab4566196b13
 
 /team-SLAM/modules/module1/src/localmap.cpp
 iostream

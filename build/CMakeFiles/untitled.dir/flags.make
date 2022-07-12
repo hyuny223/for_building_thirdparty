@@ -6,5 +6,5 @@ CXX_FLAGS =   -std=gnu++17
 
 CXX_DEFINES = -DGFLAGS_IS_A_DLL=0
 
-CXX_INCLUDES = -I/team-SLAM/Thirdparty/pangolin/install/include -I/team-SLAM/module1/include -I/team-SLAM/module2/include -I/team-SLAM/module3/include -I/team-SLAM/module4/include -I/team-SLAM/modules/module1/include -I/team-SLAM/modules/module2/include -I/team-SLAM/modules/module3/include -I/team-SLAM/modules/module4/include -isystem /team-SLAM/Thirdparty/opencv/install/include/opencv4 -isystem /team-SLAM/Thirdparty/eigen/install/include/eigen3 -isystem /team-SLAM/Thirdparty/ceres/install/include 
+CXX_INCLUDES = -I/team-SLAM/Thirdparty/pangolin/install/include -I/team-SLAM/Thirdparty/spdlog/install/include -I/team-SLAM/module1/include -I/team-SLAM/module2/include -I/team-SLAM/module3/include -I/team-SLAM/module4/include -I/team-SLAM/modules/module1/include -I/team-SLAM/modules/module2/include -I/team-SLAM/modules/module3/include -I/team-SLAM/modules/module4/include -isystem /team-SLAM/Thirdparty/opencv/install/include/opencv4 -isystem /team-SLAM/Thirdparty/eigen/install/include/eigen3 -isystem /team-SLAM/Thirdparty/ceres/install/include 
 

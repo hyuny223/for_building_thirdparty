@@ -3,8 +3,12 @@
 #include "framepoint.h"
 #include "frame.h"
 #include "keyframe.h"
+<<<<<<< HEAD
 #include <cmath>
 
+=======
+#include <spdlog/spdlog.h>
+>>>>>>> d43e494cf0926a7c203590784207ab4566196b13
 
 namespace Frontend
 {
@@ -45,7 +49,7 @@ void matchFeatures(T Frame_L, T Frame_R)
     std::vector<cv::DMatch> goodMatches;
     for (auto m : matches)
     {
-        if (m[0].distance / m[1].distance < 0.7)
+        if (m[0].distance / m[1].distance < 0.8)
         {
             goodMatches.push_back(m[0]);
         }
@@ -66,7 +70,15 @@ void matchFeatures(T Frame_L, T Frame_R)
 
     Frame_L->setGoodMatches(goodMatches_L);
     Frame_R->setGoodMatches(goodMatches_R);
+    
 
+    
+    cv::Mat dst;
+    cv::drawMatches(Frame_L->getFrame(), Frame_L->getFramePoint2d(), Frame_R->getFrame(), Frame_R->getFramePoint2d(), matches, dst);
+
+    cv::imshow("dst",dst);
+    // cv::waitKey(1);
+    cv::waitKey(1e3/20);
 };
 
 
@@ -110,14 +122,34 @@ void computeEssentialMatrix(T Frame_L, T Frame_R)
     cv::Mat translationMatrix; // double
 
     cv::recoverPose(essentialMatrix, goodMatches_L, goodMatches_R, K, rotationMatrix, translationMatrix);
+    spdlog::error("recoverPose complect");
 
     cv::Mat transformMatrix;
     computeTransformMat(rotationMatrix, translationMatrix, transformMatrix);
+    spdlog::error("computeTransformMat complect");
 
     Frame_L->setRotationMat(rotationMatrix);
+    spdlog::error("setRotationMat complect");
     Frame_L->setTranslationMat(translationMatrix); // tvec은 distance가 1인 유닛 벡터이다. 스케일이 정해지지 않음.
+    spdlog::error("setTranslationMat complect");
     Frame_L->setTransformMat(transformMatrix);
+<<<<<<< HEAD
 
+=======
+    spdlog::error("setTransformMat complect");
+
+
+    std::cout << "This is a original Rotation Matrix : \n";
+    for(int y=0; y<rotationMatrix.rows; ++y)
+    {
+        for(int x=0; x<rotationMatrix.cols; ++x)
+        {
+            std::cout << rotationMatrix.ptr<double>(y)[x] << ", ";
+        }
+        std::cout << "\n";
+    }
+    std::cout << "================================\n";
+>>>>>>> d43e494cf0926a7c203590784207ab4566196b13
 }
 
 template <typename T>
@@ -186,4 +218,6 @@ void computeWorldPosition(T prevKeyFrame, T currKeyFrame)
 
     currKeyFrame->setw2c(currw2c);
 }
+
+
 }
