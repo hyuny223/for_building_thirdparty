@@ -27,8 +27,9 @@ namespace Data
 
             cv::Mat mw2c = cv::Mat::eye(4, 4, CV_32F);
 
-
             int miKeyFrameNum;
+
+            cv::Mat mQuaternion;
 
         public:
             KeyFrame() = default;
@@ -56,5 +57,9 @@ namespace Data
 
             std::shared_ptr<Data::KeyFrame> getPrevKeyFrame();
             std::shared_ptr<Data::KeyFrame> getWorldKeyFrame();
+
+            void setQuaternion(cv::Mat q);
+            cv::Mat getQuaternion();
+
     };
 }

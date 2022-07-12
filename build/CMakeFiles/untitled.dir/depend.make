@@ -376,6 +376,7 @@ CMakeFiles/untitled.dir/main.cpp.o: ../Thirdparty/opencv/install/include/opencv4
 CMakeFiles/untitled.dir/main.cpp.o: ../modules/module1/include/frame.h
 CMakeFiles/untitled.dir/main.cpp.o: ../modules/module1/include/framepoint.h
 CMakeFiles/untitled.dir/main.cpp.o: ../modules/module1/include/keyframe.h
+CMakeFiles/untitled.dir/main.cpp.o: ../modules/module2/include/quaternion.h
 CMakeFiles/untitled.dir/main.cpp.o: ../modules/module2/include/tracking.h
 CMakeFiles/untitled.dir/main.cpp.o: ../modules/module3/include/projection.h
 CMakeFiles/untitled.dir/main.cpp.o: ../modules/module3/include/similarity.h

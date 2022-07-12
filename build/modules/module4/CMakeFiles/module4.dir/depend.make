@@ -376,6 +376,7 @@ modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../Thirdparty/ope
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module1/include/frame.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module1/include/framepoint.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module1/include/keyframe.h
+modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module2/include/quaternion.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module3/include/projection.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module4/include/optimization.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module4/src/optimization.cpp

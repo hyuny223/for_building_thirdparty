@@ -7,10 +7,10 @@ set(CMAKE_CXX_STANDARD 17)
 ############################ Thirdparty Building ############################
 
 find_package(OpenCV REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/opencv/install/lib/cmake/opencv4)
-find_package(Eigen3 REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/eigen/install/share/eigen3/cmake)
-find_package(Pangolin REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/pangolin/install/lib/cmake/Pangolin)
-find_package(Ceres REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/ceres/install/lib/cmake/Ceres)
-find_package(spdlog REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/spdlog/install/lib/cmake/spdlog)
+find_package(Eigen3 REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/eigen/install/share/eigen3/cmake)
+find_package(Pangolin REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/pangolin/install/lib/cmake/Pangolin)
+find_package(Ceres REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/ceres/install/lib/cmake/Ceres)
+find_package(spdlog 1.10.0 REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/spdlog/install/lib/cmake/spdlog)
 
 if (OpenCV_FOUND)
     set(OpenCV_INCLUDE_DIR ${OpenCV_INCLUDE_DIRS})

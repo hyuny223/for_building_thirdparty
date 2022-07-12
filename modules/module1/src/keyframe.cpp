@@ -96,4 +96,13 @@ namespace Data
         return mw2c;
     }
 
+
+    void KeyFrame::setQuaternion(cv::Mat q)
+    {
+        mQuaternion = q;
+    }
+    cv::Mat KeyFrame::getQuaternion()
+    {
+        return mQuaternion;
+    }
 }

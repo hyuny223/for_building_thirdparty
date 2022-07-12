@@ -18,7 +18,7 @@ namespace Data
 
             cv::Mat mmFundamentalMat;
             cv::Mat mmEssentialMat;
-            cv::Mat mmRoationMat;
+            cv::Mat mmRotaionMat;
             cv::Mat mmTranslationMat;
             cv::Mat mmTransformMat;
 

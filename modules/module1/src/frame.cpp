@@ -57,7 +57,7 @@ namespace Data
 
     void Frame::setRotationMat(const cv::Mat& R)
     {
-        mmRoationMat = R;
+        mmRotaionMat = R;
     }
 
     void Frame::setTranslationMat(const cv::Mat& t)
@@ -77,7 +77,7 @@ namespace Data
 
     cv::Mat Frame::getRotationMat()
     {
-        return mmRoationMat;
+        return mmRotaionMat;
     }
 
     cv::Mat Frame::getTranslationMat()

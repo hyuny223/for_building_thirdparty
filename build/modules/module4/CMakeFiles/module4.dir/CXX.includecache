@@ -2922,6 +2922,14 @@ opencv2/opencv.hpp
 frame.h
 ../modules/module1/include/frame.h
 
+../modules/module2/include/quaternion.h
+quaternion.h
+../modules/module2/include/quaternion.h
+opencv2/opencv.hpp
+../modules/module2/include/opencv2/opencv.hpp
+cmath
+-
+
 ../modules/module3/include/projection.h
 opencv2/opencv.hpp
 ../modules/module3/include/opencv2/opencv.hpp
@@ -2939,6 +2947,8 @@ Eigen/Dense
 ../modules/module4/include/Eigen/Dense
 projection.h
 ../modules/module4/include/projection.h
+quaternion.h
+../modules/module4/include/quaternion.h
 
 /team-SLAM/modules/module4/src/optimization.cpp
 optimization.h

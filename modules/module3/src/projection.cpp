@@ -6,6 +6,7 @@
 void doProjection(std::shared_ptr<Data::KeyFrame> prevKeyFrame,
                 std::shared_ptr<Data::KeyFrame> currKeyFrame)
 {
+    std::cout << "here!\n";
     double k[] = {718.856, 0, 607.1928, 0, 718.856, 185.2157, 0, 0, 1};
     cv::Mat K(3,3,CV_64FC1,k);
 
@@ -23,7 +24,7 @@ void doProjection(std::shared_ptr<Data::KeyFrame> prevKeyFrame,
     {
         reprojPoints.push_back(cv::KeyPoint(newFramePoint2d[i], 1.0));
 
-#if 0
+#if 1
         std::cout << "origin (x,y) = (" << currKeyFrame->getGoodMatches()[i].x << ", " << currKeyFrame->getGoodMatches()[i].y << ")" << std::endl;
         std::cout << "projected (x,y) = (" << reprojPoints[i].pt.x << ", " << reprojPoints[i].pt.y << ")" << std::endl;
         std::cout << "\n\n";
