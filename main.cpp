@@ -14,67 +14,64 @@
 
 int main()
 {
-	std::string lpath("/root/dataset/00/image_0/*.png");
-    std::string rpath("/root/dataset/00/image_1/*.png");
-	std::vector<std::string> strL;
-    std::vector<std::string> strR; 
+
+	std::string path("/root/dataset/191/19/image_0/*.png");
+	std::vector<std::string> str;
 
 	int index = 0;
 
-	cv::glob(lpath, strL, false);
-    cv::glob(rpath, strR, false);
+	cv::glob(path, str, false);
 
-	std::cout << "L 로드 개수 : " << strL.size() << std::endl;
-    std::cout << "R 로드 개수 : " << strR.size() << std::endl;
+	std::cout << "image 개수 : " << str.size() << std::endl;
 
-	if (strL.size() == 0 || strR.size() != strL.size()){
+	if (str.size() == 0){
 		std::cout << "이미지가 존재하지 않습니다.\n" << std::endl;
         return -1;
     }
 
-	for (int cnt = 0; cnt < strL.size(); cnt++) 
+	for (int cnt = 0; cnt < str.size() - 1; cnt+=2) 
 	{
-		cv::Mat image_L = cv::imread(strL[cnt]);
-        cv::Mat image_R = cv::imread(strR[cnt]);
+        // if(cnt < 4320) continue;
+		cv::Mat image_1 = cv::imread(str[cnt]);
+        cv::Mat image_2 = cv::imread(str[cnt+1]);
 
-        // cv::imshow("image_L", image_L);
-        // cv::imshow("image_R", image_R);
-
-        // cv::waitKey(0);
-
-        std::shared_ptr<Data::Frame> frame_L = std::make_shared<Data::Frame>(image_L);
-        std::shared_ptr<Data::Frame> frame_R = std::make_shared<Data::Frame>(image_R);
+        std::shared_ptr<Data::Frame> frame_1 = std::make_shared<Data::Frame>(image_1);
+        std::shared_ptr<Data::Frame> frame_2 = std::make_shared<Data::Frame>(image_2);
         std::shared_ptr<Data::KeyFrame> currKeyFrame;
 
         int nFeatures = 100;
-        Frontend::detectFeatures(frame_L, frame_R, nFeatures); // 이미지 코너 검출
-        Frontend::matchFeatures(frame_L, frame_R); // 두 이미지 간 매칭점
-        Frontend::computeEssentialMatrix(frame_L, frame_R); // 두 이미지 간 Essential Matrix를 구하는 과정.
+        Frontend::detectFeatures(frame_1, frame_2, nFeatures); // 이미지 코너 검출
+        Frontend::matchFeatures(frame_1, frame_2); // 두 이미지 간 매칭점
+        Frontend::computeEssentialMatrix(frame_1, frame_2); // 두 이미지 간 Essential Matrix를 구하는 과정.
                                                             // 그러나 Mono에서는 KeyFrame에서 구하는 것이기에 의미가 없다.
-        Frontend::computeTriangulation(frame_L, frame_R); // Correspondence 간의 Triangulation을 계산
+        Frontend::computeTriangulation(frame_1, frame_2); // Correspondence 간의 Triangulation을 계산
 
-        auto prevKeyFrame = std::make_shared<Data::KeyFrame>(frame_L);
-        auto curKeyFrame = std::make_shared<Data::KeyFrame>(frame_R);
+        auto prevKeyFrame = std::make_shared<Data::KeyFrame>(frame_1);
+        auto curKeyFrame = std::make_shared<Data::KeyFrame>(frame_2);
 
         doProjection(prevKeyFrame, curKeyFrame);
         optimization(prevKeyFrame, curKeyFrame);
 
         doProjection(prevKeyFrame, curKeyFrame);
 
+        std::cout<< "\n===============================\n";
+        std::cout<< "frame number : " << cnt;
+        std::cout<< "\n===============================\n";
+
 
         // if(currKeyFrame->mvKeyFrameVec.size() == 0) // 첫번째라면
         // {
-        //     currKeyFrame = std::make_shared<Data::KeyFrame>(frame_L); //키프레임으로 지정하고
+        //     currKeyFrame = std::make_shared<Data::KeyFrame>(frame_1); //키프레임으로 지정하고
         //     // continue; //처음부터 시작하기
         // }
 
-        // std::shared_ptr<Similarity> sim = std::make_shared<Similarity>(currKeyFrame, frame_L); // 유사성 비교하는 클래스. 키프레임을 뽑기 위한 과정. 왼쪽은 prev, 오른쪽은 curr이 되어야 한다.
+        // std::shared_ptr<Similarity> sim = std::make_shared<Similarity>(currKeyFrame, frame_1); // 유사성 비교하는 클래스. 키프레임을 뽑기 위한 과정. 왼쪽은 prev, 오른쪽은 curr이 되어야 한다.
         // sim->findSimFeatures(); // 두 이미지의 Correpondence 찾기
 
 
         // if (sim->computeSimilarity(nFeatures)) // 충분히 다르다고 생각하면
         // {
-        //     currKeyFrame = std::make_shared<Data::KeyFrame>(frame_L); //curr를 키프레임으로 선정.
+        //     currKeyFrame = std::make_shared<Data::KeyFrame>(frame_1); //curr를 키프레임으로 선정.
         // }
         // else // 아니라면 다음 이미지로 넘어가기
         // {
@@ -106,6 +103,6 @@ int main()
         // num_plus++;
     }
 
-    std::cout << "success!!!" <<std::endl;
+    std::cout << ">>>>> success!!! <<<<<" <<std::endl;
     return 0;
 }
