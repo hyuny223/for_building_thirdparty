@@ -116,6 +116,18 @@ void computeEssentialMatrix(T Frame_L, T Frame_R)
     Frame_L->setRotationMat(rotationMatrix);
     Frame_L->setTranslationMat(translationMatrix); // tvec은 distance가 1인 유닛 벡터이다. 스케일이 정해지지 않음.
     Frame_L->setTransformMat(transformMatrix);
+
+
+    std::cout << "This is a original Rotation Matrix : \n";
+    for(int y=0; y<rotationMatrix.rows; ++y)
+    {
+        for(int x=0; x<rotationMatrix.cols; ++x)
+        {
+            std::cout << rotationMatrix.ptr<double>(y)[x] << ", ";
+        }
+        std::cout << "\n";
+    }
+    std::cout << "================================\n";
 }
 
 template <typename T>
@@ -159,4 +171,6 @@ void computeWorldPosition(T prevKeyFrame, T currKeyFrame)
 
     currKeyFrame->setw2c(currw2c);
 }
+
+
 }
