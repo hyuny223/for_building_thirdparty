@@ -29,6 +29,10 @@ int main()
 
     spdlog::info("image 개수 : {}", str.size());
 
+    // optimization(prevKeyFrame, curKeyFrame);
+
+    // doProjection(prevKeyFrame, curKeyFrame);
+
 	if (str.size() == 0){
 		std::cout << "이미지가 존재하지 않습니다.\n" << std::endl;
         return -1;

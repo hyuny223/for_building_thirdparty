@@ -4,6 +4,7 @@
 #include "frame.h"
 #include "keyframe.h"
 // #include <spdlog/spdlog.h>
+#include <cmath>
 
 namespace Frontend
 {
@@ -170,6 +171,31 @@ void computeTriangulation(T Frame_L, T Frame_R)
         framePoint3d_L.push_back(p);
     }
     Frame_L->setFramePoint3d(framePoint3d_L);
+
+
+    cv::Mat R = Frame_L->getRotationMat();
+
+    cv::Mat dst;
+    cv::Rodrigues(R,dst); // R*좌표
+
+    auto x = R.ptr<double>(0)[0]*p.x + R.ptr<double>(0)[1]*p.y + R.ptr<double>(0)[2]*p.z;
+    auto y = R.ptr<double>(1)[0]*p.x + R.ptr<double>(1)[1]*p.y + R.ptr<double>(1)[2]*p.z;
+    auto z = R.ptr<double>(2)[0]*p.x + R.ptr<double>(2)[1]*p.y + R.ptr<double>(2)[2]*p.z;
+
+    std::cout << "rotation (x,y,z) = (" << x << ", " << y << ", " << z << ")" << std::endl;
+
+    auto a = dst.ptr<double>(0)[0];
+    auto b = dst.ptr<double>(0)[1];
+    auto c = dst.ptr<double>(0)[2];
+
+    auto theta = sqrt(a*a + b*b + c*c);
+
+    auto a_ = a / theta;
+    auto b_ = b / theta;
+    auto c_ = c / theta;
+
+    std::cout << "rodrigues (x,y,z) = (" << p.x*(a_+b_+c_)<< ", " << b_ << ", " << c_ << ")" << std::endl;
+
 }
 
 template<typename T>
