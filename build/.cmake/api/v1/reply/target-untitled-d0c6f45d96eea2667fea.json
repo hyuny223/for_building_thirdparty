@@ -135,15 +135,15 @@
 		},
 		{
 			"backtrace" : 2,
+			"id" : "module4::@0f22d8140bb1b3815e1e"
+		},
+		{
+			"backtrace" : 2,
 			"id" : "module1::@9af30fd340da8f4bfef3"
 		},
 		{
 			"backtrace" : 2,
 			"id" : "module2::@d099830ac294d1289245"
-		},
-		{
-			"backtrace" : 2,
-			"id" : "module4::@0f22d8140bb1b3815e1e"
 		}
 	],
 	"id" : "untitled::@6890427a1f51a3e7e1df",
@@ -166,10 +166,6 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "../Thirdparty/ceres/install/lib/libceres.a",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "../Thirdparty/spdlog/install/lib/cmake/spdlog/libspdlog.a",
 				"role" : "libraries"
 			},
 			{

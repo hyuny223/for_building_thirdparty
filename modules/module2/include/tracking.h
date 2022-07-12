@@ -50,7 +50,6 @@ void matchFeatures(T Frame_L, T Frame_R)
             goodMatches.push_back(m[0]);
         }
     }
-
     auto framePoints_L = Frame_L->getFramePoint2d();
     auto framePoints_R = Frame_R->getFramePoint2d();
 
@@ -66,8 +65,6 @@ void matchFeatures(T Frame_L, T Frame_R)
 
     Frame_L->setGoodMatches(goodMatches_L);
     Frame_R->setGoodMatches(goodMatches_R);
-    
-
     
     cv::Mat dst;
     cv::drawMatches(Frame_L->getFrame(), Frame_L->getFramePoint2d(), Frame_R->getFrame(), Frame_R->getFramePoint2d(), matches, dst);
@@ -112,6 +109,7 @@ void computeEssentialMatrix(T Frame_L, T Frame_R)
 
     Frame_L->setEssentialMat(cv::findEssentialMat(goodMatches_L, goodMatches_R, K));
     cv::Mat essentialMatrix = Frame_L->getEssentialMat();
+
     // cv::Mat rotationMatrix = Frame_L->getRotationMat(); // double
     // cv::Mat translationMatrix = Frame_L->getTranslationMat(); // double
     cv::Mat rotationMatrix; // double
@@ -130,18 +128,6 @@ void computeEssentialMatrix(T Frame_L, T Frame_R)
     // spdlog::error("setTranslationMat complect");
     Frame_L->setTransformMat(transformMatrix);
     // spdlog::error("setTransformMat complect");
-
-
-    std::cout << "This is a original Rotation Matrix : \n";
-    for(int y=0; y<rotationMatrix.rows; ++y)
-    {
-        for(int x=0; x<rotationMatrix.cols; ++x)
-        {
-            std::cout << rotationMatrix.ptr<double>(y)[x] << ", ";
-        }
-        std::cout << "\n";
-    }
-    std::cout << "================================\n";
 }
 
 template <typename T>

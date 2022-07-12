@@ -9,38 +9,33 @@
 #include "projection.h"
 #include "optimization.h"
 
-#include <fstream>
 #include <vector>
 #include <spdlog/spdlog.h>
 
 int main()
 {
 
-    spdlog::info("proSLAM start!! [press key]");
-
-    getchar();
+    spdlog::info("proSLAM start!!");
 
 	std::string path("/root/dataset/00/image_0/*.png");
 	std::vector<std::string> str;
 
 	int index = 0;
-
 	cv::glob(path, str, false);
 
-    spdlog::info("image 개수 : {}", str.size());
-
-    // optimization(prevKeyFrame, curKeyFrame);
-
-    // doProjection(prevKeyFrame, curKeyFrame);
 
 	if (str.size() == 0){
-		std::cout << "이미지가 존재하지 않습니다.\n" << std::endl;
+        spdlog::error("이미지가 존재하지 않습니다.");
         return -1;
+    }
+    else{
+        spdlog::info("image 개수 : {} \n\n\t[ start : press key ]", str.size());
+        getchar();
     }
 
 	for (int cnt = 0; cnt < str.size() - 1; cnt+=2) 
 	{
-        if(cnt < 4320) continue;
+        // if(cnt < 4320) continue;
 		cv::Mat image_1 = cv::imread(str[cnt]);
         cv::Mat image_2 = cv::imread(str[cnt+1]);
 
@@ -51,7 +46,7 @@ int main()
         std::shared_ptr<Data::Frame> frame_2 = std::make_shared<Data::Frame>(image_2);
         std::shared_ptr<Data::KeyFrame> currKeyFrame;
 
-        int nFeatures = 100;
+        int nFeatures = 500;
         Frontend::detectFeatures(frame_1, frame_2, nFeatures); // 이미지 코너 검출
         spdlog::info("detectFeatures complect");
         Frontend::matchFeatures(frame_1, frame_2); // 두 이미지 간 매칭점
@@ -72,9 +67,9 @@ int main()
         spdlog::info("optimization complect");
 
         doProjection(prevKeyFrame, curKeyFrame);
-        spdlog::info("prevKeyFrame complect");
+        spdlog::info("re - Projection complect");
 
-        spdlog::info("\n===============================\n\tframe number : {}\n===============================\n", cnt);
+        spdlog::info("=========== frame number : {} ===========\n", cnt);
 
 
         // if(currKeyFrame->mvKeyFrameVec.size() == 0) // 첫번째라면
@@ -121,7 +116,7 @@ int main()
         // num_plus++;
     }
 
-    spdlog::info("proSLAM success!!");
+    spdlog::info(">>>>>>>>>>>>>>> proSLAM success!! <<<<<<<<<<<<<<");
 
     return 0;
 }

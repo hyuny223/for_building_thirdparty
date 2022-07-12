@@ -1045,15 +1045,8 @@ frame.h
 ../modules/module2/include/frame.h
 keyframe.h
 ../modules/module2/include/keyframe.h
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
 cmath
-=======
-spdlog/spdlog.h
->>>>>>> d43e494cf0926a7c203590784207ab4566196b13
 -
->>>>>>> 72a619f9eba10822f8240a0a8e55dc568a8df8be
 
 ../modules/module3/include/projection.h
 opencv2/opencv.hpp

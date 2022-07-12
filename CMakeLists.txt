@@ -32,7 +32,7 @@ if (Ceres_FOUND)
 endif()
 if (spdlog_FOUND)
     set(spdlog_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/spdlog/install/include)
-    set(spdlog_LIBRARIES ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/spdlog/install/lib/cmake/spdlog/libspdlog.a)
+    set(spdlog_LIBRARIES ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/spdlog/install/lib/cmake/spdlog)
     message(STATUS "spdlog FOUND - ${spdlog_DIR}")
 endif()
 
