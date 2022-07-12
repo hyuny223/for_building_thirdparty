@@ -34,9 +34,9 @@ int main()
     auto curKeyFrame = std::make_shared<Data::KeyFrame>(frame_R);
 
     doProjection(prevKeyFrame, curKeyFrame);
-    optimization(prevKeyFrame, curKeyFrame);
+    // optimization(prevKeyFrame, curKeyFrame);
 
-    doProjection(prevKeyFrame, curKeyFrame);
+    // doProjection(prevKeyFrame, curKeyFrame);
 
 
     // if(currKeyFrame->mvKeyFrameVec.size() == 0) // 첫번째라면

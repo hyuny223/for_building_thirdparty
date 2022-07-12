@@ -2929,6 +2929,8 @@ frame.h
 ../modules/module2/include/frame.h
 keyframe.h
 ../modules/module2/include/keyframe.h
+cmath
+-
 
 ../modules/module3/include/projection.h
 opencv2/opencv.hpp
