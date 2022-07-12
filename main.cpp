@@ -11,18 +11,23 @@
 
 #include <fstream>
 #include <vector>
+#include <spdlog/spdlog.h>
 
 int main()
 {
 
-	std::string path("/root/dataset/191/19/image_0/*.png");
+    spdlog::info("proSLAM start!! [press key]");
+
+    getchar();
+
+	std::string path("/root/dataset/00/image_0/*.png");
 	std::vector<std::string> str;
 
 	int index = 0;
 
 	cv::glob(path, str, false);
 
-	std::cout << "image 개수 : " << str.size() << std::endl;
+    spdlog::info("image 개수 : {}", str.size());
 
 	if (str.size() == 0){
 		std::cout << "이미지가 존재하지 않습니다.\n" << std::endl;
@@ -31,9 +36,12 @@ int main()
 
 	for (int cnt = 0; cnt < str.size() - 1; cnt+=2) 
 	{
-        // if(cnt < 4320) continue;
+        if(cnt < 4320) continue;
 		cv::Mat image_1 = cv::imread(str[cnt]);
         cv::Mat image_2 = cv::imread(str[cnt+1]);
+
+        if(!image_1.isContinuous()) image_1 = image_1.clone();
+        if(!image_2.isContinuous()) image_2 = image_2.clone();
 
         std::shared_ptr<Data::Frame> frame_1 = std::make_shared<Data::Frame>(image_1);
         std::shared_ptr<Data::Frame> frame_2 = std::make_shared<Data::Frame>(image_2);
@@ -41,22 +49,28 @@ int main()
 
         int nFeatures = 100;
         Frontend::detectFeatures(frame_1, frame_2, nFeatures); // 이미지 코너 검출
+        spdlog::info("detectFeatures complect");
         Frontend::matchFeatures(frame_1, frame_2); // 두 이미지 간 매칭점
+        spdlog::info("matchFeatures complect");
         Frontend::computeEssentialMatrix(frame_1, frame_2); // 두 이미지 간 Essential Matrix를 구하는 과정.
-                                                            // 그러나 Mono에서는 KeyFrame에서 구하는 것이기에 의미가 없다.
+        spdlog::info("computeEssentialMatrix complect");             // 그러나 Mono에서는 KeyFrame에서 구하는 것이기에 의미가 없다.
+                                                            
         Frontend::computeTriangulation(frame_1, frame_2); // Correspondence 간의 Triangulation을 계산
+        spdlog::info("computeTriangulation complect");             
 
         auto prevKeyFrame = std::make_shared<Data::KeyFrame>(frame_1);
         auto curKeyFrame = std::make_shared<Data::KeyFrame>(frame_2);
 
         doProjection(prevKeyFrame, curKeyFrame);
+        spdlog::info("doProjection complect");             
+
         optimization(prevKeyFrame, curKeyFrame);
+        spdlog::info("optimization complect");
 
         doProjection(prevKeyFrame, curKeyFrame);
+        spdlog::info("prevKeyFrame complect");
 
-        std::cout<< "\n===============================\n";
-        std::cout<< "frame number : " << cnt;
-        std::cout<< "\n===============================\n";
+        spdlog::info("\n===============================\n\tframe number : {}\n===============================\n", cnt);
 
 
         // if(currKeyFrame->mvKeyFrameVec.size() == 0) // 첫번째라면
@@ -103,6 +117,7 @@ int main()
         // num_plus++;
     }
 
-    std::cout << ">>>>> success!!! <<<<<" <<std::endl;
+    spdlog::info("proSLAM success!!");
+
     return 0;
 }

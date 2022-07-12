@@ -3,7 +3,7 @@
 #include "framepoint.h"
 #include "frame.h"
 #include "keyframe.h"
-
+#include <spdlog/spdlog.h>
 
 namespace Frontend
 {
@@ -117,13 +117,18 @@ void computeEssentialMatrix(T Frame_L, T Frame_R)
     cv::Mat translationMatrix; // double
 
     cv::recoverPose(essentialMatrix, goodMatches_L, goodMatches_R, K, rotationMatrix, translationMatrix);
+    spdlog::error("recoverPose complect");
 
     cv::Mat transformMatrix;
     computeTransformMat(rotationMatrix, translationMatrix, transformMatrix);
+    spdlog::error("computeTransformMat complect");
 
     Frame_L->setRotationMat(rotationMatrix);
+    spdlog::error("setRotationMat complect");
     Frame_L->setTranslationMat(translationMatrix); // tvec은 distance가 1인 유닛 벡터이다. 스케일이 정해지지 않음.
+    spdlog::error("setTranslationMat complect");
     Frame_L->setTransformMat(transformMatrix);
+    spdlog::error("setTransformMat complect");
 }
 
 template <typename T>
