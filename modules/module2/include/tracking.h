@@ -129,6 +129,18 @@ void computeEssentialMatrix(T Frame_L, T Frame_R)
     spdlog::error("setTranslationMat complect");
     Frame_L->setTransformMat(transformMatrix);
     spdlog::error("setTransformMat complect");
+
+
+    std::cout << "This is a original Rotation Matrix : \n";
+    for(int y=0; y<rotationMatrix.rows; ++y)
+    {
+        for(int x=0; x<rotationMatrix.cols; ++x)
+        {
+            std::cout << rotationMatrix.ptr<double>(y)[x] << ", ";
+        }
+        std::cout << "\n";
+    }
+    std::cout << "================================\n";
 }
 
 template <typename T>
@@ -172,4 +184,6 @@ void computeWorldPosition(T prevKeyFrame, T currKeyFrame)
 
     currKeyFrame->setw2c(currw2c);
 }
+
+
 }
