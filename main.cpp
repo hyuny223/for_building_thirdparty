@@ -25,12 +25,13 @@ int main()
 
 
 	if (str.size() == 0){
-        spdlog::error("이미지가 존재하지 않습니다.");
+        spdlog::error("이미지가 존재하지 않습니다. 종료합니다.");
         return -1;
     }
     else{
-        spdlog::info("image 개수 : {} \n\n\t[ start : press key ]", str.size());
-        getchar();
+        spdlog::info("image path : {}", path);
+        spdlog::info("image 개수 : {} \n\n\t[ start : press key (debug : d)]", str.size());
+        if(getchar() != 'd') spdlog::set_level(spdlog::level::off);
     }
 
 	for (int cnt = 0; cnt < str.size() - 1; cnt+=2) 
@@ -47,27 +48,37 @@ int main()
         std::shared_ptr<Data::KeyFrame> currKeyFrame;
 
         int nFeatures = 500;
+
+        spdlog::info("|   detectFeatures start   |");
         Frontend::detectFeatures(frame_1, frame_2, nFeatures); // 이미지 코너 검출
-        spdlog::info("detectFeatures complect");
+        spdlog::info("---detectFeatures complete---\n");
+
+        spdlog::info("|   matchFeatures start   |");
         Frontend::matchFeatures(frame_1, frame_2); // 두 이미지 간 매칭점
-        spdlog::info("matchFeatures complect");
+        spdlog::info("---matchFeatures complete---\n");
+
+        spdlog::info("|   computeEssentialMatrix start   |");
         Frontend::computeEssentialMatrix(frame_1, frame_2); // 두 이미지 간 Essential Matrix를 구하는 과정.
-        spdlog::info("computeEssentialMatrix complect");             // 그러나 Mono에서는 KeyFrame에서 구하는 것이기에 의미가 없다.
-                                                            
+        spdlog::info("---computeEssentialMatrix complete---\n");    // 그러나 Mono에서는 KeyFrame에서 구하는 것이기에 의미가 없다.
+
+        spdlog::info("|   computeTriangulation start   |");                                                                 
         Frontend::computeTriangulation(frame_1, frame_2); // Correspondence 간의 Triangulation을 계산
-        spdlog::info("computeTriangulation complect");             
+        spdlog::info("---computeTriangulation complete---\n");             
 
         auto prevKeyFrame = std::make_shared<Data::KeyFrame>(frame_1);
         auto curKeyFrame = std::make_shared<Data::KeyFrame>(frame_2);
 
+        spdlog::info("|   doProjection start   |");             
         doProjection(prevKeyFrame, curKeyFrame);
-        spdlog::info("doProjection complect");             
+        spdlog::info("---doProjection complete---\n");             
 
+        spdlog::info("|   optimization start   |");
         optimization(prevKeyFrame, curKeyFrame);
-        spdlog::info("optimization complect");
+        spdlog::info("---optimization complete---\n");
 
+        spdlog::info("|   re-Projection start   |");
         doProjection(prevKeyFrame, curKeyFrame);
-        spdlog::info("re - Projection complect");
+        spdlog::info("---re-Projection complete---\n");
 
         spdlog::info("=========== frame number : {} ===========\n", cnt);
 

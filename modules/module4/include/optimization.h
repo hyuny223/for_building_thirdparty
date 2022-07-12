@@ -5,6 +5,7 @@
 #include "glog/logging.h"
 #include "Eigen/Dense"
 #include "projection.h"
+#include <spdlog/spdlog.h>
 
 class Pose2dErrorTerm
 {
@@ -85,6 +86,7 @@ void optimization(T prevKeyFrame, T currKeyFrame)
             n++;
         }
     }
+    spdlog::info("- rotationMat to R[] complete");
 
     n = 0;
     for(int y = 0; y < translationMat.rows; ++y)
@@ -95,16 +97,19 @@ void optimization(T prevKeyFrame, T currKeyFrame)
             n++;
         }
     }
+    spdlog::info("- rotationMat to t[] complete");
 
     CostFunction* cost_function =
         new AutoDiffCostFunction<Pose2dErrorTerm, 1, 9, 3>(new Pose2dErrorTerm(prevKeyFrame, currKeyFrame));
 
     problem.AddResidualBlock(cost_function, nullptr, R, t);
+    spdlog::info("- AddResidualBlock complete");
 
     Solver::Options options;
     options.minimizer_progress_to_stdout = true;
     Solver::Summary summary;
     Solve(options, &problem, &summary);
+    spdlog::info("- Solve complete");
 
 
     /*
@@ -119,6 +124,7 @@ void optimization(T prevKeyFrame, T currKeyFrame)
             ++n;
         }
     }
+    spdlog::info("- optimizer R[] complete");
 
     n = 0;
     for(int y=0; y<translationMat.rows; ++y)
@@ -129,11 +135,12 @@ void optimization(T prevKeyFrame, T currKeyFrame)
             ++n;
         }
     }
+    spdlog::info("- optimizer t[] complete");
 
     prevKeyFrame->setRotationMat(rotationMat);
+    spdlog::info("- setRotationMat complete");
     prevKeyFrame->setTranslationMat(translationMat);
+    spdlog::info("- setTranslationMat complete");
 
-
-    std::cout << summary.BriefReport() << "\n";
-
+    spdlog::info("- summary.BriefReport() :\n{}", summary.BriefReport());
 }

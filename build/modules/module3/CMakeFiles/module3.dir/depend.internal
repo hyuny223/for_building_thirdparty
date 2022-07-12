@@ -103,6 +103,47 @@ modules/module3/CMakeFiles/module3.dir/src/projection.cpp.o
  ../Thirdparty/opencv/install/include/opencv4/opencv2/video/background_segm.hpp
  ../Thirdparty/opencv/install/include/opencv4/opencv2/video/tracking.hpp
  ../Thirdparty/opencv/install/include/opencv4/opencv2/videoio.hpp
+ ../Thirdparty/spdlog/install/include/spdlog/common-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/common.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/backtracer-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/backtracer.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/circular_q.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/console_globals.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/fmt_helper.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/log_msg-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/log_msg.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/log_msg_buffer-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/log_msg_buffer.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/null_mutex.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/os-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/os.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/periodic_worker-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/periodic_worker.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/registry-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/registry.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/synchronous_factory.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/windows_include.h
+ ../Thirdparty/spdlog/install/include/spdlog/fmt/bundled/core.h
+ ../Thirdparty/spdlog/install/include/spdlog/fmt/bundled/format-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/fmt/bundled/format.h
+ ../Thirdparty/spdlog/install/include/spdlog/fmt/bundled/xchar.h
+ ../Thirdparty/spdlog/install/include/spdlog/fmt/fmt.h
+ ../Thirdparty/spdlog/install/include/spdlog/fmt/xchar.h
+ ../Thirdparty/spdlog/install/include/spdlog/formatter.h
+ ../Thirdparty/spdlog/install/include/spdlog/logger-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/logger.h
+ ../Thirdparty/spdlog/install/include/spdlog/pattern_formatter-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/pattern_formatter.h
+ ../Thirdparty/spdlog/install/include/spdlog/sinks/ansicolor_sink-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/sinks/ansicolor_sink.h
+ ../Thirdparty/spdlog/install/include/spdlog/sinks/sink-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/sinks/sink.h
+ ../Thirdparty/spdlog/install/include/spdlog/sinks/wincolor_sink-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/sinks/wincolor_sink.h
+ ../Thirdparty/spdlog/install/include/spdlog/spdlog-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/spdlog.h
+ ../Thirdparty/spdlog/install/include/spdlog/tweakme.h
+ ../Thirdparty/spdlog/install/include/spdlog/version.h
  ../modules/module1/include/frame.h
  ../modules/module1/include/framepoint.h
  ../modules/module1/include/keyframe.h
@@ -211,6 +252,47 @@ modules/module3/CMakeFiles/module3.dir/src/similarity.cpp.o
  ../Thirdparty/opencv/install/include/opencv4/opencv2/video/background_segm.hpp
  ../Thirdparty/opencv/install/include/opencv4/opencv2/video/tracking.hpp
  ../Thirdparty/opencv/install/include/opencv4/opencv2/videoio.hpp
+ ../Thirdparty/spdlog/install/include/spdlog/common-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/common.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/backtracer-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/backtracer.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/circular_q.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/console_globals.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/fmt_helper.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/log_msg-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/log_msg.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/log_msg_buffer-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/log_msg_buffer.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/null_mutex.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/os-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/os.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/periodic_worker-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/periodic_worker.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/registry-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/registry.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/synchronous_factory.h
+ ../Thirdparty/spdlog/install/include/spdlog/details/windows_include.h
+ ../Thirdparty/spdlog/install/include/spdlog/fmt/bundled/core.h
+ ../Thirdparty/spdlog/install/include/spdlog/fmt/bundled/format-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/fmt/bundled/format.h
+ ../Thirdparty/spdlog/install/include/spdlog/fmt/bundled/xchar.h
+ ../Thirdparty/spdlog/install/include/spdlog/fmt/fmt.h
+ ../Thirdparty/spdlog/install/include/spdlog/fmt/xchar.h
+ ../Thirdparty/spdlog/install/include/spdlog/formatter.h
+ ../Thirdparty/spdlog/install/include/spdlog/logger-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/logger.h
+ ../Thirdparty/spdlog/install/include/spdlog/pattern_formatter-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/pattern_formatter.h
+ ../Thirdparty/spdlog/install/include/spdlog/sinks/ansicolor_sink-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/sinks/ansicolor_sink.h
+ ../Thirdparty/spdlog/install/include/spdlog/sinks/sink-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/sinks/sink.h
+ ../Thirdparty/spdlog/install/include/spdlog/sinks/wincolor_sink-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/sinks/wincolor_sink.h
+ ../Thirdparty/spdlog/install/include/spdlog/spdlog-inl.h
+ ../Thirdparty/spdlog/install/include/spdlog/spdlog.h
+ ../Thirdparty/spdlog/install/include/spdlog/tweakme.h
+ ../Thirdparty/spdlog/install/include/spdlog/version.h
  ../modules/module1/include/frame.h
  ../modules/module1/include/framepoint.h
  ../modules/module1/include/keyframe.h

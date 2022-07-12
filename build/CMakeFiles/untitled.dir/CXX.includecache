@@ -3485,6 +3485,8 @@ frame.h
 ../modules/module2/include/frame.h
 keyframe.h
 ../modules/module2/include/keyframe.h
+spdlog/spdlog.h
+-
 cmath
 -
 
@@ -3517,6 +3519,8 @@ Eigen/Dense
 ../modules/module4/include/Eigen/Dense
 projection.h
 ../modules/module4/include/projection.h
+spdlog/spdlog.h
+-
 
 /team-SLAM/main.cpp
 iostream

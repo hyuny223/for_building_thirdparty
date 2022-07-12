@@ -11,6 +11,13 @@ set(MODULE4_SOURCE_FILES
 find_package(OpenCV 4.4.0 REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/opencv/install/lib/cmake/opencv4)
 find_package(Eigen3 REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/eigen/install/share/eigen3/cmake)
 find_package(Ceres REQUIRED HINTS ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/ceres/install/lib/cmake/Ceres)
+find_package(spdlog 1.10.0 REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/spdlog/install/lib/cmake/spdlog)
+
+if (spdlog_FOUND)
+    set(spdlog_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/Thirdparty/spdlog/install/include)
+    set(spdlog_LIBRARIES ${CMAKE_SOURCE_DIR}/Thirdparty/spdlog/install/lib)
+    message(STATUS "spdlog FOUND - ${spdlog_DIR}")
+endif()
 
 add_library(${PROJECT_NAME} SHARED
         ${MODULE4_SOURCE_FILES}
@@ -21,6 +28,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         ${OpenCV_LIBS}
         ${Eigen3_LIBRARIES}
         ${CERES_LIBRARIES}
+        ${spdlog_LIBRARIES}
         )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
@@ -31,6 +39,7 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ${CMAKE_SOURCE_DIR}/modules/module1/include
         ${CMAKE_SOURCE_DIR}/modules/module2/include
         ${CMAKE_SOURCE_DIR}/modules/module3/include
+        ${spdlog_INCLUDE_DIR}
         )
 
 

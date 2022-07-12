@@ -15,5 +15,3 @@
 /team-SLAM/build/modules/module4/CMakeFiles/rebuild_cache.dir
 /team-SLAM/build/modules/module4/CMakeFiles/edit_cache.dir
 /team-SLAM/build/modules/module4/CMakeFiles/module4.dir
-/team-SLAM/build/modules/module5/CMakeFiles/rebuild_cache.dir
-/team-SLAM/build/modules/module5/CMakeFiles/edit_cache.dir
