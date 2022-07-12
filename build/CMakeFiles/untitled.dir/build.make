@@ -81,6 +81,7 @@ untitled: CMakeFiles/untitled.dir/main.cpp.o
 untitled: CMakeFiles/untitled.dir/build.make
 untitled: ../Thirdparty/pangolin/install/lib/libpango_core.so
 untitled: ../Thirdparty/ceres/install/lib/libceres.a
+untitled: ../Thirdparty/spdlog/install/lib/cmake/spdlog/libspdlog.a
 untitled: modules/module1/libmodule1.so
 untitled: modules/module2/libmodule2.so
 untitled: modules/module3/libmodule3.so
