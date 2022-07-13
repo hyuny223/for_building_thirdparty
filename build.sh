@@ -1,7 +1,7 @@
 #!/bin/bash
 
 
-mkdir Thirdparty && cd Thirdparty && mkdir eigen pangolin opencv ceres spdlog
+mkdir Thirdparty && cd Thirdparty && mkdir eigen pangolin opencv ceres spdlog googletest
 
 
 # build eigen
@@ -51,3 +51,10 @@ mkdir build install && cd build
 cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=../install ../spdlog
 time make -j$(nproc)
 make install
+
+# build googletest
+cd ../../googletest
+git clone https://github.com/google/googletest.git
+mkdir build install && cd build
+cmake ..
+make
