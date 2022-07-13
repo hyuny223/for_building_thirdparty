@@ -1,7 +1,9 @@
 #!/bin/bash
 
 
-mkdir Thirdparty && cd Thirdparty && mkdir eigen pangolin opencv ceres spdlog googletest
+mkdir Thirdparty
+cd Thirdparty
+mkdir eigen pangolin opencv ceres spdlog googletest
 
 
 # build eigen
@@ -15,7 +17,7 @@ make install
 
 # build pangolin
 cd ../../pangolin
-git clone https://github.com/stevenlovegrove/Pangolin.git
+git clone -b v0.6 https://github.com/stevenlovegrove/Pangolin.git
 mkdir build install && cd build
 cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=../install ../Pangolin
 time make -j$(nproc)
@@ -56,5 +58,6 @@ make install
 cd ../../googletest
 git clone https://github.com/google/googletest.git
 mkdir build install && cd build
-cmake ..
-make
+cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=../install ../googletest
+time make -j$(nproc)
+make install

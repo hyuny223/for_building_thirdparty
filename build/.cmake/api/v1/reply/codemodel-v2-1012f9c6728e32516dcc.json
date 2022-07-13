@@ -199,11 +199,7 @@
 				{
 					"directoryIndex" : 0,
 					"id" : "untitled::@6890427a1f51a3e7e1df",
-<<<<<<< HEAD:build/.cmake/api/v1/reply/codemodel-v2-cc5c78bd8c1a1d41197a.json
-					"jsonFile" : "target-untitled-24e87bdb3f63985d8df6.json",
-=======
-					"jsonFile" : "target-untitled-34f64dc02e17a3d2c675.json",
->>>>>>> 0b1521615b5643e52c771408405fbab65e267638:build/.cmake/api/v1/reply/codemodel-v2-fcbae86f1c4851c29a1b.json
+					"jsonFile" : "target-untitled-a8f84ab74626a16247c5.json",
 					"name" : "untitled",
 					"projectIndex" : 0
 				}

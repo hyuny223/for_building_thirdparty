@@ -20,12 +20,11 @@ Data::KeyFrameVec& keyFrameVec = Data::KeyFrameVec::GetInstance();
 
 int main()
 {
-
     spdlog::info("proSLAM start!!");
 
-    std::string path("/root/dataset/sequences/00/image_0/*.png");
+    // std::string path("/root/dataset/sequences/00/image_0/*.png"); // ch1
 
-	//std::string path("/root/dataset/00/image_0/*.png");
+	std::string path("/root/dataset/00/image_0/*.png"); // soomin
 	std::vector<std::string> str;
 
 	int index = 0;
@@ -69,6 +68,7 @@ int main()
 
         if(firstKeyFrameflag == false && frame_1->getGoodMatches().size() < 15) // 키프레임이 선정되지 않았고, 굿매치가 15개 이하라면 패스
         {
+            spdlog::warn("firstKeyFrameflag fail !! [back]");
             continue;
         }
 
@@ -78,6 +78,7 @@ int main()
             currKeyFrame = std::make_shared<Data::KeyFrame>(frame_1);
             keyFrameVec.setKeyFrameVec(currKeyFrame);
             firstKeyFrameflag = true;
+            spdlog::warn("firstKeyFrame done !! [back]");
             continue;
         }
 
@@ -92,6 +93,7 @@ int main()
         }
         else // 아니라면 다음 이미지로 넘어가기
         {
+            spdlog::warn("NO Similarity !! [back]");
             continue;
         }
 

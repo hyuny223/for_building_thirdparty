@@ -1,1 +1,6 @@
 Thirdparty
+CMakeLists.txt
+modules/module1/CMakeLists.txt
+modules/module2/CMakeLists.txt
+modules/module3/CMakeLists.txt
+modules/module4/CMakeLists.txt

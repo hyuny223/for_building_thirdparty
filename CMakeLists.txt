@@ -22,12 +22,12 @@ if (Eigen3_FOUND)
     message(STATUS "Eigen3 FOUND - ${Eigen3_INCLUDE_DIR}")
 endif()
 if (Pangolin_FOUND)
-    set(Pangolin_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/pangolin/install/include)
-    set(Pangolin_LIBRARIES ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/pangolin/install/lib/libpango_core.so)
+    set(Pangolin_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/Thirdparty/pangolin/install/include)
+    set(Pangolin_LIBRARIES ${CMAKE_SOURCE_DIR}/Thirdparty/pangolin/install/lib/cmake/Pangolin) # libpangolin.so
     message(STATUS "Pangolin FOUND - ${Pangolin_DIR}")
 endif()
 if (Ceres_FOUND)
-    set(Ceres_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/ceres/install/include)
+    set(Ceres_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/Thirdparty/ceres/install/include)
     message(STATUS "Ceres FOUND - ${Ceres_DIR}")
 endif()
 if (spdlog_FOUND)
@@ -45,10 +45,9 @@ add_executable(${PROJECT_NAME} main.cpp)
 target_include_directories(${PROJECT_NAME} PUBLIC
         ${OpenCV_INCLUDE_DIR}
         ${Eigen3_INCLUDE_DIR}
-        ${Pangolin_INCLUDE_DIR}
+        ${Pangolin_INCLUDE_DIRS}
         ${Ceres_INCLUDE_DIR}
         ${spdlog_INCLUDE_DIR}
-
         module1/include
         module2/include
         module3/include
