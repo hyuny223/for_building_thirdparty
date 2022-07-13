@@ -30,12 +30,6 @@ namespace Frontend
         q.at<double>(0,2) = cr * sp * cy + sr * cp * sy;
         q.at<double>(0,3) = cr * cp * sy - sr * sp * cy;
 
-
-        std::cout << "First : \n";
-        std::cout << q.ptr<double>(0)[0] << ", ";
-        std::cout << q.ptr<double>(0)[1] << ", ";
-        std::cout << q.ptr<double>(0)[2] << ", ";
-        std::cout << q.ptr<double>(0)[3] << std::endl;
         prevFrame->setQuaternion(q);
 
     }

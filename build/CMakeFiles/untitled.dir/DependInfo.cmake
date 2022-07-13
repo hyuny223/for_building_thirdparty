@@ -16,7 +16,8 @@ set(CMAKE_TARGET_DEFINITIONS_CXX
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
-  "../Thirdparty/pangolin/install/include"
+  "../Thirdparty/pangolin/install/lib/cmake/Pangolin/../../../include"
+  "/usr/include/eigen3"
   "../module1/include"
   "../module2/include"
   "../module3/include"

@@ -1,7 +1,14 @@
 Thirdparty
 CMakeLists.txt
+<<<<<<< HEAD
 module/module1/CMakeLists.txt
 module/module2/CMakeLists.txt
 module/module3/CMakeLists.txt
 module/module4/CMakeLists.txt
 module/module5/CMakeLists.txt
+=======
+modules/module1/CMakeLists.txt
+modules/module2/CMakeLists.txt
+modules/module3/CMakeLists.txt
+modules/module4/CMakeLists.txt
+>>>>>>> 519880c7356b6b8994bd2cd15dc7f48f596d8383
