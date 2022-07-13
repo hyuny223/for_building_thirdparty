@@ -1606,12 +1606,6 @@ spdlog/spdlog.h
 cmath
 -
 
-../modules/module3/include/projection.h
-opencv2/opencv.hpp
-../modules/module3/include/opencv2/opencv.hpp
-keyframe.h
-../modules/module3/include/keyframe.h
-
 ../modules/module3/include/similarity.h
 opencv2/opencv.hpp
 ../modules/module3/include/opencv2/opencv.hpp
@@ -1624,27 +1618,7 @@ keyframe.h
 tracking.h
 ../modules/module3/include/tracking.h
 
-/team-SLAM/modules/module3/src/projection.cpp
-opencv2/opencv.hpp
-/team-SLAM/modules/module3/src/opencv2/opencv.hpp
-projection.h
-/team-SLAM/modules/module3/src/projection.h
-tracking.h
-/team-SLAM/modules/module3/src/tracking.h
-spdlog/spdlog.h
--
-
 /team-SLAM/modules/module3/src/similarity.cpp
-tuple
--
-opencv2/opencv.hpp
-/team-SLAM/modules/module3/src/opencv2/opencv.hpp
-opencv2/features2d.hpp
--
-opencv2/calib3d.hpp
--
-similarity.h
-/team-SLAM/modules/module3/src/similarity.h
 tuple
 -
 opencv2/opencv.hpp

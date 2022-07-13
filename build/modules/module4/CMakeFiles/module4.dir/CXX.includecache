@@ -3506,7 +3506,7 @@ projection.h
 quaternion.h
 ../modules/module4/include/quaternion.h
 spdlog/spdlog.h
--
+../modules/module4/include/spdlog/spdlog.h
 
 /team-SLAM/modules/module4/src/optimization.cpp
 optimization.h
