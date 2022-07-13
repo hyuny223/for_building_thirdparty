@@ -1,9 +1,6 @@
 #include "keyframe.h"
 
 
-std::vector<std::shared_ptr<Data::KeyFrame>> Data::KeyFrameVec::mvKeyFrameVec = {};
-
-
 namespace Data
 {
 
@@ -20,7 +17,6 @@ namespace Data
         this->setRotationMat(frame->getRotationMat());
         this->setScale(frame->getScale());
         this->setTranslationMat(frame->getTranslationMat());
-        this->miKeyFrameNum = mvKeyFrameVec.size();
     };
 
 
@@ -70,21 +66,6 @@ namespace Data
     // {
     //     return mTcw;
     // }
-
-    int KeyFrame::getKeyFrameNum()
-    {
-        return miKeyFrameNum;
-    }
-
-    std::shared_ptr<Data::KeyFrame> KeyFrame::getPrevKeyFrame()
-    {
-        return mvKeyFrameVec[miKeyFrameNum-1];
-    }
-
-    std::shared_ptr<Data::KeyFrame> KeyFrame::getWorldKeyFrame()
-    {
-        return mvKeyFrameVec[0];
-    }
 
     void KeyFrame::setw2c(cv::Mat w2c)
     {

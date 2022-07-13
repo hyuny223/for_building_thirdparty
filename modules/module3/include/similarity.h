@@ -10,12 +10,13 @@
 class Similarity
 {
     protected:
-        std::shared_ptr<Data::Frame> mpPrev, mpCurr;
+        std::shared_ptr<Data::KeyFrame> mpPrev;
+        std::shared_ptr<Data::Frame> mpCurr;
         std::vector<cv::Point2d> mvPrevGoodMatches, mvCurrGoodMatches;
 
     public:
         Similarity() = default;
-        Similarity(const std::shared_ptr<Data::Frame> prev, std::shared_ptr<Data::Frame> curr);
+        Similarity(const std::shared_ptr<Data::KeyFrame> prev, std::shared_ptr<Data::Frame> curr);
         // ~Similarity();
 
         void findSimFeatures();

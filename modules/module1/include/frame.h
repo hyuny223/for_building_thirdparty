@@ -38,7 +38,7 @@ namespace Data
             // void setMatches(const std::vector<cv::DMatch>& match);
             // std::vector<cv::DMatch> getMatches();
 
-            void setGoodMatches(const std::vector<cv::Point2d>& goodMatch);
+            void setGoodMatches(std::vector<cv::Point2d> goodMatch);
             std::vector<cv::Point2d> getGoodMatches();
 
             void setFundamentalMat(const cv::Mat& F);

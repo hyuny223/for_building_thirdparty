@@ -35,7 +35,7 @@ namespace Data
     //     return mMatches;
     // }
 
-    void Frame::setGoodMatches(const std::vector<cv::Point2d>& goodMatch)
+    void Frame::setGoodMatches(std::vector<cv::Point2d> goodMatch)
     {
         mvGoodMatches = goodMatch;
     }

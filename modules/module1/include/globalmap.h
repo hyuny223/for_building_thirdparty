@@ -2,6 +2,7 @@
 
 #include <iostream>
 #include <vector>
+#include "localmap.h"
 
 class GlobalMap
 {

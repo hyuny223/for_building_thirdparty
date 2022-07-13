@@ -48,6 +48,6 @@ make install
 cd ../../spdlog
 git clone https://github.com/gabime/spdlog.git
 mkdir build install && cd build
-cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=../install ../spdlog
+cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_POSITION_INDEPENDENT_CODE=ON ../spdlog
 time make -j$(nproc)
 make install

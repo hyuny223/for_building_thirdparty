@@ -6,7 +6,7 @@
 #include "Eigen/Dense"
 #include "projection.h"
 #include "quaternion.h"
-#include <spdlog/spdlog.h>
+#include "spdlog/spdlog.h"
 
 class Pose2dErrorTerm
 {
@@ -117,7 +117,9 @@ void optimization(T prevKeyFrame, T currKeyFrame)
     prevKeyFrame->setTranslationMat(translationMat);
     prevKeyFrame->setQuaternion(quaternion);
 
-    spdlog::info("- summary.BriefReport() :\n{}", summary.BriefReport());
+
+    std::cout << summary.BriefReport() << "\n";
+    // spdlog::info("- summary.BriefReport() :\n{}", summary.BriefReport());
 }
 
 
