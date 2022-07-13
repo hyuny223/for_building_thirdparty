@@ -417,6 +417,7 @@ CMakeFiles/untitled.dir/main.cpp.o: ../Thirdparty/spdlog/install/include/spdlog/
 CMakeFiles/untitled.dir/main.cpp.o: ../modules/module1/include/frame.h
 CMakeFiles/untitled.dir/main.cpp.o: ../modules/module1/include/framepoint.h
 CMakeFiles/untitled.dir/main.cpp.o: ../modules/module1/include/keyframe.h
+CMakeFiles/untitled.dir/main.cpp.o: ../modules/module1/include/keyframeVec.h
 CMakeFiles/untitled.dir/main.cpp.o: ../modules/module2/include/quaternion.h
 CMakeFiles/untitled.dir/main.cpp.o: ../modules/module2/include/tracking.h
 CMakeFiles/untitled.dir/main.cpp.o: ../modules/module3/include/projection.h

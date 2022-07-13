@@ -12,11 +12,6 @@ set(MODULE3_SOURCE_FILES
 find_package(OpenCV 4.4.0 REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/opencv/install/lib/cmake/opencv4)
 find_package(spdlog 1.10.0 REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/spdlog/install/lib/cmake/spdlog)
 
-if (spdlog_FOUND)
-    set(spdlog_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/Thirdparty/spdlog/install/include)
-    set(spdlog_LIBRARIES ${CMAKE_SOURCE_DIR}/Thirdparty/spdlog/install/lib)
-    message(STATUS "spdlog FOUND - ${spdlog_DIR}")
-endif()
 
 add_library(${PROJECT_NAME} SHARED
         ${MODULE3_SOURCE_FILES}
@@ -25,8 +20,8 @@ add_library(${PROJECT_NAME} SHARED
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
         ${OpenCV_LIBS}
-        ${spdlog_LIBRARIES}
-        )
+         spdlog::spdlog
+         )
 
 target_include_directories(${PROJECT_NAME} PUBLIC
         include

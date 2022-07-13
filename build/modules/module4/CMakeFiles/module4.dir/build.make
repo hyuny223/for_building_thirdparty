@@ -89,6 +89,7 @@ modules/module4/libmodule4.so: ../Thirdparty/opencv/install/lib/libopencv_stitch
 modules/module4/libmodule4.so: ../Thirdparty/opencv/install/lib/libopencv_video.so.4.4.0
 modules/module4/libmodule4.so: ../Thirdparty/opencv/install/lib/libopencv_videoio.so.4.4.0
 modules/module4/libmodule4.so: ../Thirdparty/ceres/install/lib/libceres.a
+modules/module4/libmodule4.so: ../Thirdparty/spdlog/install/lib/libspdlog.a
 modules/module4/libmodule4.so: ../Thirdparty/opencv/install/lib/libopencv_imgcodecs.so.4.4.0
 modules/module4/libmodule4.so: ../Thirdparty/opencv/install/lib/libopencv_calib3d.so.4.4.0
 modules/module4/libmodule4.so: ../Thirdparty/opencv/install/lib/libopencv_features2d.so.4.4.0

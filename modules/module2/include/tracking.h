@@ -44,7 +44,7 @@ void matchFeatures(T Frame_L, T Frame_R)
 
     std::vector<std::vector<cv::DMatch>> matches;
     matcher->knnMatch(Frame_L->getDescriptors(), Frame_R->getDescriptors(), matches, 2);
-    spdlog::info("knnMatch complete");
+    spdlog::info("- knnMatch complete");
 
     std::vector<cv::DMatch> goodMatches;
     for (auto m : matches)
@@ -77,10 +77,10 @@ void matchFeatures(T Frame_L, T Frame_R)
     spdlog::info("- drawMatches complete");
 
     cv::imshow("dst",dst);
-    cv::waitKey(0);
-    spdlog::warn("- waitKey(0)");
-    // cv::waitKey(1e3/20);
-    // spdlog::warn("- waitKey(1e3/20)");
+    // cv::waitKey(0);
+    // spdlog::warn("- waitKey(0)");
+    cv::waitKey(1e3/20);
+    spdlog::warn("- waitKey(1e3/20)");
 
 };
 
@@ -116,6 +116,8 @@ void computeEssentialMatrix(T Frame_L, T Frame_R)
 
     auto goodMatches_L = Frame_L->getGoodMatches();
     auto goodMatches_R = Frame_R->getGoodMatches();
+    std::cout << "size of goodMatches_L : "<< goodMatches_L.size() << std::endl;
+    std::cout << "size of goodMatches_R : "<< goodMatches_R.size() << std::endl;
 
     Frame_L->setEssentialMat(cv::findEssentialMat(goodMatches_L, goodMatches_R, K));
     cv::Mat essentialMatrix = Frame_L->getEssentialMat();
@@ -160,38 +162,25 @@ void computeTriangulation(T Frame_L, T Frame_R)
         auto ptr_L = Frame_L->getGoodMatches()[i];
         auto ptr_R = Frame_R->getGoodMatches()[i];
 
-        p.z = std::abs(baseline * Frame_L->getScale() / (ptr_R.x - ptr_L.x)); // depth of point
+        auto delta_x = ptr_R.x - ptr_L.x;
+        if(delta_x == 0)
+        {
+            p.z = std::abs(baseline * Frame_L->getScale() / 5);
+        }
+        else
+        {
+            p.z = std::abs(baseline * Frame_L->getScale() / delta_x);
+        }
+         // depth of point
 
         p.x = p.z / K.ptr<double>(0)[0] * (ptr_L.x - K.ptr<double>(0)[2]); // x of point
         p.y = p.z / K.ptr<double>(1)[1] * (ptr_L.y - K.ptr<double>(1)[2]); // y of point
 
+        // std::cout << "(x, y, z) = (" << p.x << ", " << p.y << ", " << p.z << ")\n";
+
         framePoint3d_L.push_back(p);
     }
     Frame_L->setFramePoint3d(framePoint3d_L);
-
-
-    cv::Mat R = Frame_L->getRotationMat();
-
-    cv::Mat dst;
-    cv::Rodrigues(R,dst); // R*좌표
-
-    auto x = R.ptr<double>(0)[0]*p.x + R.ptr<double>(0)[1]*p.y + R.ptr<double>(0)[2]*p.z;
-    auto y = R.ptr<double>(1)[0]*p.x + R.ptr<double>(1)[1]*p.y + R.ptr<double>(1)[2]*p.z;
-    auto z = R.ptr<double>(2)[0]*p.x + R.ptr<double>(2)[1]*p.y + R.ptr<double>(2)[2]*p.z;
-
-    spdlog::info("- rotation (x,y,z) = ({}, {}, {})", x, y ,z);
-
-    auto a = dst.ptr<double>(0)[0];
-    auto b = dst.ptr<double>(0)[1];
-    auto c = dst.ptr<double>(0)[2];
-
-    auto theta = sqrt(a*a + b*b + c*c);
-
-    auto a_ = a / theta;
-    auto b_ = b / theta;
-    auto c_ = c / theta;
-
-    spdlog::info("- rodrigues (x,y,z) = ({}, {}, {})", p.x*(a_+b_+c_), b_, c_);
 
 }
 

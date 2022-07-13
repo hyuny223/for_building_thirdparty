@@ -178,12 +178,12 @@ CMakeFiles/untitled.dir/all: modules/module1/CMakeFiles/module1.dir/all
 CMakeFiles/untitled.dir/all: modules/module4/CMakeFiles/module4.dir/all
 	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/depend
 	$(MAKE) -f CMakeFiles/untitled.dir/build.make CMakeFiles/untitled.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=15,16 "Built target untitled"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=16,17 "Built target untitled"
 .PHONY : CMakeFiles/untitled.dir/all
 
 # Build rule for subdir invocation for target.
 CMakeFiles/untitled.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 16
+	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 17
 	$(MAKE) -f CMakeFiles/Makefile2 CMakeFiles/untitled.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 0
 .PHONY : CMakeFiles/untitled.dir/rule
@@ -205,12 +205,12 @@ CMakeFiles/untitled.dir/clean:
 modules/module1/CMakeFiles/module1.dir/all:
 	$(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/depend
 	$(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=1,2,3,4,5,6 "Built target module1"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=1,2,3,4,5,6,7 "Built target module1"
 .PHONY : modules/module1/CMakeFiles/module1.dir/all
 
 # Build rule for subdir invocation for target.
 modules/module1/CMakeFiles/module1.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 6
+	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 7
 	$(MAKE) -f CMakeFiles/Makefile2 modules/module1/CMakeFiles/module1.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /team-SLAM/build/CMakeFiles 0
 .PHONY : modules/module1/CMakeFiles/module1.dir/rule
@@ -232,7 +232,7 @@ modules/module1/CMakeFiles/module1.dir/clean:
 modules/module2/CMakeFiles/module2.dir/all:
 	$(MAKE) -f modules/module2/CMakeFiles/module2.dir/build.make modules/module2/CMakeFiles/module2.dir/depend
 	$(MAKE) -f modules/module2/CMakeFiles/module2.dir/build.make modules/module2/CMakeFiles/module2.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=7,8,9 "Built target module2"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=8,9,10 "Built target module2"
 .PHONY : modules/module2/CMakeFiles/module2.dir/all
 
 # Build rule for subdir invocation for target.
@@ -259,7 +259,7 @@ modules/module2/CMakeFiles/module2.dir/clean:
 modules/module3/CMakeFiles/module3.dir/all:
 	$(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/depend
 	$(MAKE) -f modules/module3/CMakeFiles/module3.dir/build.make modules/module3/CMakeFiles/module3.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=10,11,12 "Built target module3"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=11,12,13 "Built target module3"
 .PHONY : modules/module3/CMakeFiles/module3.dir/all
 
 # Build rule for subdir invocation for target.
@@ -286,7 +286,7 @@ modules/module3/CMakeFiles/module3.dir/clean:
 modules/module4/CMakeFiles/module4.dir/all:
 	$(MAKE) -f modules/module4/CMakeFiles/module4.dir/build.make modules/module4/CMakeFiles/module4.dir/depend
 	$(MAKE) -f modules/module4/CMakeFiles/module4.dir/build.make modules/module4/CMakeFiles/module4.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=13,14 "Built target module4"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=14,15 "Built target module4"
 .PHONY : modules/module4/CMakeFiles/module4.dir/all
 
 # Build rule for subdir invocation for target.

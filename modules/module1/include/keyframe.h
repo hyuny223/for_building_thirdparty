@@ -4,20 +4,7 @@
 
 namespace Data
 {
-    class KeyFrame;
-
-    class KeyFrameVec
-    {
-        protected:
-
-        public:
-            KeyFrameVec() = default;
-            static std::vector<std::shared_ptr<Data::KeyFrame>> mvKeyFrameVec;
-    };
-
-
-
-    class KeyFrame: public Frame, public KeyFrameVec
+    class KeyFrame: public Frame
     {
         protected:
             std::shared_ptr<Data::Frame> mpFrame;
@@ -26,8 +13,6 @@ namespace Data
             cv::Point3d mWorldPosition = {0,0,0};
 
             cv::Mat mw2c = cv::Mat::eye(4, 4, CV_32F);
-
-            int miKeyFrameNum;
 
             cv::Mat mQuaternion;
 

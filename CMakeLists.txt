@@ -31,8 +31,6 @@ if (Ceres_FOUND)
     message(STATUS "Ceres FOUND - ${Ceres_DIR}")
 endif()
 if (spdlog_FOUND)
-    set(spdlog_INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/spdlog/install/include)
-    set(spdlog_LIBRARIES ${CMAKE_CURRENT_SOURCE_DIR}/Thirdparty/spdlog/install/lib)
     message(STATUS "spdlog FOUND - ${spdlog_DIR}")
 endif()
 
@@ -62,7 +60,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         ${Eigen3_LIBRARIES}
         ${Pangolin_LIBRARIES}
         ${CERES_LIBRARIES}
-        ${spdlog_LIBRARIES}
+        spdlog::spdlog
         module1
         module2
         module3

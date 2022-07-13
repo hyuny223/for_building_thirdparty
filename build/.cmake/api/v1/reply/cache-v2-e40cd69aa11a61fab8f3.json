@@ -2066,30 +2066,6 @@
 			"value" : "/team-SLAM/modules/module4"
 		},
 		{
-			"name" : "module5_BINARY_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/team-SLAM/build/modules/module5"
-		},
-		{
-			"name" : "module5_SOURCE_DIR",
-			"properties" : 
-			[
-				{
-					"name" : "HELPSTRING",
-					"value" : "Value Computed by CMake"
-				}
-			],
-			"type" : "STATIC",
-			"value" : "/team-SLAM/modules/module5"
-		},
-		{
 			"name" : "spdlog_DIR",
 			"properties" : 
 			[

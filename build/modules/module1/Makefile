@@ -233,6 +233,33 @@ src/keyframe.cpp.s:
 	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.s
 .PHONY : src/keyframe.cpp.s
 
+src/keyframeVec.o: src/keyframeVec.cpp.o
+
+.PHONY : src/keyframeVec.o
+
+# target to build an object file
+src/keyframeVec.cpp.o:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/keyframeVec.cpp.o
+.PHONY : src/keyframeVec.cpp.o
+
+src/keyframeVec.i: src/keyframeVec.cpp.i
+
+.PHONY : src/keyframeVec.i
+
+# target to preprocess a source file
+src/keyframeVec.cpp.i:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/keyframeVec.cpp.i
+.PHONY : src/keyframeVec.cpp.i
+
+src/keyframeVec.s: src/keyframeVec.cpp.s
+
+.PHONY : src/keyframeVec.s
+
+# target to generate assembly for a file
+src/keyframeVec.cpp.s:
+	cd /team-SLAM/build && $(MAKE) -f modules/module1/CMakeFiles/module1.dir/build.make modules/module1/CMakeFiles/module1.dir/src/keyframeVec.cpp.s
+.PHONY : src/keyframeVec.cpp.s
+
 src/localmap.o: src/localmap.cpp.o
 
 .PHONY : src/localmap.o
@@ -281,6 +308,9 @@ help:
 	@echo "... src/keyframe.o"
 	@echo "... src/keyframe.i"
 	@echo "... src/keyframe.s"
+	@echo "... src/keyframeVec.o"
+	@echo "... src/keyframeVec.i"
+	@echo "... src/keyframeVec.s"
 	@echo "... src/localmap.o"
 	@echo "... src/localmap.i"
 	@echo "... src/localmap.s"

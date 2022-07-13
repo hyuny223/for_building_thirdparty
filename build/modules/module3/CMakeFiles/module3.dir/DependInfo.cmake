@@ -11,6 +11,7 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
+  "SPDLOG_COMPILED_LIB"
   "module3_EXPORTS"
   )
 
@@ -19,8 +20,8 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../modules/module3/include"
   "../modules/module1/include"
   "../modules/module2/include"
-  "../Thirdparty/spdlog/install/include"
   "../Thirdparty/opencv/install/include/opencv4"
+  "../Thirdparty/spdlog/install/include"
   )
 
 # Targets to which this target links.

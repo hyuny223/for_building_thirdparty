@@ -2,7 +2,7 @@
 
 #include "projection.h"
 #include "tracking.h"
-#include <spdlog/spdlog.h>
+#include "spdlog/spdlog.h"
 
 void doProjection(std::shared_ptr<Data::KeyFrame> prevKeyFrame,
                 std::shared_ptr<Data::KeyFrame> currKeyFrame)
@@ -26,7 +26,7 @@ void doProjection(std::shared_ptr<Data::KeyFrame> prevKeyFrame,
     {
         reprojPoints.push_back(cv::KeyPoint(newFramePoint2d[i], 1.0));
 
-#if 1
+#if 0
         std::cout << "origin (x,y) = (" << currKeyFrame->getGoodMatches()[i].x << ", " << currKeyFrame->getGoodMatches()[i].y << ")" << std::endl;
         std::cout << "projected (x,y) = (" << reprojPoints[i].pt.x << ", " << reprojPoints[i].pt.y << ")" << std::endl;
         std::cout << "\n\n";

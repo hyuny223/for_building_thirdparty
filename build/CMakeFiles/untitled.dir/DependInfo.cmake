@@ -11,12 +11,12 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 # Preprocessor definitions for this target.
 set(CMAKE_TARGET_DEFINITIONS_CXX
   "GFLAGS_IS_A_DLL=0"
+  "SPDLOG_COMPILED_LIB"
   )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../Thirdparty/pangolin/install/include"
-  "../Thirdparty/spdlog/install/include"
   "../module1/include"
   "../module2/include"
   "../module3/include"
@@ -28,6 +28,7 @@ set(CMAKE_CXX_TARGET_INCLUDE_PATH
   "../Thirdparty/opencv/install/include/opencv4"
   "../Thirdparty/eigen/install/include/eigen3"
   "../Thirdparty/ceres/install/include"
+  "../Thirdparty/spdlog/install/include"
   )
 
 # Targets to which this target links.

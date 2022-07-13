@@ -81,6 +81,7 @@ untitled: CMakeFiles/untitled.dir/main.cpp.o
 untitled: CMakeFiles/untitled.dir/build.make
 untitled: ../Thirdparty/pangolin/install/lib/libpango_core.so
 untitled: ../Thirdparty/ceres/install/lib/libceres.a
+untitled: ../Thirdparty/spdlog/install/lib/libspdlog.a
 untitled: modules/module1/libmodule1.so
 untitled: modules/module2/libmodule2.so
 untitled: modules/module3/libmodule3.so
@@ -113,6 +114,7 @@ untitled: /usr/lib/x86_64-linux-gnu/libsuitesparseconfig.so
 untitled: /usr/lib/x86_64-linux-gnu/liblapack.so
 untitled: /usr/lib/x86_64-linux-gnu/libf77blas.so
 untitled: /usr/lib/x86_64-linux-gnu/libatlas.so
+untitled: ../Thirdparty/spdlog/install/lib/libspdlog.a
 untitled: CMakeFiles/untitled.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/team-SLAM/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable untitled"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/untitled.dir/link.txt --verbose=$(VERBOSE)

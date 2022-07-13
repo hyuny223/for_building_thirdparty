@@ -362,12 +362,6 @@ module4_BINARY_DIR:STATIC=/team-SLAM/build/modules/module4
 //Value Computed by CMake
 module4_SOURCE_DIR:STATIC=/team-SLAM/modules/module4
 
-//Value Computed by CMake
-module5_BINARY_DIR:STATIC=/team-SLAM/build/modules/module5
-
-//Value Computed by CMake
-module5_SOURCE_DIR:STATIC=/team-SLAM/modules/module5
-
 //The directory containing a CMake configuration file for spdlog.
 spdlog_DIR:PATH=/team-SLAM/Thirdparty/spdlog/install/lib/cmake/spdlog
 

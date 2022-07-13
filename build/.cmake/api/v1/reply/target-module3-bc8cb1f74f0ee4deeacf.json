@@ -26,19 +26,19 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 21,
+				"line" : 16,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 26,
+				"line" : 21,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 31,
+				"line" : 26,
 				"parent" : 0
 			}
 		]
@@ -57,6 +57,10 @@
 			],
 			"defines" : 
 			[
+				{
+					"backtrace" : 2,
+					"define" : "SPDLOG_COMPILED_LIB"
+				},
 				{
 					"define" : "module3_EXPORTS"
 				}
@@ -77,12 +81,13 @@
 				},
 				{
 					"backtrace" : 3,
-					"path" : "/team-SLAM/Thirdparty/spdlog/install/include"
-				},
-				{
-					"backtrace" : 3,
 					"isSystem" : true,
 					"path" : "/team-SLAM/Thirdparty/opencv/install/include/opencv4"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "/team-SLAM/Thirdparty/spdlog/install/include"
 				}
 			],
 			"language" : "CXX",
@@ -153,6 +158,11 @@
 			},
 			{
 				"backtrace" : 2,
+				"fragment" : "../../../Thirdparty/spdlog/install/lib/libspdlog.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
 				"fragment" : "../../../Thirdparty/opencv/install/lib/libopencv_imgcodecs.so.4.4.0",
 				"role" : "libraries"
 			},
@@ -179,6 +189,10 @@
 			{
 				"backtrace" : 2,
 				"fragment" : "../../../Thirdparty/opencv/install/lib/libopencv_core.so.4.4.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lpthread",
 				"role" : "libraries"
 			}
 		],

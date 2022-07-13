@@ -103,6 +103,7 @@ modules/module3/libmodule3.so: ../Thirdparty/opencv/install/lib/libopencv_photo.
 modules/module3/libmodule3.so: ../Thirdparty/opencv/install/lib/libopencv_stitching.so.4.4.0
 modules/module3/libmodule3.so: ../Thirdparty/opencv/install/lib/libopencv_video.so.4.4.0
 modules/module3/libmodule3.so: ../Thirdparty/opencv/install/lib/libopencv_videoio.so.4.4.0
+modules/module3/libmodule3.so: ../Thirdparty/spdlog/install/lib/libspdlog.a
 modules/module3/libmodule3.so: ../Thirdparty/opencv/install/lib/libopencv_imgcodecs.so.4.4.0
 modules/module3/libmodule3.so: ../Thirdparty/opencv/install/lib/libopencv_calib3d.so.4.4.0
 modules/module3/libmodule3.so: ../Thirdparty/opencv/install/lib/libopencv_features2d.so.4.4.0
