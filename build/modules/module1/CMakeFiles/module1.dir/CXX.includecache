@@ -1038,8 +1038,6 @@ opencv2/opencv.hpp
 frame.h
 ../modules/module1/include/frame.h
 
-<<<<<<< HEAD
-=======
 ../modules/module1/include/keyframeVec.h
 iostream
 -
@@ -1048,7 +1046,6 @@ vector
 keyframe.h
 ../modules/module1/include/keyframe.h
 
->>>>>>> 0b1521615b5643e52c771408405fbab65e267638
 ../modules/module1/include/localmap.h
 iostream
 -
@@ -1069,8 +1066,6 @@ frame.h
 keyframe.h
 /team-SLAM/modules/module1/src/keyframe.h
 
-<<<<<<< HEAD
-=======
 /team-SLAM/modules/module1/src/keyframeVec.cpp
 iostream
 -
@@ -1081,7 +1076,6 @@ keyframeVec.h
 keyframe.h
 /team-SLAM/modules/module1/src/keyframe.h
 
->>>>>>> 0b1521615b5643e52c771408405fbab65e267638
 /team-SLAM/modules/module1/src/localmap.cpp
 iostream
 -

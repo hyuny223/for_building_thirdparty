@@ -317,8 +317,6 @@ modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.o: ../modules/module1/in
 modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.o: ../modules/module1/include/framepoint.h
 modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.o: ../modules/module1/include/keyframe.h
 modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.o: ../modules/module1/src/keyframe.cpp
-<<<<<<< HEAD
-=======
 
 modules/module1/CMakeFiles/module1.dir/src/keyframeVec.cpp.o: ../Thirdparty/opencv/install/include/opencv4/opencv2/calib3d.hpp
 modules/module1/CMakeFiles/module1.dir/src/keyframeVec.cpp.o: ../Thirdparty/opencv/install/include/opencv4/opencv2/core.hpp
@@ -426,7 +424,6 @@ modules/module1/CMakeFiles/module1.dir/src/keyframeVec.cpp.o: ../modules/module1
 modules/module1/CMakeFiles/module1.dir/src/keyframeVec.cpp.o: ../modules/module1/include/keyframe.h
 modules/module1/CMakeFiles/module1.dir/src/keyframeVec.cpp.o: ../modules/module1/include/keyframeVec.h
 modules/module1/CMakeFiles/module1.dir/src/keyframeVec.cpp.o: ../modules/module1/src/keyframeVec.cpp
->>>>>>> 0b1521615b5643e52c771408405fbab65e267638
 
 modules/module1/CMakeFiles/module1.dir/src/localmap.cpp.o: ../Thirdparty/opencv/install/include/opencv4/opencv2/calib3d.hpp
 modules/module1/CMakeFiles/module1.dir/src/localmap.cpp.o: ../Thirdparty/opencv/install/include/opencv4/opencv2/core.hpp
