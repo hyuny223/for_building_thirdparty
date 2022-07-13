@@ -77,10 +77,10 @@ void matchFeatures(T Frame_L, T Frame_R)
     spdlog::info("- drawMatches complete");
 
     cv::imshow("dst",dst);
-    // cv::waitKey(0);
-    // spdlog::warn("- waitKey(0)");
-    cv::waitKey(1e3/20);
-    spdlog::warn("- waitKey(1e3/20)");
+    cv::waitKey(0);
+    spdlog::warn("- waitKey(0)");
+    // cv::waitKey(1e3/20);
+    // spdlog::warn("- waitKey(1e3/20)");
 
 };
 
@@ -135,11 +135,11 @@ void computeEssentialMatrix(T Frame_L, T Frame_R)
     computeTransformMat(rotationMatrix, translationMatrix, transformMatrix);
     spdlog::info("- computeTransformMat complete");
 
-    Frame_L->setRotationMat(rotationMatrix);
+    Frame_R->setRotationMat(rotationMatrix);
     spdlog::info("- setRotationMat complete");
-    Frame_L->setTranslationMat(translationMatrix); // tvec은 distance가 1인 유닛 벡터이다. 스케일이 정해지지 않음.
+    Frame_R->setTranslationMat(translationMatrix); // tvec은 distance가 1인 유닛 벡터이다. 스케일이 정해지지 않음.
     spdlog::info("- setTranslationMat complete");
-    Frame_L->setTransformMat(transformMatrix);
+    Frame_R->setTransformMat(transformMatrix);
     spdlog::info("- setTransformMat complete");
 }
 
@@ -149,8 +149,8 @@ void computeTriangulation(T Frame_L, T Frame_R)
     double k[] = {718.856, 0, 607.1928, 0, 718.856, 185.2157, 0, 0, 1};
     cv::Mat K(3,3, CV_64FC1, k);
 
-    std::vector<cv::Point3d> framePoint3d_L = Frame_L->getFramePoint3d();
-    cv::Mat translationMatrix = Frame_L->getTranslationMat();
+    std::vector<cv::Point3d> framePoint3d_L = Frame_R->getFramePoint3d();
+    cv::Mat translationMatrix = Frame_R->getTranslationMat();
 
     cv::Point3d p;
 
@@ -185,17 +185,50 @@ void computeTriangulation(T Frame_L, T Frame_R)
 }
 
 template<typename T>
-void computeWorldPosition(T prevKeyFrame, T currKeyFrame)
+void computeWorldPosition(std::shared_ptr<Data::KeyFrame> prevKeyFrame, std::shared_ptr<Data::KeyFrame> currKeyFrame)
 {
+    std::vector<cv::Point3d> vFramePoint3d = prevKeyFrame->getFramePoint3d();
+    cv::Mat transformMat = currKeyFrame->getTransformMat()*prevKeyFrame->getTransformMat();
 
-    // currw2c = prevw2c * relative T
-    auto prevw2c = prevKeyFrame->getw2c();
-    auto relativeTransform = prevKeyFrame->getTransformMat();
+    cv::Mat rMat, tMat;
+    splitTransformMat(transformMat, rMat, tMat);
 
-    auto currw2c = prevw2c * relativeTransform.t();
+    currKeyFrame->setTransformMat(transformMat);
+    currKeyFrame->setRotationMat(rMat);
+    currKeyFrame->setTranslationMat(tMat);
 
-    currKeyFrame->setw2c(currw2c);
+    /* 월드포지션(카메라) */
+
+    auto pt = prevKeyFrame->getWorldPosition();
+    auto x = pt.x;
+    auto y = pt.y;
+    auto z = pt.z;
+
+    double world_x = rMat.ptr<double>(0)[0] * x + rMat.ptr<double>(0)[1] * y + rMat.ptr<double>(0)[2] * z + tMat.ptr<double>(0)[0];
+    double world_y = rMat.ptr<double>(1)[0] * x + rMat.ptr<double>(1)[1] * y + rMat.ptr<double>(1)[2] * z + tMat.ptr<double>(0)[1];
+    double world_z = rMat.ptr<double>(2)[0] * x + rMat.ptr<double>(2)[1] * y + rMat.ptr<double>(2)[2] * z + tMat.ptr<double>(0)[2];
+
+    cv::Point3d tmp(world_x, world_y, world_z);
+
+    currKeyFrame->setWorldPosition(tmp);
+
+
+    cv::Mat R = rMat.inv();
+
+    std::vector<cv::Point3d> vWorldPoint3d = {};
+    for(auto& c : vFramePoint3d)
+    {
+        auto x = c.x;
+        auto y = c.y;
+        auto z = c.z;
+
+        double world_x = R.ptr<double>(0)[0] * x + R.ptr<double>(0)[1] * y + R.ptr<double>(0)[2] * z - tMat.ptr<double>(0)[0];
+        double world_y = R.ptr<double>(1)[0] * x + R.ptr<double>(1)[1] * y + R.ptr<double>(1)[2] * z - tMat.ptr<double>(0)[1];
+        double world_z = R.ptr<double>(2)[0] * x + R.ptr<double>(2)[1] * y + R.ptr<double>(2)[2] * z - tMat.ptr<double>(0)[2];
+
+        cv::Point3d p(world_x, world_y, world_z);
+        vWorldPoint3d.push_back(p);
+    }
+    prevKeyFrame->setFramePoint3d(vWorldPoint3d);
 }
-
-
 }

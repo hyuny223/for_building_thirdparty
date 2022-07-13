@@ -25,18 +25,6 @@ namespace Data
         return mpFrame;
     }
 
-
-    // void KeyFrame::setWorldPosition(cv::Point3d worldPosition)
-    // {
-    //     mWorldPosition = worldPosition;
-    // }
-
-    // cv::Point3d KeyFrame::getWorldPosition()
-    // {
-    //     return mWorldPosition;
-    // }
-
-
     void KeyFrame::setReprojPoints(std::vector<cv::KeyPoint> reprojPoints)
     {
         mvReprojPoints = reprojPoints;
@@ -47,37 +35,6 @@ namespace Data
         return mvReprojPoints;
     }
 
-    // void KeyFrame::setW2CRotationMat(cv::Mat rotation)
-    // {
-    //     mRcw = rotation;
-    // }
-
-    // cv::Mat KeyFrame::getW2CRotationMat()
-    // {
-    //     return mRcw;
-    // }
-
-    // void KeyFrame::setW2CTranslationMat(cv::Mat translation)
-    // {
-    //     mTcw = translation;
-    // }
-
-    // cv::Mat KeyFrame::getW2CTranslationMat()
-    // {
-    //     return mTcw;
-    // }
-
-    void KeyFrame::setw2c(cv::Mat w2c)
-    {
-        mw2c = w2c;
-    }
-
-    cv::Mat KeyFrame::getw2c()
-    {
-        return mw2c;
-    }
-
-
     void KeyFrame::setQuaternion(cv::Mat q)
     {
         mQuaternion = q;
@@ -85,5 +42,14 @@ namespace Data
     cv::Mat KeyFrame::getQuaternion()
     {
         return mQuaternion;
+    }
+
+    void KeyFrame::setWorldPosition(cv::Point3d position)
+    {
+        mWorldPosition = position;
+    }
+    cv::Point3d KeyFrame::getWorldPosition()
+    {
+        return mWorldPosition;
     }
 }

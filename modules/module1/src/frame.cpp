@@ -25,16 +25,6 @@ namespace Data
         return mDescriptors;
     }
 
-    // void Frame::setMatches(const std::vector<cv::DMatch>& match)
-    // {
-    //     mMatches = match;
-    // }
-
-    // std::vector<cv::DMatch> Frame::getMatches()
-    // {
-    //     return mMatches;
-    // }
-
     void Frame::setGoodMatches(std::vector<cv::Point2d> goodMatch)
     {
         mvGoodMatches = goodMatch;

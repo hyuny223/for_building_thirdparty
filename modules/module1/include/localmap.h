@@ -21,6 +21,5 @@ namespace Data
 
             cv::Point3d getLocalPose();
             void resetLocalMap();
-
     };
 }

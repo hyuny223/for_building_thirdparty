@@ -18,9 +18,9 @@ namespace Data
 
             cv::Mat mmFundamentalMat;
             cv::Mat mmEssentialMat;
-            cv::Mat mmRotaionMat;
-            cv::Mat mmTranslationMat;
-            cv::Mat mmTransformMat;
+            cv::Mat mmRotaionMat = cv::Mat::eye(3, 3, CV_64F);
+            cv::Mat mmTranslationMat = cv::Mat::zeros(1, 3, CV_64F);
+            cv::Mat mmTransformMat = cv::Mat::eye(4, 4, CV_64F);
 
             double mdScale{1000};
 
@@ -34,9 +34,6 @@ namespace Data
 
             void setDescriptors(const cv::Mat& descriptors);
             cv::Mat getDescriptors();
-
-            // void setMatches(const std::vector<cv::DMatch>& match);
-            // std::vector<cv::DMatch> getMatches();
 
             void setGoodMatches(std::vector<cv::Point2d> goodMatch);
             std::vector<cv::Point2d> getGoodMatches();

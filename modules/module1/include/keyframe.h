@@ -12,7 +12,7 @@ namespace Data
 
             cv::Point3d mWorldPosition = {0,0,0};
 
-            cv::Mat mw2c = cv::Mat::eye(4, 4, CV_32F);
+            cv::Mat mWorld2CamTransform = cv::Mat::eye(4, 4, CV_32F);
 
             cv::Mat mQuaternion;
 
@@ -22,21 +22,8 @@ namespace Data
 
             std::shared_ptr<Data::Frame> getKeyFrame();
 
-            // void setWorldPosition(cv::Point3d worldPosition);
-            // cv::Point3d getWorldPosition();
-
             void setReprojPoints(std::vector<cv::KeyPoint> reprojPoints);
             std::vector<cv::KeyPoint> getReprojPoints();
-
-
-            // void setW2CRotationMat(cv::Mat rotation);
-            // cv::Mat getW2CRotationMat();
-
-            // void setW2CTranslationMat(cv::Mat translation);
-            // cv::Mat getW2CTranslationMat();
-
-            void setw2c(cv::Mat w2c);
-            cv::Mat getw2c();
 
             int getKeyFrameNum();
 
@@ -45,6 +32,9 @@ namespace Data
 
             void setQuaternion(cv::Mat q);
             cv::Mat getQuaternion();
+
+            void setWorldPosition(cv::Point3d position);
+            cv::Point3d getWorldPosition();
 
     };
 }

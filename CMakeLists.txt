@@ -60,6 +60,7 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         ${Eigen3_LIBRARIES}
         ${Pangolin_LIBRARIES}
         ${CERES_LIBRARIES}
+
         spdlog::spdlog
         module1
         module2
