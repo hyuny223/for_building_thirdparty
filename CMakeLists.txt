@@ -11,6 +11,7 @@ find_package(Eigen3 REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/eigen/install/
 find_package(Pangolin REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/pangolin/install/lib/cmake/Pangolin)
 find_package(Ceres REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/ceres/install/lib/cmake/Ceres)
 find_package(spdlog 1.10.0 REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/spdlog/install/lib/cmake/spdlog)
+find_package(PCL REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/pcl/install/share/pcl-1.12)
 
 if (OpenCV_FOUND)
     set(OpenCV_INCLUDE_DIR ${OpenCV_INCLUDE_DIRS})
@@ -22,8 +23,8 @@ if (Eigen3_FOUND)
     message(STATUS "Eigen3 FOUND - ${Eigen3_INCLUDE_DIR}")
 endif()
 if (Pangolin_FOUND)
-    set(Pangolin_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/Thirdparty/pangolin/install/include)
-    set(Pangolin_LIBRARIES ${CMAKE_SOURCE_DIR}/Thirdparty/pangolin/install/lib/cmake/Pangolin) # libpangolin.so
+    # set(Pangolin_INCLUDE_DIR ${CMAKE_SOURCE_DIR}/Thirdparty/pangolin/install/include)
+    # set(Pangolin_LIBRARIES ${CMAKE_SOURCE_DIR}/Thirdparty/pangolin/install/lib/cmake/Pangolin) # libpangolin.so
     message(STATUS "Pangolin FOUND - ${Pangolin_DIR}")
 endif()
 if (Ceres_FOUND)
@@ -33,6 +34,10 @@ endif()
 if (spdlog_FOUND)
     message(STATUS "spdlog FOUND - ${spdlog_DIR}")
 endif()
+if (PCL_FOUND)
+    message(STATUS "PCL FOUND - ${PCL_DIR}")
+endif()
+
 
 
 
@@ -48,10 +53,12 @@ target_include_directories(${PROJECT_NAME} PUBLIC
         ${Pangolin_INCLUDE_DIRS}
         ${Ceres_INCLUDE_DIR}
         ${spdlog_INCLUDE_DIR}
+        ${PCL_INCLUDE_DIR}
         module1/include
         module2/include
         module3/include
         module4/include
+        module5/include
         )
 
 target_link_libraries(${PROJECT_NAME} PUBLIC
@@ -59,10 +66,12 @@ target_link_libraries(${PROJECT_NAME} PUBLIC
         ${Eigen3_LIBRARIES}
         ${Pangolin_LIBRARIES}
         ${CERES_LIBRARIES}
+        ${PCL_LIBRARIES}
 
         spdlog::spdlog
         module1
         module2
         module3
         module4
+        module5
         )

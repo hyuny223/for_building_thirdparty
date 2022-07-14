@@ -54,10 +54,12 @@ cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_POSIT
 time make -j$(nproc)
 make install
 
+# build
+
 # build googletest
 cd ../../googletest
 git clone https://github.com/google/googletest.git
 mkdir build install && cd build
-cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=../install ../googletest
+cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_POSITION_INDEPENDENT_CODE=ON ../googletest
 time make -j$(nproc)
 make install

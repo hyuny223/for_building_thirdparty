@@ -19,7 +19,7 @@ void Similarity::findSimFeatures()
     std::vector<cv::DMatch> goodMatches;
     for (auto m : matches)
     {
-        if (m[0].distance / m[1].distance < 0.8)
+        if (m[0].distance / m[1].distance < 0.7)
         {
             goodMatches.push_back(m[0]);
         }
@@ -51,7 +51,7 @@ bool Similarity::computeSimilarity(const int& nFeatures)
     // std::cout << "nfGoodFeatures : " << nfGoodFeatures << "\n";
     // std::cout << "th : " << nfGoodFeatures / nfFeatures << "\n\n";
 
-    if (nfGoodFeatures / nfFeatures < 0.05) // 비슷한게 많이 없다면 keyframe으로!
+    if (nfGoodFeatures / nfFeatures < 0.1) // 비슷한게 많이 없다면 keyframe으로!
     {
         std::cout << "new KeyFrame Found!!" << std::endl;
         mpPrev->setGoodMatches(mvPrevGoodMatches);

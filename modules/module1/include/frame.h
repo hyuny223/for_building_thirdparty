@@ -19,10 +19,10 @@ namespace Data
             cv::Mat mmFundamentalMat;
             cv::Mat mmEssentialMat;
             cv::Mat mmRotaionMat = cv::Mat::eye(3, 3, CV_64F);
-            cv::Mat mmTranslationMat = cv::Mat::zeros(1, 3, CV_64F);
+            cv::Mat mmTranslationMat = cv::Mat::zeros(3, 1, CV_64F);
             cv::Mat mmTransformMat = cv::Mat::eye(4, 4, CV_64F);
 
-            double mdScale{1000};
+            double mdScale{100};
 
         public:
             Frame() = default;

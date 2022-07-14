@@ -52,6 +52,7 @@ modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../Thirdparty/cer
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../Thirdparty/ceres/install/include/ceres/ordered_groups.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../Thirdparty/ceres/install/include/ceres/problem.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../Thirdparty/ceres/install/include/ceres/product_manifold.h
+modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../Thirdparty/ceres/install/include/ceres/rotation.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../Thirdparty/ceres/install/include/ceres/sized_cost_function.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../Thirdparty/ceres/install/include/ceres/solver.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../Thirdparty/ceres/install/include/ceres/sphere_manifold.h
@@ -418,6 +419,7 @@ modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module1/include/framepoint.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module1/include/keyframe.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module2/include/quaternion.h
+modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module2/include/tracking.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module3/include/projection.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module4/include/optimization.h
 modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o: ../modules/module4/src/optimization.cpp

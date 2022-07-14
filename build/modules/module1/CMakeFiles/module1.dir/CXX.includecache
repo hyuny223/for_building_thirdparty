@@ -1056,12 +1056,6 @@ keyframe.h
 opencv2/opencv.hpp
 ../modules/module1/include/opencv2/opencv.hpp
 
-/team-SLAM/modules/module1/src/frame.cpp
-opencv2/opencv.hpp
-/team-SLAM/modules/module1/src/opencv2/opencv.hpp
-frame.h
-/team-SLAM/modules/module1/src/frame.h
-
 /team-SLAM/modules/module1/src/keyframe.cpp
 keyframe.h
 /team-SLAM/modules/module1/src/keyframe.h

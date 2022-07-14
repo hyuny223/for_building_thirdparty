@@ -49,7 +49,7 @@ void matchFeatures(T Frame_L, T Frame_R)
     std::vector<cv::DMatch> goodMatches;
     for (auto m : matches)
     {
-        if (m[0].distance / m[1].distance < 0.4)
+        if (m[0].distance / m[1].distance < 0.5)
         {
             goodMatches.push_back(m[0]);
         }
@@ -61,32 +61,43 @@ void matchFeatures(T Frame_L, T Frame_R)
     std::vector<cv::Point2d> goodMatches_L = Frame_L->getGoodMatches();
     std::vector<cv::Point2d> goodMatches_R = Frame_R->getGoodMatches();
 
+
+    std::vector<cv::KeyPoint> L;
+    std::vector<cv::KeyPoint> R;
+
+
     for (size_t i = 0; i < goodMatches.size(); i++)
     {
         goodMatches_L.push_back(framePoints_L[goodMatches[i].queryIdx].pt);
         goodMatches_R.push_back(framePoints_R[goodMatches[i].trainIdx].pt);
 
+        L.push_back(cv::KeyPoint(goodMatches_L[i],1.f));
+        R.push_back(cv::KeyPoint(goodMatches_R[i],1.f));
     }
 
     Frame_L->setGoodMatches(goodMatches_L);
     Frame_R->setGoodMatches(goodMatches_R);
     spdlog::info("- setGoodMatches complete");
 
-    cv::Mat dst;
-    cv::drawMatches(Frame_L->getFrame(), Frame_L->getFramePoint2d(), Frame_R->getFrame(), Frame_R->getFramePoint2d(), matches, dst);
+    cv::Mat dst1;
+    // cv::Mat dst2;
+    cv::drawKeypoints(Frame_L->getFrame(), L, dst1);
+    // cv::drawKeypoints(Frame_R->getFrame(), R, dst2);
+    // cv::drawMatches(Frame_L->getFrame(), Frame_L->getFramePoint2d(), Frame_R->getFrame(), Frame_R->getFramePoint2d(), matches, dst);
     spdlog::info("- drawMatches complete");
 
-    cv::imshow("dst",dst);
-    cv::waitKey(0);
-    spdlog::warn("- waitKey(0)");
-    // cv::waitKey(1e3/20);
-    // spdlog::warn("- waitKey(1e3/20)");
+    cv::imshow("dst1",dst1);
+    // cv::imshow("dst2",dst2);
+    // cv::waitKey(0);
+    // spdlog::warn("- waitKey(0)");
+    cv::waitKey(1e3/20);
+    spdlog::warn("- waitKey(1e3/20)");
 
 };
 
 
 template<typename T>
-cv::Mat computeTransformMat(T& R, T& t, T& transform)
+void computeTransformMat(T& R, T& t, T& transform)
 {
     cv::hconcat(R, t, transform); // [R t]를 만들어 주는 과정
 
@@ -94,11 +105,9 @@ cv::Mat computeTransformMat(T& R, T& t, T& transform)
     cv::Mat b(1,4,CV_64FC1,_b);
 
     cv::vconcat(transform, b, transform); // [[R t], [0 1]]를 만들어주는 과정
-    return transform;
 }
 
-
-template<typename T>
+template <typename T>
 void splitTransformMat(T& transform, T& R, T& t)
 {
     cv::Rect roiR(0,0,3,3);
@@ -108,6 +117,7 @@ void splitTransformMat(T& transform, T& R, T& t)
     t = transform(roit);
 }
 
+
 template <typename T>
 void computeEssentialMatrix(T Frame_L, T Frame_R)
 {
@@ -116,23 +126,21 @@ void computeEssentialMatrix(T Frame_L, T Frame_R)
 
     auto goodMatches_L = Frame_L->getGoodMatches();
     auto goodMatches_R = Frame_R->getGoodMatches();
-    std::cout << "size of goodMatches_L : "<< goodMatches_L.size() << std::endl;
-    std::cout << "size of goodMatches_R : "<< goodMatches_R.size() << std::endl;
 
-    Frame_L->setEssentialMat(cv::findEssentialMat(goodMatches_L, goodMatches_R, K));
-    cv::Mat essentialMatrix = Frame_L->getEssentialMat();
+
+    Frame_R->setEssentialMat(cv::findEssentialMat(goodMatches_L, goodMatches_R, K));
+    cv::Mat essentialMatrix = Frame_R->getEssentialMat();
     spdlog::info("- setEssentialMat complete");
 
-    // cv::Mat rotationMatrix = Frame_L->getRotationMat(); // double
-    // cv::Mat translationMatrix = Frame_L->getTranslationMat(); // double
-    cv::Mat rotationMatrix; // double
-    cv::Mat translationMatrix; // double
+    cv::Mat rotationMatrix;
+    cv::Mat translationMatrix;
 
     cv::recoverPose(essentialMatrix, goodMatches_L, goodMatches_R, K, rotationMatrix, translationMatrix);
     spdlog::info("- recoverPose complete");
 
     cv::Mat transformMatrix;
     computeTransformMat(rotationMatrix, translationMatrix, transformMatrix);
+
     spdlog::info("- computeTransformMat complete");
 
     Frame_R->setRotationMat(rotationMatrix);
@@ -149,27 +157,36 @@ void computeTriangulation(T Frame_L, T Frame_R)
     double k[] = {718.856, 0, 607.1928, 0, 718.856, 185.2157, 0, 0, 1};
     cv::Mat K(3,3, CV_64FC1, k);
 
-    std::vector<cv::Point3d> framePoint3d_L = Frame_R->getFramePoint3d();
+    std::vector<cv::Point3d> framePoint3d_L;
     cv::Mat translationMatrix = Frame_R->getTranslationMat();
 
     cv::Point3d p;
 
     cv::Mat& t = translationMatrix;
-    double baseline = sqrt(std::pow(t.ptr<double>(0)[0],2) + std::pow(t.ptr<double>(0)[1],2) + std::pow(t.ptr<double>(0)[2],2));
 
-    for(int i = 0; i < Frame_L->getGoodMatches().size(); ++i)
+
+    auto ptrVec_L = Frame_L->getGoodMatches();
+    auto ptrVec_R = Frame_R->getGoodMatches();
+
+    double baseline = sqrt(std::pow(t.ptr<double>(0)[0],2) + std::pow(t.ptr<double>(1)[0],2) + std::pow(t.ptr<double>(2)[0],2));
+
+    for(int i = 0; i < ptrVec_L.size() ; ++i)
     {
-        auto ptr_L = Frame_L->getGoodMatches()[i];
-        auto ptr_R = Frame_R->getGoodMatches()[i];
+        auto ptr_L = ptrVec_L[i];
+        auto ptr_R = ptrVec_R[i];
 
         auto delta_x = ptr_R.x - ptr_L.x;
+
         if(delta_x == 0)
         {
-            p.z = std::abs(baseline * Frame_L->getScale() / 5);
+            ptrVec_L.erase(ptrVec_L.begin() + i);
+            ptrVec_R.erase(ptrVec_R.begin() + i);
+            --i;
+            continue;
         }
         else
         {
-            p.z = std::abs(baseline * Frame_L->getScale() / delta_x);
+            p.z = (baseline / delta_x);
         }
          // depth of point
 
@@ -181,16 +198,17 @@ void computeTriangulation(T Frame_L, T Frame_R)
         framePoint3d_L.push_back(p);
     }
     Frame_L->setFramePoint3d(framePoint3d_L);
-
+    Frame_L->setGoodMatches(ptrVec_L);
+    Frame_R->setGoodMatches(ptrVec_R);
 }
 
 template<typename T>
-void computeWorldPosition(std::shared_ptr<Data::KeyFrame> prevKeyFrame, std::shared_ptr<Data::KeyFrame> currKeyFrame)
+void computeWorldPosition(T prevKeyFrame, T currKeyFrame)
 {
     std::vector<cv::Point3d> vFramePoint3d = prevKeyFrame->getFramePoint3d();
-    cv::Mat transformMat = currKeyFrame->getTransformMat()*prevKeyFrame->getTransformMat();
+    cv::Mat transformMat = currKeyFrame->getTransformMat() * prevKeyFrame->getTransformMat();
 
-    cv::Mat rMat, tMat;
+    cv::Mat rMat(3,3,CV_64F), tMat(3,1,CV_64F);
     splitTransformMat(transformMat, rMat, tMat);
 
     currKeyFrame->setTransformMat(transformMat);
@@ -198,20 +216,25 @@ void computeWorldPosition(std::shared_ptr<Data::KeyFrame> prevKeyFrame, std::sha
     currKeyFrame->setTranslationMat(tMat);
 
     /* 월드포지션(카메라) */
+    cv::Point3d pt = prevKeyFrame->getWorldPosition();
 
-    auto pt = prevKeyFrame->getWorldPosition();
-    auto x = pt.x;
-    auto y = pt.y;
-    auto z = pt.z;
+    // double world_x = transformMat.ptr<double>(0)[0]*pt.x + transformMat.ptr<double>(0)[1]*pt.y + transformMat.ptr<double>(0)[2]*pt.z + transformMat.ptr<double>(0)[3];
+    // double world_y = transformMat.ptr<double>(1)[0]*pt.x + transformMat.ptr<double>(1)[1]*pt.y + transformMat.ptr<double>(1)[2]*pt.z + transformMat.ptr<double>(1)[3];
+    // double world_z = transformMat.ptr<double>(2)[0]*pt.x + transformMat.ptr<double>(2)[1]*pt.y + transformMat.ptr<double>(2)[2]*pt.z + transformMat.ptr<double>(2)[3];
 
-    double world_x = rMat.ptr<double>(0)[0] * x + rMat.ptr<double>(0)[1] * y + rMat.ptr<double>(0)[2] * z + tMat.ptr<double>(0)[0];
-    double world_y = rMat.ptr<double>(1)[0] * x + rMat.ptr<double>(1)[1] * y + rMat.ptr<double>(1)[2] * z + tMat.ptr<double>(0)[1];
-    double world_z = rMat.ptr<double>(2)[0] * x + rMat.ptr<double>(2)[1] * y + rMat.ptr<double>(2)[2] * z + tMat.ptr<double>(0)[2];
+    double world_x = pt.x;
+    double world_y = pt.y;
+    double world_z = pt.z;
+
+    world_x += tMat.ptr<double>(0)[0];
+    world_y += tMat.ptr<double>(1)[0];
+    world_z += tMat.ptr<double>(2)[0];
+
+    std::cout << "camera world position : (" << world_x << ", " << world_y << ", " << world_z << ")\n\n\n\n";
 
     cv::Point3d tmp(world_x, world_y, world_z);
 
     currKeyFrame->setWorldPosition(tmp);
-
 
     cv::Mat R = rMat.inv();
 

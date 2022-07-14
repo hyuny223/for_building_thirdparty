@@ -12,11 +12,19 @@
 		[
 			"add_library",
 			"target_link_libraries",
+			"set_property",
+			"include",
+			"find_external_library",
+			"find_package",
+			"include_directories",
 			"target_include_directories"
 		],
 		"files" : 
 		[
-			"modules/module2/CMakeLists.txt"
+			"modules/module2/CMakeLists.txt",
+			"/usr/lib/cmake/vtk-7.1/UseVTK.cmake",
+			"Thirdparty/pcl/install/share/pcl-1.12/PCLConfig.cmake",
+			"CMakeLists.txt"
 		],
 		"nodes" : 
 		[
@@ -36,7 +44,48 @@
 				"parent" : 0
 			},
 			{
+				"file" : 3
+			},
+			{
+				"command" : 5,
+				"file" : 3,
+				"line" : 14,
+				"parent" : 3
+			},
+			{
+				"file" : 2,
+				"parent" : 4
+			},
+			{
+				"command" : 4,
+				"file" : 2,
+				"line" : 534,
+				"parent" : 5
+			},
+			{
+				"command" : 3,
+				"file" : 2,
+				"line" : 337,
+				"parent" : 6
+			},
+			{
+				"file" : 1,
+				"parent" : 7
+			},
+			{
 				"command" : 2,
+				"file" : 1,
+				"line" : 23,
+				"parent" : 8
+			},
+			{
+				"command" : 6,
+				"file" : 1,
+				"line" : 26,
+				"parent" : 8
+			},
+			{
+				"command" : 7,
 				"file" : 0,
 				"line" : 19,
 				"parent" : 0
@@ -49,7 +98,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-fPIC  "
+					"fragment" : "  -fPIC  "
 				},
 				{
 					"fragment" : "-std=gnu++17"
@@ -63,20 +112,36 @@
 				},
 				{
 					"define" : "module2_EXPORTS"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "vtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "vtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"
 				}
 			],
 			"includes" : 
 			[
 				{
-					"backtrace" : 3,
+					"backtrace" : 10,
+					"path" : "/usr/include/vtk-7.1"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/usr/include/freetype2"
+				},
+				{
+					"backtrace" : 11,
 					"path" : "/team-SLAM/modules/module2/include"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 11,
 					"path" : "/team-SLAM/modules/module1/include"
 				},
 				{
-					"backtrace" : 3,
+					"backtrace" : 11,
 					"isSystem" : true,
 					"path" : "/team-SLAM/Thirdparty/opencv/install/include/opencv4"
 				},

@@ -1,6 +1,9 @@
 #include <iostream>
 #include <vector>
 
+#include "pcl/io/pcd_io.h"
+#include "pcl/point_types.h"
+#include "pcl/registration/icp.h"
 
 #include "opencv2/opencv.hpp"
 #include "spdlog/spdlog.h"
@@ -14,6 +17,9 @@
 #include "optimization.h"
 #include "quaternion.h"
 #include "keyframeVec.h"
+#include "pangolin/pangolin.h"
+#include "ceres/rotation.h"
+#include "draw.h"
 
 Data::KeyFrameVec& keyFrameVec = Data::KeyFrameVec::GetInstance();
 
@@ -22,37 +28,42 @@ int main()
 {
     spdlog::info("proSLAM start!!");
 
-    // std::string path("/root/dataset/sequences/00/image_0/*.png"); // ch1
+    std::string path0("/root/dataset/sequences/00/image_0/*.png"); // ch1
+    std::string path1("/root/dataset/sequences/00/image_1/*.png"); // ch1
 
-	std::string path("/root/dataset/00/image_0/*.png"); // soomin
-	std::vector<std::string> str;
+	std::vector<std::string> str0;
+	std::vector<std::string> str1;
 
 	int index = 0;
-	cv::glob(path, str, false);
+	cv::glob(path0, str0, false);
+	cv::glob(path1, str1, false);
 
 
-	if (str.size() == 0){
+	if (str0.size() == 0 || str1.size() == 0){
         spdlog::error("이미지가 존재하지 않습니다. 종료합니다.");
         return -1;
     }
     else{
-        spdlog::info("image path : {}", path);
-        spdlog::info("image 개수 : {} \n\n\t[ start : press key (debug : d)]", str.size());
+        spdlog::info("image path : {}", path0);
+        spdlog::info("image 개수 : {} \n\n\t[ start : press key (debug : d)]", str0.size());
         if(getchar() != 'd') spdlog::set_level(spdlog::level::off);
     }
 
     int nFeatures = 1000;
 
-
     bool firstKeyFrameflag = false;
 
     std::shared_ptr<Data::KeyFrame> currKeyFrame;
 
-	for (int cnt = 0; cnt < str.size() - 1; cnt+=2)
+    pangolin::CreateWindowAndBind("Trajectory viewer",1024,768);
+
+	for (int cnt = 0; cnt < str0.size(); ++cnt)
 	{
-        // if(cnt < 4320) continue;
-		cv::Mat image_1 = cv::imread(str[cnt]);
-        cv::Mat image_2 = cv::imread(str[cnt+1]);
+
+		cv::Mat image_1 = cv::imread(str0[cnt]);
+        cv::Mat image_2 = cv::imread(str1[cnt]);
+        spdlog::info("=========== frame number : {} ===========\n", cnt);
+
 
         std::shared_ptr<Data::Frame> frame_1 = std::make_shared<Data::Frame>(image_1);
         std::shared_ptr<Data::Frame> frame_2 = std::make_shared<Data::Frame>(image_2);
@@ -101,11 +112,10 @@ int main()
         Frontend::computeEssentialMatrix(prevKeyFrame, currKeyFrame); // 두 이미지 간 Essential Matrix를 구하는 과정.
         spdlog::info("---computeEssentialMatrix complete---\n");    // 그러나 Mono에서는 KeyFrame에서 구하는 것이기에 의미가 없다.
 
+
         spdlog::info("|   computeTriangulation start   |");
         Frontend::computeTriangulation(prevKeyFrame, currKeyFrame); // Correspondence 간의 Triangulation을 계산
         spdlog::info("---computeTriangulation complete---\n");
-
-        Frontend::R2Quaternion(prevKeyFrame);
 
         spdlog::info("|   doProjection start   |");
         doProjection(prevKeyFrame, currKeyFrame);
@@ -115,38 +125,110 @@ int main()
         optimization(prevKeyFrame, currKeyFrame);
         spdlog::info("---optimization complete---\n");
 
+        Frontend::computeWorldPosition(prevKeyFrame, currKeyFrame);
 
-        spdlog::info("=========== frame number : {} ===========\n", cnt);
+        Frontend::R2Quaternion(currKeyFrame);
+
+        cv::Mat t = currKeyFrame->getTranslationMat();
+        cv::Mat q = currKeyFrame->getQuaternion();
+
+        std::vector<Eigen::Isometry3d, Eigen::aligned_allocator<Eigen::Isometry3d>> poses;
+        std::vector<double> timeRecords;
+        double tx = t.ptr<double>(0)[0];
+        double ty = t.ptr<double>(0)[1];
+        double tz = t.ptr<double>(0)[2];
+        double qx = q.ptr<double>(0)[0];
+        double qy = q.ptr<double>(0)[1];
+        double qz = q.ptr<double>(0)[2];
+        double qw = q.ptr<double>(0)[3];
+
+        Eigen::Isometry3d Twr(Eigen::Quaterniond(qw,qx,qy,qz).normalized());
+        Twr.pretranslate(Eigen::Vector3d(tx, ty, tz));
+        poses.push_back(Twr);
+
+        glEnable(GL_DEPTH_TEST);
+        glEnable(GL_BLEND);
+        glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
+        pangolin::OpenGlRenderState s_cam(
+            pangolin::ProjectionMatrix(1024, 768, 500, 500, 800, 200, 0.1, 1000),
+            pangolin::ModelViewLookAt(0, -0.1, -1.8, 0, 0, 0, pangolin::AxisZ)
+        );
+        pangolin::View &d_cam = pangolin::CreateDisplay()
+            .SetBounds(0.0, 1.0, 0.0, 1.0, -1024.0f / 768.0f)
+            .SetHandler(new pangolin::Handler3D(s_cam));
 
 
+        for(size_t i=0; (pangolin::ShouldQuit()==false)&&i<poses.size();++i)
+        {
+            glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+            d_cam.Activate(s_cam);
+            glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
 
-        // 키프레임이 처음이 아니라면 월드좌표 구하고 projection 진행
-        // 월드좌표 = 이전 키프레임의 월드좌표 + 이전 키프레임과 현재 키프레임의 상대좌표
-        // const auto& prevKeyFrame = currKeyFrame->getPrevKeyFrame();
-        // Frontend::computeEssentialMatrix(prevKeyFrame, currKeyFrame); // 이전 키프레임과 현재 키프레임간 상대포즈를 구한다.
+            drawKeytFrame(poses);
+            drawCoordinate(0.5);
+            // bool flag = true;
+            // drawLine(i, poses, flag);
 
-        /*
-            1. 월드좌표를 구하기 위해서는 월드좌표를 (0,0,0)으로 설정한다
-            2. Rt를 구한다.
-            3. 이전 좌표에 t를 더한다.
-            4. 1로 돌아간다.
-        */
-        // Frontend::computeWorldPosition(prevKeyFrame, currKeyFrame);
-
-
-        // K * Rt * World Coordinate (projection)
+        }
+        pangolin::FinishFrame();
 
 
-        // std::shared_ptr<Projection> proj = std::make_shared<Projection>();
-        // proj->doProjection(keyFrame);
-
-        // num_plus++;
     }
 
     std::cout << keyFrameVec.getKeyFrameVec().size() << std::endl;
     spdlog::info(">>>>>>>>>>>>>>> proSLAM success!! <<<<<<<<<<<<<<");
 
-    // num_plus++;
-
     return 0;
 }
+
+
+
+
+// int main ()
+// {
+//     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_in (new pcl::PointCloud<pcl::PointXYZ>(5,1));
+//     pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_out (new pcl::PointCloud<pcl::PointXYZ>);
+//     // Fill in the CloudIn data
+//     for (auto& point : *cloud_in)
+//     {
+//     point.x = 1024 * rand() / (RAND_MAX + 1.0f);
+//     point.y = 1024 * rand() / (RAND_MAX + 1.0f);
+//     point.z = 1024 * rand() / (RAND_MAX + 1.0f);
+//     }
+
+//     std::cout << "Saved " << cloud_in->size () << " data points to input:" << std::endl;
+//     std::cout << "\n\n";
+
+//     for (auto& point : *cloud_in)
+//     {
+//         std::cout << point << std::endl;
+//     }
+//     std::cout << "\n\n";
+
+//     *cloud_out = *cloud_in;
+
+//     for (auto& point : *cloud_out)
+//     {
+//         point.x += 0.7f;
+//     }
+
+//     for (auto& point : *cloud_out)
+//     {
+//         std::cout << point << std::endl;
+//     }
+//     std::cout << "\n\n";
+
+//     pcl::IterativeClosestPoint<pcl::PointXYZ, pcl::PointXYZ> icp;
+
+//     icp.setInputSource(cloud_in);
+//     icp.setInputTarget(cloud_out);
+
+//     pcl::PointCloud<pcl::PointXYZ> Final;
+//     icp.align(Final);
+
+//     std::cout << "has converged:" << icp.hasConverged() << " score: " <<
+//     icp.getFitnessScore() << std::endl;
+
+//     std::cout << icp.getFinalTransformation() << std::endl;
+//     return 0;
+// }

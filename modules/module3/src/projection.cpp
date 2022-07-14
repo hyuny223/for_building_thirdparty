@@ -7,7 +7,6 @@
 void doProjection(std::shared_ptr<Data::KeyFrame> prevKeyFrame,
                 std::shared_ptr<Data::KeyFrame> currKeyFrame)
 {
-    std::cout << "here!\n";
     double k[] = {718.856, 0, 607.1928, 0, 718.856, 185.2157, 0, 0, 1};
     cv::Mat K(3,3,CV_64FC1,k);
 

@@ -9,9 +9,9 @@
 namespace Frontend
 {
     //cv::Mat q is 1x4 matrix
-    void R2Quaternion(std::shared_ptr<Data::KeyFrame> prevFrame)
+    void R2Quaternion(std::shared_ptr<Data::KeyFrame> currKeyFrame)
     {
-        cv::Mat R = prevFrame->getRotationMat();
+        cv::Mat R = currKeyFrame->getRotationMat();
         cv::Mat q(1,4,CV_64F);
 
         double roll = atan2(R.at<double>(2,1),R.at<double>(2,2));
@@ -30,7 +30,7 @@ namespace Frontend
         q.at<double>(0,2) = cr * sp * cy + sr * cp * sy;
         q.at<double>(0,3) = cr * cp * sy - sr * sp * cy;
 
-        prevFrame->setQuaternion(q);
+        currKeyFrame->setQuaternion(q);
 
     }
 

@@ -13,10 +13,14 @@ set(CMAKE_CXX_COMPILER_ID "GNU")
 set(CMAKE_TARGET_DEFINITIONS_CXX
   "SPDLOG_COMPILED_LIB"
   "module3_EXPORTS"
+  "vtkRenderingContext2D_AUTOINIT=1(vtkRenderingContextOpenGL2)"
+  "vtkRenderingCore_AUTOINIT=3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)"
   )
 
 # The include file search paths:
 set(CMAKE_CXX_TARGET_INCLUDE_PATH
+  "/usr/include/vtk-7.1"
+  "/usr/include/freetype2"
   "../modules/module3/include"
   "../modules/module1/include"
   "../modules/module2/include"
