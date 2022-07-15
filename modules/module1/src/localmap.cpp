@@ -5,17 +5,17 @@
 
 namespace Data
 {
-    void LocalMap::setLocalMap(Data::KeyFrame keyFrame)
+    void LocalMap::setLocalMap(std::shared_ptr<Data::KeyFrame> keyFrame)
     {
         mvLocalMap.push_back(keyFrame);
 
         if(mvLocalMap.size() == 1)
         {
-            // 포즈 값
+            mLocalPose = keyFrame->getWorldPosition();
         }
     }
 
-    std::vector<Data::KeyFrame> LocalMap::getLocalMap()
+    std::vector<std::shared_ptr<Data::KeyFrame>> LocalMap::getLocalMap()
     {
         return mvLocalMap;
     }

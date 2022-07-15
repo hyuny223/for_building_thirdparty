@@ -10,14 +10,14 @@ namespace Data
     class LocalMap
     {
         private:
-            std::vector<Data::KeyFrame> mvLocalMap;
+            std::vector<std::shared_ptr<Data::KeyFrame>> mvLocalMap;
             cv::Point3d mLocalPose;
 
         public:
             LocalMap() = default;
 
-            void setLocalMap(Data::KeyFrame keyFrame);
-            std::vector<Data::KeyFrame> getLocalMap();
+            void setLocalMap(std::shared_ptr<Data::KeyFrame> keyFrame);
+            std::vector<std::shared_ptr<Data::KeyFrame>> getLocalMap();
 
             cv::Point3d getLocalPose();
             void resetLocalMap();

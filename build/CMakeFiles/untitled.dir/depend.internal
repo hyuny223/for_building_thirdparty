@@ -557,8 +557,10 @@ CMakeFiles/untitled.dir/main.cpp.o
  ../Thirdparty/spdlog/install/include/spdlog/version.h
  ../modules/module1/include/frame.h
  ../modules/module1/include/framepoint.h
+ ../modules/module1/include/globalmap.h
  ../modules/module1/include/keyframe.h
  ../modules/module1/include/keyframeVec.h
+ ../modules/module1/include/localmap.h
  ../modules/module2/include/quaternion.h
  ../modules/module2/include/tracking.h
  ../modules/module3/include/projection.h

@@ -5016,6 +5016,14 @@ iostream
 opencv2/opencv.hpp
 ../modules/module1/include/opencv2/opencv.hpp
 
+../modules/module1/include/globalmap.h
+iostream
+-
+vector
+-
+localmap.h
+../modules/module1/include/localmap.h
+
 ../modules/module1/include/keyframe.h
 frame.h
 ../modules/module1/include/frame.h
@@ -5027,6 +5035,16 @@ vector
 -
 keyframe.h
 ../modules/module1/include/keyframe.h
+
+../modules/module1/include/localmap.h
+iostream
+-
+vector
+-
+keyframe.h
+../modules/module1/include/keyframe.h
+opencv2/opencv.hpp
+../modules/module1/include/opencv2/opencv.hpp
 
 ../modules/module2/include/quaternion.h
 quaternion.h
@@ -5119,6 +5137,10 @@ frame.h
 /team-SLAM/frame.h
 keyframe.h
 /team-SLAM/keyframe.h
+localmap.h
+/team-SLAM/localmap.h
+globalmap.h
+/team-SLAM/globalmap.h
 tracking.h
 /team-SLAM/tracking.h
 similarity.h

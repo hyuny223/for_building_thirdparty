@@ -1034,17 +1034,17 @@ iostream
 opencv2/opencv.hpp
 ../modules/module1/include/opencv2/opencv.hpp
 
-../modules/module1/include/keyframe.h
-frame.h
-../modules/module1/include/frame.h
-
-../modules/module1/include/keyframeVec.h
+../modules/module1/include/globalmap.h
 iostream
 -
 vector
 -
-keyframe.h
+localmap.h
+../modules/module1/include/localmap.h
+
 ../modules/module1/include/keyframe.h
+frame.h
+../modules/module1/include/frame.h
 
 ../modules/module1/include/localmap.h
 iostream
@@ -1056,19 +1056,13 @@ keyframe.h
 opencv2/opencv.hpp
 ../modules/module1/include/opencv2/opencv.hpp
 
-/team-SLAM/modules/module1/src/keyframe.cpp
-keyframe.h
-/team-SLAM/modules/module1/src/keyframe.h
-
-/team-SLAM/modules/module1/src/keyframeVec.cpp
-iostream
--
+/team-SLAM/modules/module1/src/globalmap.cpp
 vector
 -
-keyframeVec.h
-/team-SLAM/modules/module1/src/keyframeVec.h
-keyframe.h
-/team-SLAM/modules/module1/src/keyframe.h
+globalmap.h
+/team-SLAM/modules/module1/src/globalmap.h
+localmap.h
+/team-SLAM/modules/module1/src/localmap.h
 
 /team-SLAM/modules/module1/src/localmap.cpp
 iostream

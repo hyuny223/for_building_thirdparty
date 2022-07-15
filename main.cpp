@@ -11,6 +11,8 @@
 #include "framepoint.h"
 #include "frame.h"
 #include "keyframe.h"
+#include "localmap.h"
+#include "globalmap.h"
 #include "tracking.h"
 #include "similarity.h"
 #include "projection.h"
@@ -22,6 +24,7 @@
 #include "draw.h"
 
 Data::KeyFrameVec& keyFrameVec = Data::KeyFrameVec::GetInstance();
+Data::GlobalMap& globalMap = Data::GlobalMap::GetInstance();
 
 
 int main()
@@ -54,6 +57,7 @@ int main()
     bool firstKeyFrameflag = false;
 
     std::shared_ptr<Data::KeyFrame> currKeyFrame;
+    std::shared_ptr<Data::LocalMap> localMap = std::make_shared<Data::LocalMap>();
 
     pangolin::CreateWindowAndBind("Trajectory viewer",1024,768);
 
@@ -89,6 +93,7 @@ int main()
             currKeyFrame = std::make_shared<Data::KeyFrame>(frame_1);
             keyFrameVec.setKeyFrameVec(currKeyFrame);
             firstKeyFrameflag = true;
+            localMap->setLocalMap(currKeyFrame);
             spdlog::warn("firstKeyFrame done !! [back]");
             continue;
         }
@@ -126,6 +131,16 @@ int main()
         spdlog::info("---optimization complete---\n");
 
         Frontend::computeWorldPosition(prevKeyFrame, currKeyFrame);
+
+        if(localMap->getLocalMap().size() == 20) // 로컬맵에 키프레임이 20개라면 global map에 저장하고 local map reset
+        {
+            globalMap.setGlobalMap(localMap);
+            localMap->resetLocalMap();
+        }
+        else // 키프레임이 20장 미만이라면 local map에 keyframe 계속 저장
+        {
+            localMap->setLocalMap(currKeyFrame);
+        }
 
         Frontend::R2Quaternion(currKeyFrame);
 
@@ -168,10 +183,8 @@ int main()
             drawCoordinate(0.5);
             // bool flag = true;
             // drawLine(i, poses, flag);
-
         }
         pangolin::FinishFrame();
-
 
     }
 
