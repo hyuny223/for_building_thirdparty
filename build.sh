@@ -33,6 +33,9 @@ cmake -DCMAKE_BUILD_E=RELEASE \
         -DCMAKE_INSTALL_PREFIX=../install \
         -DWITH_OPENGL=ON \
         -DWITH_GRK=ON \
+        -DBUILD_opencv_python3=OFF \
+        -DBUILD_TESTS=OFF \
+        -DBUILD_PERF_TEST=OFF \
         -OPENCV_GENERATE_PKGCONFIG ../opencv-4.4.0
 time make -j$(nproc)
 make install
@@ -54,7 +57,13 @@ cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_POSIT
 time make -j$(nproc)
 make install
 
-# build
+# build PCL
+cd ../../pcl
+git clone https://github.com/PointCloudLibrary/pcl.git
+mkdir build install && build
+cmake -DCMAKE_BUILD_TYPE=RELEASE -DCMAKE_INSTALL_PREFIX=../install -DCMAKE_POSITION_INDEPENDENT_CODE=ON ../pcl
+time make -j$(nproc)
+make install
 
 # build googletest
 cd ../../googletest
