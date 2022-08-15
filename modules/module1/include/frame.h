@@ -12,9 +12,9 @@ namespace Data
 
             cv::Mat mDescriptors;
 
-            std::vector<cv::DMatch> mMatches;
+            std::vector<cv::DMatch> mMatches = {};
 
-            std::vector<cv::Point2d> mvGoodMatches;
+            std::vector<cv::Point2d> mvGoodMatches = {};
 
             cv::Mat mmFundamentalMat;
             cv::Mat mmEssentialMat;
@@ -32,9 +32,11 @@ namespace Data
             void setFrame(const cv::Mat& image);
             cv::Mat getFrame();
 
+            void addDescriptors(cv::Mat& descriptors);
             void setDescriptors(const cv::Mat& descriptors);
             cv::Mat getDescriptors();
 
+            void addGoodMatches(std::vector<cv::Point2d> goodMatch);
             void setGoodMatches(std::vector<cv::Point2d> goodMatch);
             std::vector<cv::Point2d> getGoodMatches();
 

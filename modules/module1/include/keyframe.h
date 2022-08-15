@@ -8,7 +8,7 @@ namespace Data
     {
         protected:
             std::shared_ptr<Data::Frame> mpFrame;
-            std::vector<cv::KeyPoint> mvReprojPoints;
+            std::vector<cv::KeyPoint> mvReprojPoints = {};
 
             cv::Point3d mWorldPosition = {0,0,0};
 
@@ -35,6 +35,9 @@ namespace Data
 
             void setWorldPosition(cv::Point3d position);
             cv::Point3d getWorldPosition();
+
+            void setWorld2CamTransformMat(cv::Mat transform);
+            cv::Mat getWorld2CamTransformMat();
 
     };
 }

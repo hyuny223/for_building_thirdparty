@@ -7,6 +7,7 @@ RUN sed -i 's@archive.ubuntu.com@mirror.kakao.com@g' /etc/apt/sources.list
 RUN apt update && apt update -y
 
 RUN echo "== Start to install Dependencies =="
+RUN sudo apt install -y language-pack-en-base
 RUN apt install -y apt-utils
 RUN apt install -y build-essential
 RUN apt install -y ca-certificates
@@ -36,7 +37,6 @@ RUN apt install -y mesa-utils libgl1-mesa-dri libgtkgl2.0-dev libgtkglext1-dev
 RUN apt install -y libatlas-base-dev gfortran
 RUN apt install -y libglew-dev
 RUN apt install -y x11-apps x11-utils
-RUN apt install -y libcanberra-gtk-module
 RUN apt install -y libcanberra-gtk3-module
 
 RUN echo "== Ceres-Solver Dependencies =="
@@ -45,11 +45,11 @@ RUN apt install -y libatlas-base-dev
 RUN apt install -y libsuitesparse-dev
 
 RUN echo "== PCL Dependencies =="
-RUN apt install libflann-dev
-RUN apt install libvtk7-dev
-RUN apt install libboost-all-dev
-RUN apt install qt5-default
-RUN apt install libpcap-dev
+RUN apt install -y libflann-dev
+RUN apt install -y libvtk7-dev
+RUN apt install -y libboost-all-dev
+RUN apt install -y qt5-default
+RUN apt install -y libpcap-dev
 
 RUN cd && mkdir workspace && cd workspace
 RUN git clone -b developing https://github.com/hyuny223/team-SLAM.git

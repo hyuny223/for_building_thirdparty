@@ -13,6 +13,6 @@ namespace Data
 
     void KeyFrameVec::setKeyFrameVec(std::shared_ptr<Data::KeyFrame> keyframe)
     {
-        mvKeyFrameVec.push_back(keyframe);
+        mvKeyFrameVec.emplace_back(keyframe);
     }
 }

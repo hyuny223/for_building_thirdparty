@@ -1,5 +1,8 @@
 {
     "files.associations": {
+        "*.repos": "yaml",
+        "*.world": "xml",
+        "*.xacro": "xml",
         "ostream": "cpp",
         "filesystem": "cpp",
         "fstream": "cpp",
@@ -73,6 +76,7 @@
         "typeindex": "cpp",
         "typeinfo": "cpp",
         "valarray": "cpp",
-        "variant": "cpp"
+        "variant": "cpp",
+        "strstream": "cpp"
     }
 }

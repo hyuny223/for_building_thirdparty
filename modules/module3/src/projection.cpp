@@ -19,7 +19,7 @@ void doProjection(std::shared_ptr<Data::KeyFrame> prevKeyFrame,
     cv::projectPoints(point3D, prevKeyFrame->getRotationMat(), prevKeyFrame->getTranslationMat(), K, distCoeffs, newFramePoint2d);
     spdlog::info("- projectPoints complete");
 
-    std::vector<cv::KeyPoint> reprojPoints;
+    std::vector<cv::KeyPoint> reprojPoints = {};
 
     for(int i = 0; i < newFramePoint2d.size(); ++i)
     {

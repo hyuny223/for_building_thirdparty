@@ -1,5 +1,8 @@
 #pragma once
 
+#include <iostream>
+#include <string>
+
 #include "opencv2/opencv.hpp"
 #include "frame.h"
 #include "framepoint.h"
@@ -19,6 +22,6 @@ class Similarity
         Similarity(const std::shared_ptr<Data::KeyFrame> prev, std::shared_ptr<Data::Frame> curr);
         // ~Similarity();
 
-        void findSimFeatures();
+        void findSimFeatures(const std::string& mode);
         bool computeSimilarity(const int& nFeatures);
 };

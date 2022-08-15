@@ -8,8 +8,8 @@ namespace Data
     class FramePoint
     {
         protected:
-            std::vector<cv::Point3d> mvFramePoints3d;
-            std::vector<cv::KeyPoint> mvFramePoints2d;
+            std::vector<cv::Point3d> mvFramePoints3d = {};
+            std::vector<cv::KeyPoint> mvFramePoints2d = {};
 
         public:
             FramePoint() = default;
@@ -17,7 +17,7 @@ namespace Data
             void setFramePoint3d(std::vector<cv::Point3d> framePoints);
             std::vector<cv::Point3d> getFramePoint3d();
 
-
+            void addFramePoint2d(std::vector<cv::KeyPoint> framePoints);
             void setFramePoint2d(std::vector<cv::KeyPoint> framePoints);
             std::vector<cv::KeyPoint> getFramePoint2d();
 

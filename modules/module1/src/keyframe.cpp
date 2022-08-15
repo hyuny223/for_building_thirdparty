@@ -52,4 +52,13 @@ namespace Data
     {
         return mWorldPosition;
     }
+
+    void KeyFrame::setWorld2CamTransformMat(cv::Mat transform)
+    {
+        mWorld2CamTransform = transform;
+    }
+    cv::Mat KeyFrame::getWorld2CamTransformMat()
+    {
+        return mWorld2CamTransform;
+    }
 }

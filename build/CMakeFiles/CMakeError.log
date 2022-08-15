@@ -1,40 +1,30 @@
 Determining if the function sgemm_ exists failed with the following output:
 Change Dir: /team-SLAM/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_8a06f/fast && /usr/bin/make -f CMakeFiles/cmTC_8a06f.dir/build.make CMakeFiles/cmTC_8a06f.dir/build
-make[1]: Entering directory '/team-SLAM/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_8a06f.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=sgemm_   -o CMakeFiles/cmTC_8a06f.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_8a06f
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_8a06f.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=sgemm_    CMakeFiles/cmTC_8a06f.dir/CheckFunctionExists.c.o  -o cmTC_8a06f 
-/usr/bin/ld: CMakeFiles/cmTC_8a06f.dir/CheckFunctionExists.c.o: in function `main':
+Run Build Command(s):/usr/bin/ninja cmTC_eda3e && [1/2] Building C object CMakeFiles/cmTC_eda3e.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_eda3e
+FAILED: cmTC_eda3e 
+: && /usr/bin/cc -DCHECK_FUNCTION_EXISTS=sgemm_   CMakeFiles/cmTC_eda3e.dir/CheckFunctionExists.c.o  -o cmTC_eda3e   && :
+/usr/bin/ld: CMakeFiles/cmTC_eda3e.dir/CheckFunctionExists.c.o: in function `main':
 CheckFunctionExists.c:(.text+0x14): undefined reference to `sgemm_'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_8a06f.dir/build.make:87: cmTC_8a06f] Error 1
-make[1]: Leaving directory '/team-SLAM/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_8a06f/fast] Error 2
+ninja: build stopped: subcommand failed.
 
 
 
 Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
 Change Dir: /team-SLAM/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_68546/fast && /usr/bin/make -f CMakeFiles/cmTC_68546.dir/build.make CMakeFiles/cmTC_68546.dir/build
-make[1]: Entering directory '/team-SLAM/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_68546.dir/src.c.o
-/usr/bin/cc   -DCMAKE_HAVE_LIBC_PTHREAD   -o CMakeFiles/cmTC_68546.dir/src.c.o   -c /team-SLAM/build/CMakeFiles/CMakeTmp/src.c
-Linking C executable cmTC_68546
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_68546.dir/link.txt --verbose=1
-/usr/bin/cc  -DCMAKE_HAVE_LIBC_PTHREAD    CMakeFiles/cmTC_68546.dir/src.c.o  -o cmTC_68546 
-/usr/bin/ld: CMakeFiles/cmTC_68546.dir/src.c.o: in function `main':
+Run Build Command(s):/usr/bin/ninja cmTC_69d5c && [1/2] Building C object CMakeFiles/cmTC_69d5c.dir/src.c.o
+[2/2] Linking C executable cmTC_69d5c
+FAILED: cmTC_69d5c 
+: && /usr/bin/cc -DCMAKE_HAVE_LIBC_PTHREAD   CMakeFiles/cmTC_69d5c.dir/src.c.o  -o cmTC_69d5c   && :
+/usr/bin/ld: CMakeFiles/cmTC_69d5c.dir/src.c.o: in function `main':
 src.c:(.text+0x46): undefined reference to `pthread_create'
 /usr/bin/ld: src.c:(.text+0x52): undefined reference to `pthread_detach'
 /usr/bin/ld: src.c:(.text+0x63): undefined reference to `pthread_join'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_68546.dir/build.make:87: cmTC_68546] Error 1
-make[1]: Leaving directory '/team-SLAM/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_68546/fast] Error 2
+ninja: build stopped: subcommand failed.
 
 
 Source file was:
@@ -60,37 +50,27 @@ int main(void)
 Determining if the function pthread_create exists in the pthreads failed with the following output:
 Change Dir: /team-SLAM/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_16bdc/fast && /usr/bin/make -f CMakeFiles/cmTC_16bdc.dir/build.make CMakeFiles/cmTC_16bdc.dir/build
-make[1]: Entering directory '/team-SLAM/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_16bdc.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=pthread_create   -o CMakeFiles/cmTC_16bdc.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_16bdc
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_16bdc.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=pthread_create    CMakeFiles/cmTC_16bdc.dir/CheckFunctionExists.c.o  -o cmTC_16bdc  -lpthreads 
+Run Build Command(s):/usr/bin/ninja cmTC_58bbc && [1/2] Building C object CMakeFiles/cmTC_58bbc.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_58bbc
+FAILED: cmTC_58bbc 
+: && /usr/bin/cc -DCHECK_FUNCTION_EXISTS=pthread_create   CMakeFiles/cmTC_58bbc.dir/CheckFunctionExists.c.o  -o cmTC_58bbc  -lpthreads && :
 /usr/bin/ld: cannot find -lpthreads
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_16bdc.dir/build.make:87: cmTC_16bdc] Error 1
-make[1]: Leaving directory '/team-SLAM/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_16bdc/fast] Error 2
+ninja: build stopped: subcommand failed.
 
 
 
 Determining if the function cheev_ exists failed with the following output:
 Change Dir: /team-SLAM/build/CMakeFiles/CMakeTmp
 
-Run Build Command(s):/usr/bin/make cmTC_13120/fast && /usr/bin/make -f CMakeFiles/cmTC_13120.dir/build.make CMakeFiles/cmTC_13120.dir/build
-make[1]: Entering directory '/team-SLAM/build/CMakeFiles/CMakeTmp'
-Building C object CMakeFiles/cmTC_13120.dir/CheckFunctionExists.c.o
-/usr/bin/cc   -DCHECK_FUNCTION_EXISTS=cheev_   -o CMakeFiles/cmTC_13120.dir/CheckFunctionExists.c.o   -c /usr/share/cmake-3.16/Modules/CheckFunctionExists.c
-Linking C executable cmTC_13120
-/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_13120.dir/link.txt --verbose=1
-/usr/bin/cc  -DCHECK_FUNCTION_EXISTS=cheev_    CMakeFiles/cmTC_13120.dir/CheckFunctionExists.c.o  -o cmTC_13120  /usr/lib/x86_64-linux-gnu/libf77blas.so /usr/lib/x86_64-linux-gnu/libatlas.so 
-/usr/bin/ld: CMakeFiles/cmTC_13120.dir/CheckFunctionExists.c.o: in function `main':
+Run Build Command(s):/usr/bin/ninja cmTC_5de23 && [1/2] Building C object CMakeFiles/cmTC_5de23.dir/CheckFunctionExists.c.o
+[2/2] Linking C executable cmTC_5de23
+FAILED: cmTC_5de23 
+: && /usr/bin/cc -DCHECK_FUNCTION_EXISTS=cheev_   CMakeFiles/cmTC_5de23.dir/CheckFunctionExists.c.o  -o cmTC_5de23  /usr/lib/x86_64-linux-gnu/libf77blas.so  /usr/lib/x86_64-linux-gnu/libatlas.so && :
+/usr/bin/ld: CMakeFiles/cmTC_5de23.dir/CheckFunctionExists.c.o: in function `main':
 CheckFunctionExists.c:(.text+0x14): undefined reference to `cheev_'
 collect2: error: ld returned 1 exit status
-make[1]: *** [CMakeFiles/cmTC_13120.dir/build.make:89: cmTC_13120] Error 1
-make[1]: Leaving directory '/team-SLAM/build/CMakeFiles/CMakeTmp'
-make: *** [Makefile:121: cmTC_13120/fast] Error 2
+ninja: build stopped: subcommand failed.
 
 
 

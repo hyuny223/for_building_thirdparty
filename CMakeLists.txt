@@ -12,7 +12,6 @@ find_package(Pangolin REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/pangolin/ins
 find_package(Ceres REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/ceres/install/lib/cmake/Ceres)
 find_package(spdlog 1.10.0 REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/spdlog/install/lib/cmake/spdlog)
 find_package(PCL REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/pcl/install/share/pcl-1.12)
-
 if (OpenCV_FOUND)
     set(OpenCV_INCLUDE_DIR ${OpenCV_INCLUDE_DIRS})
     message(STATUS "OpenCV FOUND - ${OpenCV_DIR}")

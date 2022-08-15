@@ -15,6 +15,11 @@ namespace Data
     }
 
 
+    void FramePoint::addFramePoint2d(std::vector<cv::KeyPoint> framePoints)
+    {
+        mvFramePoints2d.insert(mvFramePoints2d.end(), framePoints.begin(), framePoints.end());
+    }
+
     void FramePoint::setFramePoint2d(std::vector<cv::KeyPoint> framePoints)
     {
         mvFramePoints2d = framePoints;

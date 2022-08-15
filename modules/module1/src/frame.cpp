@@ -15,6 +15,11 @@ namespace Data
         return mmFrame;
     }
 
+    void Frame::addDescriptors(cv::Mat& descriptors)
+    {
+        cv::vconcat(descriptors,mDescriptors);
+    }
+
     void Frame::setDescriptors(const cv::Mat& descriptors)
     {
         mDescriptors = descriptors;
@@ -23,6 +28,11 @@ namespace Data
     cv::Mat Frame::getDescriptors()
     {
         return mDescriptors;
+    }
+
+    void Frame::addGoodMatches(std::vector<cv::Point2d> goodMatch)
+    {
+        mvGoodMatches.insert(mvGoodMatches.end(), goodMatch.begin(), goodMatch.end());
     }
 
     void Frame::setGoodMatches(std::vector<cv::Point2d> goodMatch)

@@ -11,6 +11,7 @@ set(MODULE1_SOURCE_FILES
         src/localmap.cpp
         src/globalmap.cpp
         src/keyframeVec.cpp
+        src/loadImage.cpp
         )
 
 find_package(OpenCV 4.4.0 REQUIRED HINTS ${CMAKE_SOURCE_DIR}/Thirdparty/opencv/install/lib/cmake/opencv4)

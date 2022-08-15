@@ -1,0 +1,85 @@
+[
+{
+  "directory": "/team-SLAM/build",
+  "command": "/usr/bin/c++  -DBOOST_ALL_NO_LIB -DBOOST_DATE_TIME_DYN_LINK -DBOOST_FILESYSTEM_DYN_LINK -DBOOST_IOSTREAMS_DYN_LINK -DBOOST_SERIALIZATION_DYN_LINK -DBOOST_SYSTEM_DYN_LINK -DDISABLE_LIBUSB -DDISABLE_PCAP -DDISABLE_PNG -DGFLAGS_IS_A_DLL=0 -DSPDLOG_COMPILED_LIB -Dqh_QHpointer -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I../Thirdparty/pangolin/install/lib/cmake/Pangolin/../../../include -I../module1/include -I../module2/include -I../module3/include -I../module4/include -I../module5/include -I../modules/module1/include -I../modules/module2/include -I../modules/module3/include -I../modules/module4/include -I../modules/module5/include -isystem /usr/include/vtk-7.1 -isystem /usr/include/freetype2 -isystem ../Thirdparty/opencv/install/include/opencv4 -isystem ../Thirdparty/eigen/install/include/eigen3 -isystem /usr/include/eigen3 -isystem ../Thirdparty/ceres/install/include -isystem ../Thirdparty/pangolin/install/include -isystem ../Thirdparty/pcl/install/include/pcl-1.12 -isystem ../Thirdparty/spdlog/install/include    -g   -msse4.2 -mfpmath=sse -march=native -mavx2 -std=gnu++17 -o CMakeFiles/untitled.dir/main.cpp.o -c /team-SLAM/main.cpp",
+  "file": "/team-SLAM/main.cpp"
+},
+
+{
+  "directory": "/team-SLAM/build",
+  "command": "/usr/bin/c++  -DSPDLOG_COMPILED_LIB -Dmodule1_EXPORTS -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I../modules/module1/include -isystem ../Thirdparty/opencv/install/include/opencv4 -isystem ../Thirdparty/spdlog/install/include    -g -fPIC   -std=gnu++17 -o modules/module1/CMakeFiles/module1.dir/src/frame.cpp.o -c /team-SLAM/modules/module1/src/frame.cpp",
+  "file": "/team-SLAM/modules/module1/src/frame.cpp"
+},
+
+{
+  "directory": "/team-SLAM/build",
+  "command": "/usr/bin/c++  -DSPDLOG_COMPILED_LIB -Dmodule1_EXPORTS -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I../modules/module1/include -isystem ../Thirdparty/opencv/install/include/opencv4 -isystem ../Thirdparty/spdlog/install/include    -g -fPIC   -std=gnu++17 -o modules/module1/CMakeFiles/module1.dir/src/framepoint.cpp.o -c /team-SLAM/modules/module1/src/framepoint.cpp",
+  "file": "/team-SLAM/modules/module1/src/framepoint.cpp"
+},
+
+{
+  "directory": "/team-SLAM/build",
+  "command": "/usr/bin/c++  -DSPDLOG_COMPILED_LIB -Dmodule1_EXPORTS -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I../modules/module1/include -isystem ../Thirdparty/opencv/install/include/opencv4 -isystem ../Thirdparty/spdlog/install/include    -g -fPIC   -std=gnu++17 -o modules/module1/CMakeFiles/module1.dir/src/keyframe.cpp.o -c /team-SLAM/modules/module1/src/keyframe.cpp",
+  "file": "/team-SLAM/modules/module1/src/keyframe.cpp"
+},
+
+{
+  "directory": "/team-SLAM/build",
+  "command": "/usr/bin/c++  -DSPDLOG_COMPILED_LIB -Dmodule1_EXPORTS -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I../modules/module1/include -isystem ../Thirdparty/opencv/install/include/opencv4 -isystem ../Thirdparty/spdlog/install/include    -g -fPIC   -std=gnu++17 -o modules/module1/CMakeFiles/module1.dir/src/localmap.cpp.o -c /team-SLAM/modules/module1/src/localmap.cpp",
+  "file": "/team-SLAM/modules/module1/src/localmap.cpp"
+},
+
+{
+  "directory": "/team-SLAM/build",
+  "command": "/usr/bin/c++  -DSPDLOG_COMPILED_LIB -Dmodule1_EXPORTS -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I../modules/module1/include -isystem ../Thirdparty/opencv/install/include/opencv4 -isystem ../Thirdparty/spdlog/install/include    -g -fPIC   -std=gnu++17 -o modules/module1/CMakeFiles/module1.dir/src/globalmap.cpp.o -c /team-SLAM/modules/module1/src/globalmap.cpp",
+  "file": "/team-SLAM/modules/module1/src/globalmap.cpp"
+},
+
+{
+  "directory": "/team-SLAM/build",
+  "command": "/usr/bin/c++  -DSPDLOG_COMPILED_LIB -Dmodule1_EXPORTS -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I../modules/module1/include -isystem ../Thirdparty/opencv/install/include/opencv4 -isystem ../Thirdparty/spdlog/install/include    -g -fPIC   -std=gnu++17 -o modules/module1/CMakeFiles/module1.dir/src/keyframeVec.cpp.o -c /team-SLAM/modules/module1/src/keyframeVec.cpp",
+  "file": "/team-SLAM/modules/module1/src/keyframeVec.cpp"
+},
+
+{
+  "directory": "/team-SLAM/build",
+  "command": "/usr/bin/c++  -DSPDLOG_COMPILED_LIB -Dmodule1_EXPORTS -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I../modules/module1/include -isystem ../Thirdparty/opencv/install/include/opencv4 -isystem ../Thirdparty/spdlog/install/include    -g -fPIC   -std=gnu++17 -o modules/module1/CMakeFiles/module1.dir/src/loadImage.cpp.o -c /team-SLAM/modules/module1/src/loadImage.cpp",
+  "file": "/team-SLAM/modules/module1/src/loadImage.cpp"
+},
+
+{
+  "directory": "/team-SLAM/build",
+  "command": "/usr/bin/c++  -DSPDLOG_COMPILED_LIB -Dmodule2_EXPORTS -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I../modules/module2/include -I../modules/module1/include -isystem ../Thirdparty/opencv/install/include/opencv4 -isystem ../Thirdparty/spdlog/install/include    -g -fPIC   -std=gnu++17 -o modules/module2/CMakeFiles/module2.dir/src/tracking.cpp.o -c /team-SLAM/modules/module2/src/tracking.cpp",
+  "file": "/team-SLAM/modules/module2/src/tracking.cpp"
+},
+
+{
+  "directory": "/team-SLAM/build",
+  "command": "/usr/bin/c++  -DSPDLOG_COMPILED_LIB -Dmodule2_EXPORTS -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I../modules/module2/include -I../modules/module1/include -isystem ../Thirdparty/opencv/install/include/opencv4 -isystem ../Thirdparty/spdlog/install/include    -g -fPIC   -std=gnu++17 -o modules/module2/CMakeFiles/module2.dir/src/quaternion.cpp.o -c /team-SLAM/modules/module2/src/quaternion.cpp",
+  "file": "/team-SLAM/modules/module2/src/quaternion.cpp"
+},
+
+{
+  "directory": "/team-SLAM/build",
+  "command": "/usr/bin/c++  -DSPDLOG_COMPILED_LIB -Dmodule3_EXPORTS -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I../modules/module3/include -I../modules/module1/include -I../modules/module2/include -isystem ../Thirdparty/opencv/install/include/opencv4 -isystem ../Thirdparty/spdlog/install/include    -g -fPIC   -std=gnu++17 -o modules/module3/CMakeFiles/module3.dir/src/similarity.cpp.o -c /team-SLAM/modules/module3/src/similarity.cpp",
+  "file": "/team-SLAM/modules/module3/src/similarity.cpp"
+},
+
+{
+  "directory": "/team-SLAM/build",
+  "command": "/usr/bin/c++  -DSPDLOG_COMPILED_LIB -Dmodule3_EXPORTS -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I../modules/module3/include -I../modules/module1/include -I../modules/module2/include -isystem ../Thirdparty/opencv/install/include/opencv4 -isystem ../Thirdparty/spdlog/install/include    -g -fPIC   -std=gnu++17 -o modules/module3/CMakeFiles/module3.dir/src/projection.cpp.o -c /team-SLAM/modules/module3/src/projection.cpp",
+  "file": "/team-SLAM/modules/module3/src/projection.cpp"
+},
+
+{
+  "directory": "/team-SLAM/build",
+  "command": "/usr/bin/c++  -DGFLAGS_IS_A_DLL=0 -DSPDLOG_COMPILED_LIB -Dmodule4_EXPORTS -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I../modules/module4/include -I../modules/module1/include -I../modules/module2/include -I../modules/module3/include -isystem ../Thirdparty/opencv/install/include/opencv4 -isystem ../Thirdparty/eigen/install/include/eigen3 -isystem ../Thirdparty/ceres/install/include -isystem ../Thirdparty/spdlog/install/include    -g -fPIC   -std=gnu++17 -o modules/module4/CMakeFiles/module4.dir/src/optimization.cpp.o -c /team-SLAM/modules/module4/src/optimization.cpp",
+  "file": "/team-SLAM/modules/module4/src/optimization.cpp"
+},
+
+{
+  "directory": "/team-SLAM/build",
+  "command": "/usr/bin/c++  -DGFLAGS_IS_A_DLL=0 -DSPDLOG_COMPILED_LIB -Dmodule5_EXPORTS -DvtkRenderingContext2D_AUTOINIT=\"1(vtkRenderingContextOpenGL2)\" -DvtkRenderingCore_AUTOINIT=\"3(vtkInteractionStyle,vtkRenderingFreeType,vtkRenderingOpenGL2)\" -I/usr/include/vtk-7.1 -I/usr/include/freetype2 -I../modules/module5/include -I../modules/module1/include -I../modules/module2/include -I../modules/module3/include -isystem ../Thirdparty/opencv/install/include/opencv4 -isystem ../Thirdparty/eigen/install/include/eigen3 -isystem /usr/include/eigen3 -isystem ../Thirdparty/pangolin/install/include -isystem ../Thirdparty/ceres/install/include -isystem ../Thirdparty/spdlog/install/include    -g -fPIC   -std=gnu++17 -o modules/module5/CMakeFiles/module5.dir/src/draw.cpp.o -c /team-SLAM/modules/module5/src/draw.cpp",
+  "file": "/team-SLAM/modules/module5/src/draw.cpp"
+}
+]
