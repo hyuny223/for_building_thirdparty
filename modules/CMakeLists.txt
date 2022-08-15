@@ -1,5 +1,0 @@
-add_subdirectory(module1)
-add_subdirectory(module2)
-add_subdirectory(module3)
-add_subdirectory(module4)
-add_subdirectory(module5)
