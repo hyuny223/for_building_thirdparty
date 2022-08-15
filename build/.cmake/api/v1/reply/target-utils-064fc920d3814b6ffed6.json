@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "modules/datatype/libdatatype.so"
+			"path" : "modules/utils/libutils.so"
 		}
 	],
 	"backtrace" : 1,
@@ -21,7 +21,7 @@
 		],
 		"files" : 
 		[
-			"modules/datatype/CMakeLists.txt",
+			"modules/utils/CMakeLists.txt",
 			"/usr/lib/cmake/vtk-7.1/UseVTK.cmake",
 			"Thirdparty/pcl/install/share/pcl-1.12/PCLConfig.cmake",
 			"CMakeLists.txt"
@@ -34,13 +34,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 20,
+				"line" : 18,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 32,
+				"line" : 23,
 				"parent" : 0
 			},
 			{
@@ -87,7 +87,7 @@
 			{
 				"command" : 7,
 				"file" : 0,
-				"line" : 25,
+				"line" : 31,
 				"parent" : 0
 			}
 		]
@@ -98,7 +98,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "  -g -fPIC  "
+					"fragment" : "  -fPIC  "
 				},
 				{
 					"fragment" : "-std=gnu++17"
@@ -108,10 +108,14 @@
 			[
 				{
 					"backtrace" : 2,
+					"define" : "GFLAGS_IS_A_DLL=0"
+				},
+				{
+					"backtrace" : 2,
 					"define" : "SPDLOG_COMPILED_LIB"
 				},
 				{
-					"define" : "datatype_EXPORTS"
+					"define" : "utils_EXPORTS"
 				},
 				{
 					"backtrace" : 9,
@@ -134,12 +138,40 @@
 				},
 				{
 					"backtrace" : 11,
+					"path" : "/team-SLAM/modules/utils/include"
+				},
+				{
+					"backtrace" : 11,
 					"path" : "/team-SLAM/modules/datatype/include"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "/team-SLAM/modules/process/include"
 				},
 				{
 					"backtrace" : 11,
 					"isSystem" : true,
 					"path" : "/team-SLAM/Thirdparty/opencv/install/include/opencv4"
+				},
+				{
+					"backtrace" : 11,
+					"isSystem" : true,
+					"path" : "/team-SLAM/Thirdparty/eigen/install/include/eigen3"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "/usr/include/eigen3"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "/team-SLAM/Thirdparty/pangolin/install/include"
+				},
+				{
+					"backtrace" : 2,
+					"isSystem" : true,
+					"path" : "/team-SLAM/Thirdparty/ceres/install/include"
 				},
 				{
 					"backtrace" : 2,
@@ -151,15 +183,11 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1,
-				2,
-				3,
-				4,
-				5
+				1
 			]
 		}
 	],
-	"id" : "datatype::@e102967b11c6fe27e4b5",
+	"id" : "utils::@d49fe3069cc2fdc3467b",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -169,7 +197,7 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/team-SLAM/Thirdparty/opencv/install/lib",
+				"fragment" : "-Wl,-rpath,/team-SLAM/Thirdparty/opencv/install/lib:/team-SLAM/Thirdparty/pangolin/install/lib",
 				"role" : "libraries"
 			},
 			{
@@ -219,6 +247,16 @@
 			},
 			{
 				"backtrace" : 2,
+				"fragment" : "../../../Thirdparty/pangolin/install/lib/libpangolin.so",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
+				"fragment" : "../../../Thirdparty/ceres/install/lib/libceres.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 2,
 				"fragment" : "../../../Thirdparty/spdlog/install/lib/libspdlog.a",
 				"role" : "libraries"
 			},
@@ -255,16 +293,172 @@
 			{
 				"fragment" : "-lpthread",
 				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libOpenGL.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libGLX.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libGLU.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libGLEW.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libEGL.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libSM.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libICE.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libX11.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libXext.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libOpenGL.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libGLX.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libGLU.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libGLEW.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libEGL.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libSM.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libICE.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libX11.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libXext.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libpng.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libz.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libjpeg.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libtiff.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libzstd.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/liblz4.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libglog.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libgflags.so.2.2.2",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libspqr.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libcholmod.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libamd.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libcamd.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libccolamd.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libcolamd.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libsuitesparseconfig.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lrt",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/liblapack.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libf77blas.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libatlas.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lpthread",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "datatype",
-	"nameOnDisk" : "libdatatype.so",
+	"name" : "utils",
+	"nameOnDisk" : "libutils.so",
 	"paths" : 
 	{
-		"build" : "modules/datatype",
-		"source" : "modules/datatype"
+		"build" : "modules/utils",
+		"source" : "modules/utils"
 	},
 	"sourceGroups" : 
 	[
@@ -273,11 +467,7 @@
 			"sourceIndexes" : 
 			[
 				0,
-				1,
-				2,
-				3,
-				4,
-				5
+				1
 			]
 		}
 	],
@@ -286,37 +476,13 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "modules/datatype/src/frame.cpp",
+			"path" : "modules/utils/src/draw.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "modules/datatype/src/framepoint.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "modules/datatype/src/keyframe.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "modules/datatype/src/localmap.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "modules/datatype/src/globalmap.cpp",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
-			"compileGroupIndex" : 0,
-			"path" : "modules/datatype/src/keyframeVec.cpp",
+			"path" : "modules/utils/src/loadImage.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

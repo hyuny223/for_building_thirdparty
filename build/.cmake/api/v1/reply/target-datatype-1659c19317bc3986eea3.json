@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "modules/process/libprocess.so"
+			"path" : "modules/datatype/libdatatype.so"
 		}
 	],
 	"backtrace" : 1,
@@ -21,7 +21,7 @@
 		],
 		"files" : 
 		[
-			"modules/process/CMakeLists.txt",
+			"modules/datatype/CMakeLists.txt",
 			"/usr/lib/cmake/vtk-7.1/UseVTK.cmake",
 			"Thirdparty/pcl/install/share/pcl-1.12/PCLConfig.cmake",
 			"CMakeLists.txt"
@@ -87,7 +87,7 @@
 			{
 				"command" : 7,
 				"file" : 0,
-				"line" : 24,
+				"line" : 25,
 				"parent" : 0
 			}
 		]
@@ -98,7 +98,7 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "  -g -fPIC  "
+					"fragment" : "  -fPIC  "
 				},
 				{
 					"fragment" : "-std=gnu++17"
@@ -108,14 +108,10 @@
 			[
 				{
 					"backtrace" : 2,
-					"define" : "GFLAGS_IS_A_DLL=0"
-				},
-				{
-					"backtrace" : 2,
 					"define" : "SPDLOG_COMPILED_LIB"
 				},
 				{
-					"define" : "process_EXPORTS"
+					"define" : "datatype_EXPORTS"
 				},
 				{
 					"backtrace" : 9,
@@ -138,26 +134,12 @@
 				},
 				{
 					"backtrace" : 11,
-					"path" : "/team-SLAM/modules/process/include"
-				},
-				{
-					"backtrace" : 11,
 					"path" : "/team-SLAM/modules/datatype/include"
 				},
 				{
 					"backtrace" : 11,
 					"isSystem" : true,
 					"path" : "/team-SLAM/Thirdparty/opencv/install/include/opencv4"
-				},
-				{
-					"backtrace" : 11,
-					"isSystem" : true,
-					"path" : "/team-SLAM/Thirdparty/ceres/install/include"
-				},
-				{
-					"backtrace" : 2,
-					"isSystem" : true,
-					"path" : "/team-SLAM/Thirdparty/eigen/install/include/eigen3"
 				},
 				{
 					"backtrace" : 2,
@@ -172,11 +154,12 @@
 				1,
 				2,
 				3,
-				4
+				4,
+				5
 			]
 		}
 	],
-	"id" : "process::@14d89332b647775bd868",
+	"id" : "datatype::@e102967b11c6fe27e4b5",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -236,11 +219,6 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "../../../Thirdparty/ceres/install/lib/libceres.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 2,
 				"fragment" : "../../../Thirdparty/spdlog/install/lib/libspdlog.a",
 				"role" : "libraries"
 			},
@@ -275,70 +253,18 @@
 				"role" : "libraries"
 			},
 			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libglog.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libgflags.so.2.2.2",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libspqr.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libcholmod.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libamd.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libcamd.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libccolamd.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libcolamd.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libsuitesparseconfig.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "-lrt",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/liblapack.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libf77blas.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libatlas.so",
-				"role" : "libraries"
-			},
-			{
 				"fragment" : "-lpthread",
 				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"
 	},
-	"name" : "process",
-	"nameOnDisk" : "libprocess.so",
+	"name" : "datatype",
+	"nameOnDisk" : "libdatatype.so",
 	"paths" : 
 	{
-		"build" : "modules/process",
-		"source" : "modules/process"
+		"build" : "modules/datatype",
+		"source" : "modules/datatype"
 	},
 	"sourceGroups" : 
 	[
@@ -350,7 +276,8 @@
 				1,
 				2,
 				3,
-				4
+				4,
+				5
 			]
 		}
 	],
@@ -359,31 +286,37 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "modules/process/src/compute.cpp",
+			"path" : "modules/datatype/src/frame.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "modules/process/src/quaternion.cpp",
+			"path" : "modules/datatype/src/framepoint.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "modules/process/src/projection.cpp",
+			"path" : "modules/datatype/src/keyframe.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "modules/process/src/similarity.cpp",
+			"path" : "modules/datatype/src/localmap.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "modules/process/src/optimization.cpp",
+			"path" : "modules/datatype/src/globalmap.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "modules/datatype/src/keyframeVec.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

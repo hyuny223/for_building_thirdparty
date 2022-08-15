@@ -80,7 +80,7 @@
 					]
 				}
 			],
-			"name" : "Debug",
+			"name" : "",
 			"projects" : 
 			[
 				{
@@ -143,28 +143,28 @@
 				{
 					"directoryIndex" : 2,
 					"id" : "datatype::@e102967b11c6fe27e4b5",
-					"jsonFile" : "target-datatype-Debug-f901eb99278ea615f9f9.json",
+					"jsonFile" : "target-datatype-1659c19317bc3986eea3.json",
 					"name" : "datatype",
 					"projectIndex" : 1
 				},
 				{
 					"directoryIndex" : 3,
 					"id" : "process::@14d89332b647775bd868",
-					"jsonFile" : "target-process-Debug-ba4a7a49232b6898130b.json",
+					"jsonFile" : "target-process-f317bdc131fb4b4bb6ef.json",
 					"name" : "process",
 					"projectIndex" : 2
 				},
 				{
 					"directoryIndex" : 4,
 					"id" : "utils::@d49fe3069cc2fdc3467b",
-					"jsonFile" : "target-utils-Debug-7f0b00bef532634ab0da.json",
+					"jsonFile" : "target-utils-064fc920d3814b6ffed6.json",
 					"name" : "utils",
 					"projectIndex" : 3
 				},
 				{
 					"directoryIndex" : 0,
 					"id" : "vslam::@6890427a1f51a3e7e1df",
-					"jsonFile" : "target-vslam-Debug-48b704684957b4002705.json",
+					"jsonFile" : "target-vslam-b02fd68a503854916644.json",
 					"name" : "vslam",
 					"projectIndex" : 0
 				}
